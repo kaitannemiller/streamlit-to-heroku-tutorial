@@ -1,6 +1,11 @@
 
 import streamlit as st
 import pandas as pd
+
+import collections
+import collections.abc
+collections = collections.abc
+
 from gsheetsdb import connect
 
 
