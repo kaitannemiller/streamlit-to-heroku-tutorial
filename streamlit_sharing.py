@@ -4,7 +4,7 @@ import pandas as pd
 
 import mo_parsing
 import collections.abc
-Iterable = collections.abc.Iterable
+collections = collections.abc
 
 from gsheetsdb import connect
 
