@@ -1,7 +1,9 @@
 
 import streamlit as st
 import pandas as pd
-import collections
+from collections.abc import Iterable
+from collections.abc import MutableMapping
+import mo_parsing
 import gsheetsdb
 
 
