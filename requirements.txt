@@ -2,4 +2,3 @@ streamlit
 pandas
 gsheetsdb
 mo-parsing
-moz-sql-parser
