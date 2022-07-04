@@ -1,12 +1,7 @@
 
 import streamlit as st
 import pandas as pd
-
-try:
-    import gsheetsdb as gs
-except ImportError:
-    from collections.abc import MutableMapping
-    pass
+import gsheetsdb
 
 
 
