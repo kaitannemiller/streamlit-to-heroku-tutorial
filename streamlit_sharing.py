@@ -2,7 +2,6 @@
 import streamlit as st
 import pandas as pd
 from gsheetsdb import connect
-from collections.abc import Iterable
 
 
 st.write("My First Streamlit Web App")
