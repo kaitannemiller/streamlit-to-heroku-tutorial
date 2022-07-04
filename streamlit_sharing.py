@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 
 try:
-    from gsheetsdb import *
+    import gsheetsdb as gs
 except ImportError:
     from collections.abc import MutableMapping
     pass
@@ -17,7 +17,7 @@ st.write(df)
 
 st.title("Connect to Google Sheets")
 gsheet_url = "https://docs.google.com/spreadsheets/d/1iudlYSDTvHLjEa0q04ebYmVnb8cV1xD7qJMUBj0rxFs/edit?usp=sharing"
-conn = connect()
+conn = gs.connect()
 rows = conn.execute(f'SELECT * FROM "{gsheet_url}"')
 df_gsheet = pd.DataFrame(rows)
 st.write(df_gsheet)
