@@ -2,10 +2,12 @@
 import streamlit as st
 import pandas as pd
 
-import mo_parsing
-import collections.abc
-collections = collections.abc
-
+try:
+    import mo_parsing
+except ImportError:
+    from collections import MutableMapping
+    pass
+    
 from gsheetsdb import connect
 
 
