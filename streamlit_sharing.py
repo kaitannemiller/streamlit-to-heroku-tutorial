@@ -3,11 +3,12 @@ import streamlit as st
 import pandas as pd
 
 try:
-    from gsheetsdb import connect
+    import mo_parsing
 except ImportError:
     from collections.abc import MutableMapping
     pass
 
+from gsheetsdb import connect
 
 
 st.write("My First Streamlit Web App")
