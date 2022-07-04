@@ -2,6 +2,10 @@
 import streamlit as st
 import pandas as pd
 from gsheetsdb import connect
+import collections.abc
+#hyper needs the four following aliases to be done manually.
+collections.Iterable = collections.abc.Iterable
+
 
 st.write("My First Streamlit Web App")
 
