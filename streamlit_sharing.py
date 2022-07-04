@@ -1,10 +1,6 @@
 
 import streamlit as st
 import pandas as pd
-
-import collections
-collections_abc = getattr(collections, 'abc', collections)
-
 from gsheetsdb import connect
 
 
