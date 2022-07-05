@@ -31,7 +31,7 @@ div.stButton > button:first-child {
     height:3em;
     width:100%;
 }
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) {
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) {
     position: absolute;
     bottom: 0px;
 }
@@ -42,26 +42,18 @@ div.stButton > button:first-child {
 }
 </style> """, unsafe_allow_html=True)
 
-
-
-st.write("My First Streamlit Web App")
-
-df = pd.DataFrame({"one": [1, 2, 3], "two": [4, 5, 6], "three": [7, 8, 9]})
-st.write(df)
-
-st.title("Connect to Google Sheets")
 #gsheet_url = "https://docs.google.com/spreadsheets/d/1iudlYSDTvHLjEa0q04ebYmVnb8cV1xD7qJMUBj0rxFs/edit?usp=sharing"
 #conn = gs.connect()
 #rows = conn.execute(f'SELECT * FROM "{gsheet_url}"')
 #df_gsheet = pd.DataFrame(rows)
-st.write(df_gsheet)
-
-def my_widget(key):
-    return st.button("Click me " + key)
+#st.write(df_gsheet)
 
 # And within an expander
-my_expander = st.expander("Expand")
-with my_expander:
-    clicked = my_widget("second")
+i = 0
+while i < 7:
+    my_expander = st.expander("Expand")
+    with my_expander:
+        clicked = st.button("Click me", key='button'+str(i))
+    i = i + 1
 
-clicked2 = my_widget("third")
+footer_button = st.button("Footer")
