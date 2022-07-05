@@ -18,45 +18,44 @@ header {visibility: hidden;}
     position: fixed;
     bottom: 0;
     width: 100%;
-    color: var(--text-color);
+    color: black;
     font-size: 14px;
-    height: 3em;
+    height: 5rem;
     padding: 0rem 0rem 0rem 0rem;
     flex: 1 1 0%;
 }
 footer {
-    display: none !important;
-}
-.footer-custom a {
-    color: var(--text-color);
+    position: static;
 }
 .css-18e3th9 {
     background-color: grey;
     padding: 0rem 0rem 0rem 0rem;
-    flex: 1 1 0%;
-}
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) {
-    flex: 1 1 0%;
-    height: 100%;
 }
 div.stButton > button:first-child {
     background-color: #00cc00;
     color:white;
     font-size:20px;
-    height:3em;
+    min-height:3em;
+    width:100%;
+}
+.footer-custom > div > div.stButton > button:first-child:active {
+    background-color: #00cc00;
+    color: black;
+    font-size:30px;
+    min-height:3em;
     width:100%;
 }
 .st-bd {border-style: none;}
 .css-qri22k {
     font-size: 0px;
-    padding: 0rem 0rem 0rem 0rem;
+    padding: 5rem 0rem 0rem 0rem;
 }
 </style> """, unsafe_allow_html=True)
 
 footer = """
     <div class="footer-custom">
         <div class="element-container css-bo0d43 e1tzin5v3"><div class="row-widget stButton">
-            <button kind="primary" class="css-1cpxqw2 edgvbvh9" style="background-color: red;">Footer</button>
+            <button kind="primary" class="css-1cpxqw2 edgvbvh9" style="background-color: red; height: 5em;">Footer</button>
         </div></div>
     </div>
 """
