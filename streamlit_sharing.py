@@ -14,7 +14,22 @@ padding = 0
 st.markdown(""" <style>
 #MainMenu {visibility: hidden;}
 header {visibility: hidden;}
-footer {visibility: hidden;}
+.footer-custom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: var(--text-color);
+    font-size: 14px;
+    height: 3em;
+    padding: 0rem 0rem 0rem 0rem;
+    flex: 1 1 0%;
+}
+footer {
+    display: none !important;
+}
+.footer-custom a {
+    color: var(--text-color);
+}
 .css-18e3th9 {
     background-color: grey;
     padding: 0rem 0rem 0rem 0rem;
@@ -31,16 +46,22 @@ div.stButton > button:first-child {
     height:3em;
     width:100%;
 }
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) {
-    position: absolute;
-    bottom: 0px;
-}
 .st-bd {border-style: none;}
 .css-qri22k {
     font-size: 0px;
     padding: 0rem 0rem 0rem 0rem;
 }
 </style> """, unsafe_allow_html=True)
+
+footer = """
+    <div class="footer-custom">
+        <div class="element-container css-bo0d43 e1tzin5v3"><div class="row-widget stButton">
+            <button kind="primary" class="css-1cpxqw2 edgvbvh9" style="background-color: red;">Footer</button>
+        </div></div>
+    </div>
+"""
+st.markdown(footer, unsafe_allow_html=True)
+
 
 #gsheet_url = "https://docs.google.com/spreadsheets/d/1iudlYSDTvHLjEa0q04ebYmVnb8cV1xD7qJMUBj0rxFs/edit?usp=sharing"
 #conn = gs.connect()
@@ -55,5 +76,3 @@ while i < 7:
     with my_expander:
         clicked = st.button("Click me", key='button'+str(i))
     i = i + 1
-
-footer_button = st.button("Footer")
