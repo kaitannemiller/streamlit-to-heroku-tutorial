@@ -13,7 +13,28 @@ st.set_page_config(page_title="BACHELOR BETS", page_icon="./rose.ico", layout='w
 padding = 0
 st.markdown(""" <style>
 #MainMenu {visibility: hidden;}
-header {visibility: hidden;}
+.css-k0sv6k {
+    height: 5rem;
+    background-color: transparent;
+    border-style: outset;
+}
+.css-fk4es0.e8zbici1 {visibility: hidden;}
+.header-custom {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: black;
+    font-size: 50px;
+    height: 5rem;
+    padding: 0rem 0rem 0rem 0rem;
+    flex: 1 1 0%;
+    background-color: #F7F7F7;
+    text-align: center;
+    font-family: Brush Script MT;
+}
+.e1tzin5v3 {
+    width: 100%;
+}
 .footer-custom {
     position: fixed;
     bottom: 0;
@@ -28,8 +49,10 @@ footer {
     position: static;
 }
 .css-18e3th9 {
-    background-color: grey;
-    padding: 0rem 0rem 0rem 0rem;
+    padding: 5rem 0rem 0rem 0rem;
+}
+.e1tzin5v0 {
+    gap: 0rem;
 }
 div.stButton > button:first-child {
     background-color: #00cc00;
@@ -38,14 +61,34 @@ div.stButton > button:first-child {
     min-height:3em;
     width:100%;
 }
-.footer-custom > div > div.stButton > button:first-child:active {
-    background-color: #00cc00;
+.footer-custom > div > div.stButton > button:first-child {
+    background-color: #D90429;
     color: black;
-    font-size:30px;
-    min-height:3em;
+    font-size:20px;
+    min-height:0em;
+    height:100%;
     width:100%;
 }
-.st-bd {border-style: none;}
+.footer-custom > div > div.stButton > button:first-child:hover {
+    background-color: #D90429;
+    color: white;
+    font-size:20px;
+    min-height:0em;
+    height:100%;
+    width:100%;
+}
+.footer-custom > div > div.stButton > button:first-child:active {
+    background-color: #D90429;
+    color: black;
+    font-size:20px;
+    min-height:0em;
+    height:100%;
+    width:100%;
+}
+.st-bd {
+    background-color: #D2D3D1;
+    border-style: inset;
+}
 .css-qri22k {
     font-size: 0px;
     padding: 5rem 0rem 0rem 0rem;
@@ -54,12 +97,30 @@ div.stButton > button:first-child {
 
 footer = """
     <div class="footer-custom">
-        <div class="element-container css-bo0d43 e1tzin5v3"><div class="row-widget stButton">
-            <button kind="primary" class="css-1cpxqw2 edgvbvh9" style="background-color: red; height: 5em;">Footer</button>
-        </div></div>
+        <div class="element-container css-bo0d43 e1tzin5v3" style="height: 100%; display: flex; flex-direction: row; flex: 1 1 0%;">
+            <div class="row-widget stButton" style="left: 0; width: 33.3%; padding: 3px 3px 3px 3px;"><button kind="primary" class="css-1cpxqw2 edgvbvh9 footer_button1">Footer1</button></div>
+            <div class="row-widget stButton" style="width: 33.3%; padding: 3px 3px 3px 3px;"><button kind="primary" class="css-1cpxqw2 edgvbvh9 footer_button2">Footer2</button></div>
+            <div class="row-widget stButton" style="right: 0;  width: 33.3%; padding: 3px 3px 3px 3px;"><button kind="primary" class="css-1cpxqw2 edgvbvh9 footer_button3">Footer3</button></div>
+        </div>
     </div>
 """
 st.markdown(footer, unsafe_allow_html=True)
+
+import base64
+file_ = open("rose.ico", "rb")
+contents = file_.read()
+data_url = base64.b64encode(contents).decode("utf-8")
+file_.close()
+
+name = "Claire"
+header =f"""
+    <div class="header-custom">
+        <img src="data:image/gif;base64,{data_url}" alt="rose" height="40px" width="40px">
+        {name}
+        <img src="data:image/gif;base64,{data_url}" alt="rose" height="40px" width="40px">
+    </div>
+"""
+st.markdown(header, unsafe_allow_html=True)
 
 
 #gsheet_url = "https://docs.google.com/spreadsheets/d/1iudlYSDTvHLjEa0q04ebYmVnb8cV1xD7qJMUBj0rxFs/edit?usp=sharing"
