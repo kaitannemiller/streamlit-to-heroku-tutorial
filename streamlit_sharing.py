@@ -9,7 +9,18 @@ sh = sheet1.get_worksheet(0)
 df_gsheet = pd.DataFrame(data=sh.get_all_records())
 
 
-st.set_page_config(page_title="BACHELOR BETS", page_icon="./rose.ico")
+st.set_page_config(page_title="BACHELOR BETS", page_icon="./rose.ico", layout='wide')
+padding = 0
+st.markdown(""" <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    .reportview-container .main .block-container{{
+        padding-top: {padding}rem;
+        padding-right: {padding}rem;
+        padding-left: {padding}rem;
+        padding-bottom: {padding}rem;
+    }} </style> """, unsafe_allow_html=True)
+
 st.write("My First Streamlit Web App")
 
 df = pd.DataFrame({"one": [1, 2, 3], "two": [4, 5, 6], "three": [7, 8, 9]})
@@ -22,25 +33,10 @@ st.title("Connect to Google Sheets")
 #df_gsheet = pd.DataFrame(rows)
 st.write(df_gsheet)
 
-
-
-st.markdown(""" <style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style> """, unsafe_allow_html=True)
-
 def my_widget(key):
-    st.subheader('Hello there!')
     return st.button("Click me " + key)
-
-# This works in the main area
-clicked = my_widget("first")
 
 # And within an expander
 my_expander = st.expander("Expand", expanded=True)
 with my_expander:
     clicked = my_widget("second")
-
-# AND in st.sidebar!
-with st.sidebar:
-    clicked = my_widget("third")
