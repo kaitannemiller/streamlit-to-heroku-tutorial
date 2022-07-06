@@ -1,0 +1,17 @@
+credentials:
+  usernames:
+    jw:
+      name: John Williams
+      password: jw # To be replaced with hashed password
+    km:
+      name: Kaitlin Miller
+      password: km # To be replaced with hashed password
+    cm:
+      name: Claire Miller
+      password: cm # To be replaced with hashed password
+    cj:
+      name: Cristina Jones
+      password: cj # To be replaced with hashed password
+    nj:
+      name: Nathaniel Jones
+      password: nj # To be replaced with hashed password
