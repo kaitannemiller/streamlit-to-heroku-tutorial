@@ -61,7 +61,7 @@ def create_page(name):
         color: #333333;
         margin: 0px 0px 0px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) {
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -73,19 +73,19 @@ def create_page(name):
         flex-direction: row;
         flex: 1 1 0%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) > div > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
         width: 33%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div > div > button {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) > div > div > div > button {
         background-color: #D90429;
         color: black;
         font-size:20px;
@@ -94,7 +94,7 @@ def create_page(name):
         width: 100%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div > div > button:hover {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) > div > div > div > button:hover {
         background-color: #D90429;
         color: white;
         font-size:20px;
@@ -103,7 +103,7 @@ def create_page(name):
         width: 100%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div > div > button:active {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) > div > div > div > button:active {
         background-color: #D90429;
         color: black;
         font-size:20px;
@@ -135,7 +135,17 @@ def create_page(name):
         font-size: 0px;
         padding: 5rem 0rem 0rem 0rem;
     }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div {
+        border-style: outset;
+        background-color: #F7F7F7;
+        font-size: 20px;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div{
+        font-size: 20px;
+        flex: 1 0 0%;
+    }
     </style> """, unsafe_allow_html=True)
+
 
 
     file_ = open("rose.ico", "rb")
@@ -158,11 +168,15 @@ def create_page(name):
     # And within an expander
     bet_titles = ["Gabby's First Impression Rose","Rachel's First Impression Rose","Week One Rose Ceremony","Number of Guys Sent Home","Most Popular Buzz Word"]
 
-
+    global bet_container
+    global contestants_container
+    global standings_container
+    bet_container = st.empty()
+    contestants_container = st.empty()
+    standings_container = st.empty()
     def bet_container_go():
         global bet_i
         global bet_container
-        bet_container = st.empty()
         with bet_container.container():
             i = 0
             while i < len(bet_titles):
@@ -172,6 +186,18 @@ def create_page(name):
                 i = i + 1
                 bet_i = bet_i + 1
 
+    def contestants_container_go():
+        global contestants_container
+        with contestants_container.container():
+            st.write("Coming Soon! \nFor now, you can look here: ")
+            st.markdown(""" <a href="https://abc.com/shows/the-bachelorette/cast">Official ABC Website</a>
+                        """, unsafe_allow_html=True)
+
+    def standings_container_go():
+        global standings_container
+        with standings_container.container():
+            st.write("Temp")
+
     bet_container_go()
 
     button_container = st.empty()
@@ -179,10 +205,20 @@ def create_page(name):
         contestants_button = st.button("Contestants", key='contestants_button')
         bets_button = st.button("Bets", key='bets_button')
         standings_button = st.button("Standings", key='standings_button')
-    if contestants_button or standings_button:
+    if standings_button:
         bet_container.empty()
+        contestants_container.empty()
+        standings_container.empty()
+        standings_container_go()
+    if contestants_button:
+        bet_container.empty()
+        contestants_container.empty()
+        standings_container.empty()
+        contestants_container_go()
     if bets_button:
         bet_container.empty()
+        contestants_container.empty()
+        standings_container.empty()
         bet_container_go()
 
 
