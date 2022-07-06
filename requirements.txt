@@ -2,5 +2,4 @@ streamlit
 pandas
 gspread
 streamlit-authenticator
-base64
 yaml
