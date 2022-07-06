@@ -1,7 +1,7 @@
 streamlit
 pandas
 gspread
-streamlit-authenticator==0.2.1
+streamlit_authenticator
 time
 base64
 yaml
