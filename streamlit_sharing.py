@@ -146,6 +146,9 @@ def create_page(name):
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div > div > div > a {
         font-size: 20px;
     }
+    .stApp {
+        background-color: white;
+    }
     </style> """, unsafe_allow_html=True)
 
 
