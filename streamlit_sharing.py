@@ -39,7 +39,7 @@ def create_page(name):
         font-size: 0px;
     }
     div.stButton > button:first-child {
-        background-color: #00cc00;
+        background-color: #D90429;
         color:white;
         font-size:20px;
         min-height:3em;
@@ -61,7 +61,7 @@ def create_page(name):
         color: #333333;
         margin: 0px 0px 0px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) {
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -73,19 +73,19 @@ def create_page(name):
         flex-direction: row;
         flex: 1 1 0%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) > div {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) > div > div {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) > div > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
         width: 33%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) > div > div > div > button {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) > div > div > div > button {
         background-color: #D90429;
         color: black;
         font-size:20px;
@@ -94,7 +94,7 @@ def create_page(name):
         width: 100%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) > div > div > div > button:hover {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) > div > div > div > button:hover {
         background-color: #D90429;
         color: white;
         font-size:20px;
@@ -103,7 +103,7 @@ def create_page(name):
         width: 100%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) > div > div > div > button:active {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) > div > div > div > button:active {
         background-color: #D90429;
         color: black;
         font-size:20px;
@@ -138,11 +138,13 @@ def create_page(name):
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div {
         border-style: outset;
         background-color: #F7F7F7;
+        flex: 1 1 0%;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div > div > div > p {
         font-size: 20px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div{
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div > div > div > a {
         font-size: 20px;
-        flex: 1 0 0%;
     }
     </style> """, unsafe_allow_html=True)
 
@@ -198,6 +200,12 @@ def create_page(name):
         with standings_container.container():
             st.write("Temp")
 
+
+    placeholder1 = st.empty()
+    placeholder2 = st.empty()
+    placeholder3 = st.empty()
+    placeholder4 = st.empty()
+    placeholder5 = st.empty()
     bet_container_go()
 
     button_container = st.empty()
@@ -205,6 +213,7 @@ def create_page(name):
         contestants_button = st.button("Contestants", key='contestants_button')
         bets_button = st.button("Bets", key='bets_button')
         standings_button = st.button("Standings", key='standings_button')
+
     if standings_button:
         bet_container.empty()
         contestants_container.empty()
@@ -220,8 +229,6 @@ def create_page(name):
         contestants_container.empty()
         standings_container.empty()
         bet_container_go()
-
-
 
 gc = gspread.service_account(filename='./cred.json')
 sheet1 = gc.open_by_url('https://docs.google.com/spreadsheets/d/1iudlYSDTvHLjEa0q04ebYmVnb8cV1xD7qJMUBj0rxFs/edit?usp=sharing')
