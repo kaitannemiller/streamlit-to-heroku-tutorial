@@ -234,9 +234,8 @@ def create_page(name):
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
-        align-items: end;
-        -webkit-align-items: end;
-        justify-content: right;
+        align-items: flex-end;
+        -webkit-align-items: flex-end;
         margin: 6px;
     }
     .stApp {
