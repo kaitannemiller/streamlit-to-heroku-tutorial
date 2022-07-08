@@ -183,7 +183,7 @@ def create_page(name):
         flex: 1 1 0%;
         align-items: center;
         -webkit-align-items: center;
-        justify-content: right;
+        justify-content: flex-end;
         padding-right: 3px;
     }
     .streamlit-expanderContent > div > div > div:nth-child(2) > div > div > p {
@@ -194,9 +194,9 @@ def create_page(name):
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
-        align-items: flex-end;
-        -webkit-align-items: flex-end;
-        justify-content: flex-end;
+        align-items: right;
+        -webkit-align-items: right;
+        justify-content: right;
     }
     .streamlit-expanderContent > div > div > div:nth-child(3) > div > button {
         font-size: 20px;
