@@ -59,6 +59,7 @@ def create_page(name):
         display: flex;
         justify-content: center;
         align-items: center;
+        -webkit-align-items: center;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div > p {
         text-align: center;
@@ -181,6 +182,7 @@ def create_page(name):
         flex-direction: row;
         flex: 1 1 0%;
         align-items: center;
+        -webkit-align-items: center;
         justify-content: right;
         padding-right: 3px;
     }
@@ -193,6 +195,7 @@ def create_page(name):
         flex-direction: row;
         flex: 1 1 0%;
         align-items: right;
+        -webkit-align-items: right;
         justify-content: right;
     }
     .streamlit-expanderContent > div > div > div:nth-child(3) > div > button {
@@ -232,6 +235,7 @@ def create_page(name):
         flex-direction: row;
         flex: 1 1 0%;
         align-items: end;
+        -webkit-align-items: end;
         justify-content: right;
         margin: 6px;
     }
