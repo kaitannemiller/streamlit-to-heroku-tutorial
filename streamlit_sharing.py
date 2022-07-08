@@ -182,7 +182,7 @@ def create_page(name):
         flex: 1 1 0%;
         align-items: center;
         justify-content: right;
-        padding-right: 6px;
+        padding-right: 3px;
     }
     .streamlit-expanderContent > div > div > div:nth-child(2) > div > div > p {
         font-size: 20px;
@@ -214,18 +214,26 @@ def create_page(name):
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) {
         height: 100%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+6):nth-child(n-7) > div {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+6) > div {
         border-style: outset;
         background-color: #F7F7F7;
         flex: 1 1 0%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+6):nth-child(n-7) > div > div > div > div > p {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+6) > div > div > div > div > p {
         font-size: 20px;
-        padding: 8px 0rem 0rem 8px;
+        padding: 8px 8px 0rem 8px;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div > div > div > a {
         font-size: 20px;
-        padding: 2px 0rem 0rem 5px;
+        padding: 8px 0rem 0rem 8px;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(8) > div > div:nth-child(3) {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 0%;
+        align-items: end;
+        justify-content: right;
+        margin: 6px;
     }
     .stApp {
         background-color: white;
@@ -254,13 +262,20 @@ def create_page(name):
     # And within an expander
     bet_titles = ["Gabby's First Impression Rose","Rachel's First Impression Rose","Week One Rose Ceremony","Number of Guys Sent Home","Most Popular Buzz Word"]
     bet_possiblecounts = [1,1,10,1,1]
-    bet_info = []
+    bet_info = ["Select the bachelor that you think will win Gabby's first impression rose. A correct guess wins 32 points.\n\n\nOdds: 1 in 32\n\nPossible Points: 32",
+                "Select the bachelor that you think will win Rachel's first impression rose. A correct guess wins 32 points.\n\n\nOdds: 1 in 32\n\nPossible Points: 32",
+                "Select 10 bachelors that you think will receive a rose in the first week. Ten correct guesses win 10 points each, nine correct guesses win 9 points each, and so on.\n\n\nOdds of 100 points: 1 in 64512239\n\nPossible Points: 100",
+                "Select the number of bachelors that you think will be sent home in the first week. A correct guess wins 18 points.\n***This is a one guess per person bet. Make your selection quickly!***\n\n\nOdds: 1 in 6\n\nPossible Points: 18",
+                "Select the phrase that you think will be said the most often in the first week. A correct guess wins 18 points.\n***This is a one guess per person bet. Make your selection quickly!***\n\n\nOdds: 1 in 6\n\nPossible Points: 18"]
 
     global bet_container
     global contestants_container
     global standings_container
     global info_container
     global selection_container
+    global contestants_button
+    global bets_button
+    global standings_button
     bet_container = st.empty()
     contestants_container = st.empty()
     standings_container = st.empty()
@@ -290,14 +305,33 @@ def create_page(name):
                 bet_container.empty()
                 contestants_container.empty()
                 standings_container.empty()
-                info_container_go(b+1)
+                info_container.empty()
+                selection_container.empty()
+                info_container_go(b)
 
         for b,button in enumerate(selection_buttons):
             if button:
                 bet_container.empty()
                 contestants_container.empty()
                 standings_container.empty()
-                selection_container_go(b+1)
+                info_container.empty()
+                selection_container.empty()
+                selection_container_go(b)
+
+        if standings_button:
+            bet_container.empty()
+            contestants_container.empty()
+            standings_container.empty()
+            info_container.empty()
+            selection_container.empty()
+            standings_container_go()
+        if contestants_button:
+            bet_container.empty()
+            contestants_container.empty()
+            standings_container.empty()
+            info_container.empty()
+            selection_container.empty()
+            contestants_container_go()
 
     def contestants_container_go():
         global contestants_container
@@ -309,17 +343,28 @@ def create_page(name):
     def standings_container_go():
         global standings_container
         with standings_container.container():
-            st.write("Temp")
+            st.write("Coming Soon")
 
     def info_container_go(b):
         global info_container
         with info_container.container():
-            st.write("Info"+str(b))
+            st.write("**"+bet_titles[b]+"**")
+            st.write(bet_info[b])
+            back_button = st.button("Back")
+
+        if back_button:
+            bet_container.empty()
+            contestants_container.empty()
+            standings_container.empty()
+            info_container.empty()
+            selection_container.empty()
+            bet_container_go(b)
+
 
     def selection_container_go(b):
         global selection_container
         with selection_container.container():
-            st.write("Selections"+str(b))
+            st.write("Coming Soon")
 
 
     placeholder1 = st.empty()
@@ -335,18 +380,6 @@ def create_page(name):
         bets_button = st.button("Bets", key='bets_button')
         standings_button = st.button("Standings", key='standings_button')
 
-    # for b, button in enumerate(info_buttons):
-    #     if button:
-    #         bet_container.empty()
-    #         contestants_container.empty()
-    #         standings_container.empty()
-    #         info_container.empty()
-    #         selection_container.empty()
-    #         info_container_go(b+1)
-    # if len(info_buttons) > 5:
-    #     temp = TRUE
-    # else:
-    #     temp = info_buttons[4]
 
     if standings_button:
         bet_container.empty()
