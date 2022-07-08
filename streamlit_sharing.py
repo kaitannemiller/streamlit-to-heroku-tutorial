@@ -10,9 +10,16 @@ import yaml
 st.set_page_config(page_title="BACHELOR BETS", page_icon="./rose.ico", layout='wide')
 
 
+test = False
 bet_i = 0
+info_buttons = []
+selection_buttons = []
+first_visit = 1
 def create_page(name):
     global bet_i
+    global info_buttons
+    global selection_buttons
+    global first_visit
 
     st.markdown(""" <style>
     #MainMenu {visibility: hidden;}
@@ -40,10 +47,8 @@ def create_page(name):
     }
     div.stButton > button:first-child {
         background-color: #D90429;
-        color:white;
-        font-size:20px;
-        min-height:3em;
-        width:100%;
+        color: white;
+        font-size:18px;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div {
         height: 4.5rem;
@@ -61,7 +66,7 @@ def create_page(name):
         color: #333333;
         margin: 0px 0px 0px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) {
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -73,19 +78,19 @@ def create_page(name):
         flex-direction: row;
         flex: 1 1 0%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) > div {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) > div > div {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) > div > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
         width: 33%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) > div > div > div > button {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) > div > div > div > button {
         background-color: #D90429;
         color: black;
         font-size:20px;
@@ -94,7 +99,7 @@ def create_page(name):
         width: 100%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) > div > div > div > button:hover {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) > div > div > div > button:hover {
         background-color: #D90429;
         color: white;
         font-size:20px;
@@ -103,7 +108,7 @@ def create_page(name):
         width: 100%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+10) > div > div > div > button:active {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) > div > div > div > button:active {
         background-color: #D90429;
         color: black;
         font-size:20px;
@@ -127,24 +132,100 @@ def create_page(name):
     .streamlit-expander {
         background-color: #F7F7F7;
         border-style: inset;
+        line-height: 0.5;
+        font-size: 0px;
+    }
+    .streamlit-expanderContent  {
+        line-height: 0.5;
+        font-size: 0px;
+    }
+    .streamlit-expanderContent > div  {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 0%;
+        line-height: 0.5;
+        font-size: 0px;
+    }
+    .streamlit-expanderContent > div > div {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 0%;
+    }
+    .streamlit-expanderContent > div > div > div  {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 0%;
+        width: 0%;
+        padding: 0px 2px 0px 2px;
+    }
+    .streamlit-expanderContent > div > div > div:nth-child(1) {
+        flex: 0 0 0%;
+        width: 2.5rem;
+    }
+    .streamlit-expanderContent > div > div > div:nth-child(1) > div {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 0%;
+    }
+    .streamlit-expanderContent > div > div > div:nth-child(1) > div > button {
+        background-color: #456E44;
+        flex: 1 1 0%;
+    }
+    .streamlit-expanderContent > div > div > div:nth-child(1) > div > button:hover {
+        border-color: black;
+        color: #333333;
+    }
+    .streamlit-expanderContent > div > div > div:nth-child(2) > div {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 0%;
+        align-items: center;
+        justify-content: right;
+        padding-right: 6px;
+    }
+    .streamlit-expanderContent > div > div > div:nth-child(2) > div > div > p {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .streamlit-expanderContent > div > div > div:nth-child(3) > div {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 0%;
+        align-items: right;
+        justify-content: right;
+    }
+    .streamlit-expanderContent > div > div > div:nth-child(3) > div > button {
+        font-size: 20px;
+        background-color: #456E44;
+        flex: 1 1 0%;
+    }
+    .streamlit-expanderContent > div > div > div:nth-child(3) > div > button:hover {
+        border-color: black;
+        color: #333333;
     }
     .st-ae {
         font-size: 20px;
     }
     .css-qri22k {
         font-size: 0px;
-        padding: 5rem 0rem 0rem 0rem;
+        padding: 4.95rem 0rem 0rem 0rem;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) {
+        height: 100%;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+6):nth-child(n-7) > div {
         border-style: outset;
         background-color: #F7F7F7;
         flex: 1 1 0%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div > div > div > p {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+6):nth-child(n-7) > div > div > div > div > p {
         font-size: 20px;
+        padding: 8px 0rem 0rem 8px;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(6) > div > div > div > div > a {
         font-size: 20px;
+        padding: 2px 0rem 0rem 5px;
     }
     .stApp {
         background-color: white;
@@ -172,24 +253,51 @@ def create_page(name):
 
     # And within an expander
     bet_titles = ["Gabby's First Impression Rose","Rachel's First Impression Rose","Week One Rose Ceremony","Number of Guys Sent Home","Most Popular Buzz Word"]
+    bet_possiblecounts = [1,1,10,1,1]
+    bet_info = []
 
     global bet_container
     global contestants_container
     global standings_container
+    global info_container
+    global selection_container
     bet_container = st.empty()
     contestants_container = st.empty()
     standings_container = st.empty()
+    info_container = st.empty()
+    selection_container = st.empty()
     def bet_container_go():
         global bet_i
         global bet_container
+        global info_buttons
+        global selection_buttons
+        global test
         with bet_container.container():
             i = 0
+            info_buttons = []
+            selection_buttons = []
             while i < len(bet_titles):
                 my_expander = st.expander(bet_titles[i])
                 with my_expander:
-                    clicked = st.button("Click me", key='button'+str(bet_i))
+                    info_buttons.append(st.button("ⓘ", key='infobutton'+str(bet_i)))
+                    st.write("0 / " + str(bet_possiblecounts[i]) + " selected")
+                    selection_buttons.append(st.button("Select", key='editbutton'+str(bet_i)))
                 i = i + 1
                 bet_i = bet_i + 1
+
+        for b,button in enumerate(info_buttons):
+            if button:
+                bet_container.empty()
+                contestants_container.empty()
+                standings_container.empty()
+                info_container_go(b+1)
+
+        for b,button in enumerate(selection_buttons):
+            if button:
+                bet_container.empty()
+                contestants_container.empty()
+                standings_container.empty()
+                selection_container_go(b+1)
 
     def contestants_container_go():
         global contestants_container
@@ -203,13 +311,23 @@ def create_page(name):
         with standings_container.container():
             st.write("Temp")
 
+    def info_container_go(b):
+        global info_container
+        with info_container.container():
+            st.write("Info"+str(b))
+
+    def selection_container_go(b):
+        global selection_container
+        with selection_container.container():
+            st.write("Selections"+str(b))
+
 
     placeholder1 = st.empty()
     placeholder2 = st.empty()
     placeholder3 = st.empty()
     placeholder4 = st.empty()
     placeholder5 = st.empty()
-    bet_container_go()
+    #bet_container_go()
 
     button_container = st.empty()
     with button_container.container():
@@ -217,21 +335,45 @@ def create_page(name):
         bets_button = st.button("Bets", key='bets_button')
         standings_button = st.button("Standings", key='standings_button')
 
+    # for b, button in enumerate(info_buttons):
+    #     if button:
+    #         bet_container.empty()
+    #         contestants_container.empty()
+    #         standings_container.empty()
+    #         info_container.empty()
+    #         selection_container.empty()
+    #         info_container_go(b+1)
+    # if len(info_buttons) > 5:
+    #     temp = TRUE
+    # else:
+    #     temp = info_buttons[4]
+
     if standings_button:
         bet_container.empty()
         contestants_container.empty()
         standings_container.empty()
+        info_container.empty()
+        selection_container.empty()
         standings_container_go()
     if contestants_button:
         bet_container.empty()
         contestants_container.empty()
         standings_container.empty()
+        info_container.empty()
+        selection_container.empty()
         contestants_container_go()
-    if bets_button:
+    if bets_button or first_visit == 1:
+        first_visit = 0
         bet_container.empty()
         contestants_container.empty()
         standings_container.empty()
+        info_container.empty()
+        selection_container.empty()
         bet_container_go()
+
+
+
+
 
 gc = gspread.service_account(filename='./cred.json')
 sheet1 = gc.open_by_url('https://docs.google.com/spreadsheets/d/1iudlYSDTvHLjEa0q04ebYmVnb8cV1xD7qJMUBj0rxFs/edit?usp=sharing')
