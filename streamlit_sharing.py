@@ -194,9 +194,9 @@ def create_page(name):
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
-        align-items: right;
-        -webkit-align-items: right;
-        justify-content: right;
+        align-items: flex-end;
+        -webkit-align-items: flex-end;
+        justify-content: flex-end;
     }
     .streamlit-expanderContent > div > div > div:nth-child(3) > div > button {
         font-size: 20px;
