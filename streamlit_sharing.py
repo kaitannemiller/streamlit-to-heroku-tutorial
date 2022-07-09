@@ -15,11 +15,12 @@ bet_i = 0
 info_buttons = []
 selection_buttons = []
 first_visit = 1
-def create_page(name):
+def create_page(name,username):
     global bet_i
     global info_buttons
     global selection_buttons
     global first_visit
+    global df_gsheet
 
     st.markdown(""" <style>
     #MainMenu {visibility: hidden;}
@@ -34,13 +35,21 @@ def create_page(name):
         top: 0;
         width: 100%;
         color: black;
-        font-size: 50px;
+        font-size: 45px;
         height: 5rem;
+        line-height: 5rem;
         padding: 0rem 0rem 0rem 0rem;
         flex: 1 1 0%;
         background-color: #F7F7F7;
         text-align: center;
-        font-family: Brush Script MT;
+        justify-content: center;
+        align-items: center;
+        font-family: Norican;
+    }
+    .header-custom > img {
+        margin: auto;
+        vertical-align: auto;
+        padding-top: 6px;
     }
     .e1tzin5v3 {
         font-size: 0px;
@@ -67,7 +76,7 @@ def create_page(name):
         color: #333333;
         margin: 0px 0px 0px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+13) {
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -79,19 +88,19 @@ def create_page(name):
         flex-direction: row;
         flex: 1 1 0%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) > div {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+13) > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) > div > div {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+13) > div > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
         width: 33%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) > div > div > div > button {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+13) > div > div > div > button {
         background-color: #D90429;
         color: black;
         font-size:20px;
@@ -100,7 +109,7 @@ def create_page(name):
         width: 100%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) > div > div > div > button:hover {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+13) > div > div > div > button:hover {
         background-color: #D90429;
         color: white;
         font-size:20px;
@@ -109,7 +118,7 @@ def create_page(name):
         width: 100%;
         padding: 2px 2px 2px 2px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+12) > div > div > div > button:active {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+13) > div > div > div > button:active {
         background-color: #D90429;
         color: black;
         font-size:20px;
@@ -238,10 +247,50 @@ def create_page(name):
         -webkit-align-items: flex-end;
         margin: 6px;
     }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div.epcbefy1 {
+        border: none;
+        display: flex;
+        flex: 1 1 0%;
+        padding: 0px 0px 0px 0px;
+        margin: 6px 6px 0px;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div.epcbefy1 > div  {
+        height: 100%;
+        display: flex;
+        flex: 1 1 0%;
+        align-items: flex-end;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div.epcbefy1 > div:nth-child(1) > div > div:nth-child(2) {
+        height: 100%;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div.epcbefy1 > div:nth-child(1) > div > div:nth-child(2) > div {
+        position: absolute;
+        bottom: 6px;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div.epcbefy1 > div:nth-child(1) > div > div:nth-child(2) > div > div {
+        display: flex;
+        flex: 1 1 0%;
+        width: 100%;
+        justify-content: right;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div.epcbefy1 > div:nth-child(1) > div > div:nth-child(2) > div > div > button {
+        display: flex;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div.epcbefy1 > div > div > div > div > label {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(2) {
+        position: absolute;
+        bottom: 6px;
+        left: 6px;
+    }
     .stApp {
         background-color: white;
     }
-    </style> """, unsafe_allow_html=True)
+    </style>
+    <link href='https://fonts.googleapis.com/css?family=Norican' rel='stylesheet' type='text/css'>
+    """, unsafe_allow_html=True)
 
 
 
@@ -294,11 +343,13 @@ def create_page(name):
             i = 0
             info_buttons = []
             selection_buttons = []
+
             while i < len(bet_titles):
                 my_expander = st.expander(bet_titles[i])
                 with my_expander:
                     info_buttons.append(st.button("ⓘ", key='infobutton'+str(bet_i)))
-                    st.write("0 / " + str(bet_possiblecounts[i]) + " selected")
+                    curr_count = len(df_gsheet[(df_gsheet["Username"]==username)&(df_gsheet["Week"]==1)&(df_gsheet["Question"]==i+1)])
+                    st.write(str(curr_count)+" / " + str(bet_possiblecounts[i]) + " selected")
                     selection_buttons.append(st.button("Select", key='editbutton'+str(bet_i)))
                 i = i + 1
                 bet_i = bet_i + 1
@@ -367,7 +418,26 @@ def create_page(name):
     def selection_container_go(b):
         global selection_container
         with selection_container.container():
-            st.write("Coming Soon")
+            choices = []
+            if b == 3:
+                choices = [5,"6  *Kaitlin*",7,8,9,10]
+            with st.form(key="selectbox"):
+                #st.multiselect("***"+bet_titles[b]+"***", choices, [])
+                st.selectbox(bet_titles[b], choices, key="selectbox"+str(b))
+
+                save_button = st.form_submit_button("Save and Close")
+
+            with st.container():
+                cancel_button = st.button("Cancel")
+
+        if cancel_button:
+            bet_container.empty()
+            contestants_container.empty()
+            standings_container.empty()
+            info_container.empty()
+            selection_container.empty()
+            bet_container_go(b)
+
 
 
     placeholder1 = st.empty()
@@ -430,7 +500,8 @@ if st.session_state['authentication_status']:
     #authenticator.logout('Logout', 'main')
     if st.session_state["name"] != None:
         name = st.session_state["name"].split(' ')[0]
-        create_page(name)
+        username = st.session_state["username"]
+        create_page(name,username)
 elif st.session_state['authentication_status'] == False:
     st.error('Username/password is incorrect')
 elif st.session_state['authentication_status'] == None:
