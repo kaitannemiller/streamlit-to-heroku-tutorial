@@ -271,7 +271,7 @@ def create_page(name,username):
         display: flex;
         flex: 1 1 0%;
         width: 100%;
-        justify-content: end;
+        justify-content: flex-end;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div.epcbefy1 > div:nth-child(1) > div > div:nth-child(2) > div > div > button {
         display: flex;
