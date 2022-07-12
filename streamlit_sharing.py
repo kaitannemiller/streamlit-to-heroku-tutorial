@@ -449,7 +449,7 @@ def create_page(name,username):
         info_container.empty()
         selection_container.empty()
         st.session_state['visit_flag'] = 0
-        bet_container_go()
+        #bet_container_go()
 
     def save_button_func(selec, b):
         total = len(df_gsheet)+2
