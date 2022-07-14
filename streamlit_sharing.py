@@ -56,9 +56,9 @@ def create_page(name,username):
     }
     .header-custom > img {
         margin: auto;
-        vertical-align: auto;
+        vertical-align: baseline;
         padding-top: 6px;
-    }    
+    }
     .e8zbici0 {
         flex-direction: column;
     }
@@ -544,7 +544,7 @@ def create_page(name,username):
             st.markdown("""<style>
 
                 #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+13) > div > div:nth-child(1) > div > button {
-                    font-size:24px !important; font-weight: bold; }
+                    font-size:22px !important; font-weight: bold; }
 
             </style>""", unsafe_allow_html=True)
 
@@ -555,7 +555,7 @@ def create_page(name,username):
             st.markdown("""<style>
 
                 #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+13) > div > div:nth-child(3) > div > button {
-                    font-size:24px !important; font-weight: bold; }
+                    font-size:22px !important; font-weight: bold; }
 
             </style>""", unsafe_allow_html=True)
 
