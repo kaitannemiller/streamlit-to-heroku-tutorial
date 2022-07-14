@@ -6,6 +6,7 @@ import streamlit_authenticator as stauth
 import time
 import base64
 import yaml
+from PIL import Image
 
 st.set_page_config(page_title="BACHELOR BETS", page_icon="./rose.ico", layout='wide')
 
@@ -157,6 +158,10 @@ def create_page(name,username):
         font-size: 0px;
     }
     .streamlit-expanderContent > div  {
+    }
+    .streamlit-expanderContent > div > div {
+    }
+    .streamlit-expanderContent > div > div > div  {
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -164,36 +169,43 @@ def create_page(name,username):
         line-height: 0.5;
         font-size: 0px;
     }
-    .streamlit-expanderContent > div > div {
+    .streamlit-expanderContent > div > div > div > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
     }
-    .streamlit-expanderContent > div > div > div  {
+    .streamlit-expanderContent > div > div > div > div > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
         width: 0%;
         padding: 0px 2px 0px 2px;
     }
-    .streamlit-expanderContent > div > div > div:nth-child(1) {
+    .streamlit-expanderContent > div > div > div > div > div:nth-child(1) {
         flex: 0 0 0%;
         width: 2.5rem;
     }
-    .streamlit-expanderContent > div > div > div:nth-child(1) > div {
+    .streamlit-expanderContent > div > div > div:nth-child(n+2) > div > div:nth-child(1) {
+        flex: 1 1 0%;
+        padding: 8px 8px 8px 8px;
+        align-items: center !important;
+        -webkit-align-items: center;
+        justify-content: center;
+    }
+    .streamlit-expanderContent > div > div > div > div > div:nth-child(1) > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
     }
-    .streamlit-expanderContent > div > div > div:nth-child(1) > div > button {
+    .streamlit-expanderContent > div > div > div > div > div:nth-child(1) > div > button {
         background-color: #456E44;
         flex: 1 1 0%;
     }
-    .streamlit-expanderContent > div > div > div:nth-child(1) > div > button:hover {
+    .streamlit-expanderContent > div > div > div > div > div:nth-child(1) > div > button:hover {
         border-color: black;
         color: #333333;
     }
-    .streamlit-expanderContent > div > div > div:nth-child(2) > div {
+    .streamlit-expanderContent > div > div > div > div > div:nth-child(2) > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
@@ -202,11 +214,11 @@ def create_page(name,username):
         justify-content: flex-end;
         padding-right: 3px;
     }
-    .streamlit-expanderContent > div > div > div:nth-child(2) > div > div > p {
+    .streamlit-expanderContent > div > div > div > div > div:nth-child(2) > div > div > p {
         font-size: 20px;
         font-weight: bold;
     }
-    .streamlit-expanderContent > div > div > div:nth-child(3) > div {
+    .streamlit-expanderContent > div > div > div > div > div:nth-child(3) > div {
         display: flex;
         flex-direction: row;
         flex: 1 1 0%;
@@ -214,14 +226,22 @@ def create_page(name,username):
         -webkit-align-items: right;
         justify-content: right;
     }
-    .streamlit-expanderContent > div > div > div:nth-child(3) > div > button {
+    .streamlit-expanderContent > div > div > div > div > div:nth-child(3) > div > button {
         font-size: 20px;
         background-color: #456E44;
         flex: 1 1 0%;
     }
-    .streamlit-expanderContent > div > div > div:nth-child(3) > div > button:hover {
+    .streamlit-expanderContent > div > div > div > div > div:nth-child(3) > div > button:hover {
         border-color: black;
         color: #333333;
+    }
+    .streamlit-expanderContent > div > div > div.element-container > div > div > p {
+        padding: 4px 4px 4px 4px;
+        margin: 0px 0px 0px;
+    }
+    .streamlit-expanderContent > div > div > div.element-container > div > div > p:nth-child(2) {
+        min-width: 20%;
+        overflow-wrap: normal;
     }
     .st-ae {
         font-size: 20px;
@@ -330,6 +350,48 @@ def create_page(name,username):
                 "Select 10 bachelors that you think will receive a rose in the first week. Ten correct guesses win 10 points each, nine correct guesses win 9 points each, and so on.\n\n\nOdds of 100 points: 1 in 64512239\n\nPossible Points: 100",
                 "Select the number of bachelors that you think will be sent home in the first week. A correct guess wins 18 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 6\n\nPossible Points: 18",
                 "Select the phrase that you think will be said the most often in the first week. A correct guess wins 18 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 6\n\nPossible Points: 18"]
+    bet_choices = [["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
+            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
+                    ["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
+                            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
+                    ["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
+                            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
+                    [5,6,7,8,9,10],
+                    ["the right reasons","journey","connection","open and honest","group of guys","chemistry"]]
+    bet_choicestypes = ["img","img","img","text","text"]
+
+    img_dict = {"Alec": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Aven": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003284/6d084cfde81ac818446f7f6b55c8303f/1600x640-Q90_6d084cfde81ac818446f7f6b55c8303f.jpg',
+                "Brandan": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003289/55e706b199faa49724d907d9a05194af/1600x640-Q90_55e706b199faa49724d907d9a05194af.jpg',
+                "Chris": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003301/ad9705379efff9f33b274c14c7642710/1600x640-Q90_ad9705379efff9f33b274c14c7642710.jpg',
+                "Colin": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003302/a9d8e4bee79f0c068ffd0c71d07eab6c/1600x640-Q90_a9d8e4bee79f0c068ffd0c71d07eab6c.jpg',
+                "Erich": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003303/f50b79c56418a83fc2a7361c98e7454c/1600x640-Q90_f50b79c56418a83fc2a7361c98e7454c.jpg',
+                "Ethan": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003311/99f174f61665aeddd70c146379d50fee/1600x640-Q90_99f174f61665aeddd70c146379d50fee.jpg',
+                "Hayden": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003318/ab65e2acd1c8f247f414503790065d76/1600x640-Q90_ab65e2acd1c8f247f414503790065d76.jpg',
+                "Jacob": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003319/d95bf9fe942f8a6696bee5f3539e3003/1600x640-Q90_d95bf9fe942f8a6696bee5f3539e3003.jpg',
+                "James": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003320/10ed9fdd86bcf56666712b79342b4103/1600x640-Q90_10ed9fdd86bcf56666712b79342b4103.jpg',
+                "Jason": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003327/604317984164be87ba6badfd5d482b80/1600x640-Q90_604317984164be87ba6badfd5d482b80.jpg',
+                "Joey": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003336/498a897e5d1c7ab0373e3cc8e8f4969a/1600x640-Q90_498a897e5d1c7ab0373e3cc8e8f4969a.jpg',
+                "John": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003341/f66997f7e2e49ee1a345f0d65a1cc18d/1600x640-Q90_f66997f7e2e49ee1a345f0d65a1cc18d.jpg',
+                "Johnny": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003342/939a460fd196455c3c4caff14f5b4ec4/1600x640-Q90_939a460fd196455c3c4caff14f5b4ec4.jpg',
+                "Jordan H.": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003421/993015f8df7f09144bf77915500279bb/1600x640-Q90_993015f8df7f09144bf77915500279bb.jpg',
+                "Jordan V.": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Justin B.": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Justin Y.": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Kirk": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Logan": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Mario": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Matt": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Michael": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Nate": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Quincey": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Roby": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Ryan": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Spencer": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Termayne": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Tino": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Tyler": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
+                "Zach": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg'}
 
     global bet_container
     global contestants_container
@@ -365,10 +427,24 @@ def create_page(name,username):
             while i < len(bet_titles):
                 my_expander = st.expander(bet_titles[i])
                 with my_expander:
-                    info_buttons.append(st.button("ⓘ", key='infobutton'+str(i)))
-                    curr_count = len(df_gsheet[(df_gsheet["Username"]==username)&(df_gsheet["Week"]==1)&(df_gsheet["Question"]==i+1)])
-                    st.write(str(curr_count)+" / " + str(bet_possiblecounts[i]) + " selected")
-                    selection_buttons.append(st.button("Select", key='editbutton'+str(i)))
+                    with st.container():
+                        info_buttons.append(st.button("ⓘ", key='infobutton'+str(i)))
+                        curr_count = len(df_gsheet[(df_gsheet["Username"]==username)&(df_gsheet["Week"]==1)&(df_gsheet["Question"]==i+1)])
+                        st.write(str(curr_count)+" / " + str(bet_possiblecounts[i]) + " selected")
+                        selection_buttons.append(st.button("Select", key='editbutton'+str(i)))
+
+                    curr_selects = df_gsheet[(df_gsheet["Username"]==username)&(df_gsheet["Week"]==1)&(df_gsheet["Question"]==i+1)]["Choice"]
+                    for curr in curr_selects:
+                        if i == 3:
+                            img_url = get_display(bet_choicestypes[i], curr, '', ' guys sent home')
+                        elif i == 4:
+                            img_url = get_display(bet_choicestypes[i], curr, '"', '"')
+                        else:
+                            img_url = get_display(bet_choicestypes[i], curr)
+                        img =f"""
+                               {img_url}
+                        """
+                        st.markdown(img, unsafe_allow_html=True)
                 i = i + 1
 
         for b,button in enumerate(info_buttons):
@@ -488,22 +564,13 @@ def create_page(name,username):
         global cancel_button
         global selection_container
         with selection_container.container():
-            choices = []
+            choices = bet_choices[b]
             if b == 0 or b == 1 or b == 2:
-                choices = ["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
-                        "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"]
                 for c,choice in enumerate(choices):
                     if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)&(df_gsheet["Username"]==username)]) > 0:
                         choices[c] = str(choices[c]) + "    *Saved*"
 
-            if b == 3:
-                choices = [5,6,7,8,9,10]
-                for c,choice in enumerate(choices):
-                    if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)]) > 0:
-                        usertemp=df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)]["Username"].to_string(index=False)
-                        choices[c] = str(choices[c]) + "    *" + config['credentials']['usernames'][usertemp]["name"].split(" ")[0] + "*"
-            if b == 4:
-                choices = ["the right reasons","journey","connection","open and honest","group of guys","chemistry"]
+            if b == 3 or 4:
                 for c,choice in enumerate(choices):
                     if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)]) > 0:
                         usertemp=df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)]["Username"].to_string(index=False)
@@ -548,7 +615,13 @@ def create_page(name,username):
             with st.container():
                 cancel_button = st.button("Cancel", on_click=cancel_button_func)
 
+    def get_display(type, input, text_prefix='', text_suffix=''):
+        if type == "img":
+            tag = '<img src="' + img_dict[input] + '" alt="' + input + '" style="max-height: 100%; max-width: 100%;"><p><b>' + input + '</b></p>'
+        if type == "text":
+            tag = '<p style="font-size: 20px; line-height: 1.6;"><b><i>' + text_prefix + str(input) + text_suffix + '</i></b></p>'
 
+        return tag
 
 
     placeholder1 = st.empty()
