@@ -35,7 +35,6 @@ def create_page(name,username):
     .css-k0sv6k {
         height: 5rem;
         background-color: transparent;
-        border-style: outset;
     }
     .css-fk4es0.e8zbici1 {visibility: hidden;}
     .header-custom {
@@ -53,11 +52,17 @@ def create_page(name,username):
         justify-content: center;
         align-items: center;
         font-family: Norican;
+        border-style: outset;
     }
     .header-custom > img {
         margin: auto;
         vertical-align: auto;
         padding-top: 6px;
+    } 
+    .e8zbici0 {
+        flex-direction: column;
+        font-size: 8px;
+        padding=top: 2px;
     }
     .e1tzin5v3 {
         font-size: 0px;
@@ -77,6 +82,7 @@ def create_page(name,username):
         justify-content: center;
         align-items: center;
         -webkit-align-items: center;
+        background-color: white;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div > p {
         text-align: center;
@@ -118,21 +124,7 @@ def create_page(name,username):
         padding: 2px 2px 2px 2px;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+13) > div > div > div > button:hover {
-        background-color: #D90429;
         color: white;
-        font-size:20px;
-        min-height:0em;
-        height:100%;
-        width: 100%;
-        padding: 2px 2px 2px 2px;
-    }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+13) > div > div > div > button:active {
-        background-color: #D90429;
-        color: black;
-        font-size:20px;
-        min-height:0em;
-        height:100%;
-        width: 100%;
     }
     footer {
         position: static;
@@ -258,6 +250,9 @@ def create_page(name,username):
         background-color: #F7F7F7 !important;
         flex: 1 1 0%;
     }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+16) > div {
+        border-style: none;
+    }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+6) > div > div > div > div > p {
         font-size: 20px;
         padding: 8px 8px 0rem 8px;
@@ -358,7 +353,10 @@ def create_page(name,username):
                             "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
                     [5,6,7,8,9,10],
                     ["the right reasons","journey","connection","open and honest","group of guys","chemistry"]]
+    bet_types = ["main","main","main","oneperperson", "oneperperson"]
     bet_choicestypes = ["img","img","img","text","text"]
+    bet_textprefixes = ["","","","",'"']
+    bet_textsuffixes = ["","",""," guys sent home",'"']
 
     img_dict = {"Alec": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
                 "Aven": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003284/6d084cfde81ac818446f7f6b55c8303f/1600x640-Q90_6d084cfde81ac818446f7f6b55c8303f.jpg',
@@ -375,23 +373,23 @@ def create_page(name,username):
                 "John": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003341/f66997f7e2e49ee1a345f0d65a1cc18d/1600x640-Q90_f66997f7e2e49ee1a345f0d65a1cc18d.jpg',
                 "Johnny": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003342/939a460fd196455c3c4caff14f5b4ec4/1600x640-Q90_939a460fd196455c3c4caff14f5b4ec4.jpg',
                 "Jordan H.": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003421/993015f8df7f09144bf77915500279bb/1600x640-Q90_993015f8df7f09144bf77915500279bb.jpg',
-                "Jordan V.": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Justin B.": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Justin Y.": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Kirk": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Logan": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Mario": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Matt": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Michael": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Nate": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Quincey": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Roby": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Ryan": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Spencer": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Termayne": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Tino": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Tyler": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
-                "Zach": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg'}
+                "Jordan V.": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003422/eeb0a26e44b6e1dfd0021ccc7c9adfac/1600x640-Q90_eeb0a26e44b6e1dfd0021ccc7c9adfac.jpg',
+                "Justin B.": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003426/5c5b3667a86f0e1722f4dd85469d4262/1600x640-Q90_5c5b3667a86f0e1722f4dd85469d4262.jpg',
+                "Justin Y.": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003427/deef3202bcf1720ee77c6c275a52ee92/1600x640-Q90_deef3202bcf1720ee77c6c275a52ee92.jpg',
+                "Kirk": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003430/cb2c28038138c4c3fc2cd33437b50833/1600x640-Q90_cb2c28038138c4c3fc2cd33437b50833.jpg',
+                "Logan": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003434/6cbccf64d86968aed37f9e85ffd1da67/1600x640-Q90_6cbccf64d86968aed37f9e85ffd1da67.jpg',
+                "Mario": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003439/a23cb11d6846500a8788aa3ab3fe2518/1600x640-Q90_a23cb11d6846500a8788aa3ab3fe2518.jpg',
+                "Matt": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003441/8c0070282bb16145f7cdba54998ac3a5/1600x640-Q90_8c0070282bb16145f7cdba54998ac3a5.jpg',
+                "Michael": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4004568/ef694b0c1a17d5dc00995832ac908e68/1600x640-Q90_ef694b0c1a17d5dc00995832ac908e68.jpg',
+                "Nate": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4004578/137c32399ffff6832986719187ea81d1/1600x640-Q90_137c32399ffff6832986719187ea81d1.jpg',
+                "Quincey": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4004586/03c20ec0e96ce129bb6806b2cf97c86e/1600x640-Q90_03c20ec0e96ce129bb6806b2cf97c86e.jpg',
+                "Roby": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4004587/6abdf0cb8f56be72c59cc574f18d6107/1600x640-Q90_6abdf0cb8f56be72c59cc574f18d6107.jpg',
+                "Ryan": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4004594/d803872f0107102d45f2c6d2354eb2b8/1600x640-Q90_d803872f0107102d45f2c6d2354eb2b8.jpg',
+                "Spencer": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4004595/0ad4a1d3b01af5801647aa3cbb82b2a0/1600x640-Q90_0ad4a1d3b01af5801647aa3cbb82b2a0.jpg',
+                "Termayne": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4004598/59b04a004391698250e245ff8c3d5e5a/1600x640-Q90_59b04a004391698250e245ff8c3d5e5a.jpg',
+                "Tino": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4004599/feb9500f43f30a789c1352c0958451ca/1600x640-Q90_feb9500f43f30a789c1352c0958451ca.jpg',
+                "Tyler": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4004619/3693d4cc2fe4f0f5fa08860523ef46e4/1600x640-Q90_3693d4cc2fe4f0f5fa08860523ef46e4.jpg',
+                "Zach": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4004620/515d20fec26e682359e4f15122f0848f/1600x640-Q90_515d20fec26e682359e4f15122f0848f.jpg'}
 
     global bet_container
     global contestants_container
@@ -425,7 +423,10 @@ def create_page(name,username):
             info_buttons = []
             selection_buttons = []
             while i < len(bet_titles):
-                my_expander = st.expander(bet_titles[i])
+                if bet_types[i] == "main":
+                    my_expander = st.expander(bet_titles[i])
+                else:
+                    my_expander = st.expander(bet_titles[i] + '\xa0 \xa0 \xa0 \U0001f4b8')
                 with my_expander:
                     with st.container():
                         info_buttons.append(st.button("ⓘ", key='infobutton'+str(i)))
@@ -435,17 +436,18 @@ def create_page(name,username):
 
                     curr_selects = df_gsheet[(df_gsheet["Username"]==username)&(df_gsheet["Week"]==1)&(df_gsheet["Question"]==i+1)]["Choice"]
                     for curr in curr_selects:
-                        if i == 3:
-                            img_url = get_display(bet_choicestypes[i], curr, '', ' guys sent home')
-                        elif i == 4:
-                            img_url = get_display(bet_choicestypes[i], curr, '"', '"')
-                        else:
-                            img_url = get_display(bet_choicestypes[i], curr)
+                        img_url = get_display(bet_choicestypes[i], curr, bet_textprefixes[i], bet_textsuffixes[i])
                         img =f"""
                                {img_url}
                         """
                         st.markdown(img, unsafe_allow_html=True)
                 i = i + 1
+            st.markdown("""<style>
+
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+13) > div > div:nth-child(2) > div > button {
+                    font-size:24px !important; font-weight: bold; }
+
+            </style>""", unsafe_allow_html=True)
 
         for b,button in enumerate(info_buttons):
             if button:
@@ -504,7 +506,7 @@ def create_page(name,username):
                     time.sleep(0.1)
                 df_gsheet = pd.DataFrame(data=sh.get_all_records())
                 total = len(df_gsheet)+2
-            if b == 2:
+            if bet_possiblecounts[b] > 1:
                 for s, select in enumerate(selec):
                     sh.update_cell(total+s,1,1)
                     sh.update_cell(total+s,2,b+1)
@@ -531,11 +533,23 @@ def create_page(name,username):
             st.write("Coming Soon! \nFor now, you can look here: ")
             st.markdown(""" <a href="https://abc.com/shows/the-bachelorette/cast">Official ABC Website</a>
                         """, unsafe_allow_html=True)
+            st.markdown("""<style>
+
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+13) > div > div:nth-child(1) > div > button {
+                    font-size:24px !important; font-weight: bold; }
+
+            </style>""", unsafe_allow_html=True)
 
     def standings_container_go():
         global standings_container
         with standings_container.container():
             st.write("Coming Soon")
+            st.markdown("""<style>
+
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+13) > div > div:nth-child(3) > div > button {
+                    font-size:24px !important; font-weight: bold; }
+
+            </style>""", unsafe_allow_html=True)
 
     def info_container_go(b):
         global info_container
@@ -565,21 +579,21 @@ def create_page(name,username):
         global selection_container
         with selection_container.container():
             choices = bet_choices[b]
-            if b == 0 or b == 1 or b == 2:
+            if bet_types[b] == "main":
                 for c,choice in enumerate(choices):
                     if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)&(df_gsheet["Username"]==username)]) > 0:
-                        choices[c] = str(choices[c]) + "    *Saved*"
+                        choices[c] = str(choices[c]) + "\xa0    *Saved*"
 
-            if b == 3 or 4:
+            elif bet_types[b] == "oneperperson":
                 for c,choice in enumerate(choices):
                     if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)]) > 0:
                         usertemp=df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)]["Username"].to_string(index=False)
-                        choices[c] = str(choices[c]) + "    *" + config['credentials']['usernames'][usertemp]["name"].split(" ")[0] + "*"
+                        choices[c] = str(choices[c]) + "\xa0    *" + config['credentials']['usernames'][usertemp]["name"].split(" ")[0] + "*"
 
             status = ""
             with st.container() as form:
             #with st.form(key="selectbox") as form:
-                if b == 2:
+                if bet_possiblecounts[b] > 1:
                     myselectbox = st.multiselect(bet_titles[b], [c[0:c.find('*')].strip() if c.find('*') > -1 else c for c in choices], [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1])
 
                     if myselectbox == [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1]:
