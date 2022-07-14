@@ -252,53 +252,49 @@ def create_page(name,username):
         flex: 1 1 0%;
         align-items: flex-end;
         -webkit-align-items: flex-end;
-        margin: 6px 6px 0px;
+        margin: 6px 6px 6px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div {
-        padding: 0px 6px 0px 6px;
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div > div.e1tzin5v0 {
+        padding: 6px 12px 6px 6px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(1) {
-        padding: 0px 6px 0px 6px;
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div > div.e1tzin5v0 > div {
+        width: 100%;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(1) > div {
-        padding: 6px 0px 6px 0px;
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div > div.e1tzin5v0 > div > div {
+        width: 100% !important;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(1) > div > div:nth-child(3) {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div > div.e1tzin5v0 > div > div > label {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(n+2) {
+        height: 0px;
+        flex: 0 0 0% !important;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(n+2) > div.e1tzin5v0 {
         position: absolute;
-        bottom: 6px;
+        bottom: 0px;
+        width: 0px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(1) > div > div:nth-child(3) > div {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div > div.e1tzin5v0 > div:nth-child(3) {
+        display: flex;
+        flex: 1 1 0%;
+        align-items: flex-end;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div > div.e1tzin5v0 > div:nth-child(3) > div.stButton {
         display: flex;
         flex: 1 1 0%;
         justify-content: flex-end;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(1) > div > div:nth-child(3) > div > button {
-        display: flex;
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(1) > div > div:nth-child(1) > div > div > div > div > svg:nth-child(1) {
+        width: 40px;
+        height: 32px;
+        padding: 0px 8px 0px 0px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div > div > div > div > label {
-        font-size: 20px;
-        font-weight: bold;
-    }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(3) {
-        position: absolute;
-        bottom: 6px;
-        left: 6px;
-        flex: 0 0 0%;
-    }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(3) {
-        width: 0px !important;
-    }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(2) > div {
-        width: 0%;
-        flex: 0 0 0%;
-    }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(2) > div > div {
-        width: 0%;
-        flex: 0 0 0%;
-    }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(2) > div > div > div {
-        width: 0px !important;
-        flex: 0 0 0%;
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(9) > div > div:nth-child(1) > div > div:nth-child(1) > div > div > div > div > svg:nth-child(2) {
+        width: 40px;
+        height: 32px;
+        padding: 0px 0px 0px 8px;
     }
     .stApp {
         background-color: white;
@@ -393,35 +389,6 @@ def create_page(name,username):
                 selection_container.empty()
                 st.session_state["visit_flag"] = b+1
                 selection_container_go(b)
-                # if save_button:
-                #     st.write(myselectbox)
-                #     if str(myselectbox).find('*') > -1:
-                #         #st.error("This selection is already taken. Please choose another.")
-                #         bet_container.empty()
-                #         contestants_container.empty()
-                #         standings_container.empty()
-                #         info_container.empty()
-                #         selection_container.empty()
-                #         bet_container_go()
-                #     else:
-                #         total = len(df_gsheet)+2
-                #         if b == 2:
-                #             for s, select in enumerate(myselectbox):
-                #                 sh.update_cell(total+s,1,1)
-                #                 sh.update_cell(total+s,2,b+1)
-                #                 sh.update_cell(total+s,3,username)
-                #                 sh.update_cell(total+s,4,select)
-                #         else:
-                #             sh.update_cell(total,1,1)
-                #             sh.update_cell(total,2,b+1)
-                #             sh.update_cell(total,3,username)
-                #             sh.update_cell(total,4,myselectbox)
-                #         bet_container.empty()
-                #         contestants_container.empty()
-                #         standings_container.empty()
-                #         info_container.empty()
-                #         selection_container.empty()
-                #         bet_container_go()
 
 
         if standings_button:
@@ -451,19 +418,28 @@ def create_page(name,username):
         st.session_state['visit_flag'] = 0
         #bet_container_go()
 
-    def save_button_func(selec, b):
+    def save_button_func(selec, b, stat):
+        global df_gsheet
         total = len(df_gsheet)+2
-        if b == 2:
-            for s, select in enumerate(selec):
-                sh.update_cell(total+s,1,1)
-                sh.update_cell(total+s,2,b+1)
-                sh.update_cell(total+s,3,username)
-                sh.update_cell(total+s,4,select)
-        else:
-            sh.update_cell(total,1,1)
-            sh.update_cell(total,2,b+1)
-            sh.update_cell(total,3,username)
-            sh.update_cell(total,4,selec)
+        if stat == "new" or stat == "overwrite":
+            if stat == "overwrite":
+                for row in reversed(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)].index.to_list()):
+                    sh.delete_rows(row+2)
+                    time.sleep(0.1)
+                df_gsheet = pd.DataFrame(data=sh.get_all_records())
+                total = len(df_gsheet)+2
+            if b == 2:
+                for s, select in enumerate(selec):
+                    sh.update_cell(total+s,1,1)
+                    sh.update_cell(total+s,2,b+1)
+                    sh.update_cell(total+s,3,username)
+                    sh.update_cell(total+s,4,select)
+                    time.sleep(0.1)
+            else:
+                sh.update_cell(total,1,1)
+                sh.update_cell(total,2,b+1)
+                sh.update_cell(total,3,username)
+                sh.update_cell(total,4,selec)
         bet_container.empty()
         contestants_container.empty()
         standings_container.empty()
@@ -516,6 +492,10 @@ def create_page(name,username):
             if b == 0 or b == 1 or b == 2:
                 choices = ["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
                         "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"]
+                for c,choice in enumerate(choices):
+                    if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)&(df_gsheet["Username"]==username)]) > 0:
+                        choices[c] = str(choices[c]) + "    *Saved*"
+
             if b == 3:
                 choices = [5,6,7,8,9,10]
                 for c,choice in enumerate(choices):
@@ -529,19 +509,41 @@ def create_page(name,username):
                         usertemp=df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)]["Username"].to_string(index=False)
                         choices[c] = str(choices[c]) + "    *" + config['credentials']['usernames'][usertemp]["name"].split(" ")[0] + "*"
 
-
+            status = ""
             with st.container() as form:
             #with st.form(key="selectbox") as form:
                 if b == 2:
-                    myselectbox = st.multiselect(bet_titles[b], choices, [])
-                else:
-                    myselectbox = st.selectbox(bet_titles[b], choices, key="selectbox"+str(b))
+                    myselectbox = st.multiselect(bet_titles[b], [c[0:c.find('*')].strip() if c.find('*') > -1 else c for c in choices], [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1])
 
-                if str(myselectbox).find("*") == -1:
-                    st.write("You have selected: " + str(myselectbox))
+                    if myselectbox == [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1]:
+                        st.write("**You have selected:** " + ', '.join([str(s) for s in myselectbox]) + '  ' + "\n**This is the choice you currently have saved.**")
+                    elif len(myselectbox) > bet_possiblecounts[b]:
+                        st.write("**You have selected:** " + ', '.join([str(s) for s in myselectbox]) + '  ' + "\n**You have selected too many options. Please limit your choices to** " + str(bet_possiblecounts[b]))
+                    else:
+                        st.write("**You have selected:** " + ', '.join([str(s) for s in myselectbox]) + '  \n**Would you like to save this as your new choice?  \nYou are adding:** '
+                                    + ', '.join([str(s) for s in myselectbox if s not in [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1]]) + '  \n**You are deleting:** '
+                                    +  ', '.join([str(s) for s in [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1] if s not in myselectbox]))
+                        if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)]) > 0:
+                            status = "overwrite"
+                        else:
+                            status = "new"
+
                 else:
-                    st.write("This selection is unavailable. Please make another selection.")
-                save_button = st.button("Save and Close", on_click=save_button_func, args=[myselectbox,b])
+                    myselectbox = st.selectbox(bet_titles[b], choices, index=[n for n,c in enumerate(choices) if (str(c).find('*Saved*') > -1 or str(c).find('*' + name + '*') > -1)][0], key="selectbox"+str(b))
+
+                    if str(myselectbox).find("*") == -1:
+                        st.write("**You have selected:** " + str(myselectbox) + '  ' + "\n**Would you like to save this as your new choice?**")
+                        if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)]) > 0:
+                            status = "overwrite"
+                        else:
+                            status = "new"
+                    elif str(myselectbox).find("*"+name+"*") > -1 or str(myselectbox).find("*Saved*") > -1:
+                        st.write("**You have selected:** " + str(myselectbox[0:str(myselectbox).find('*')]) + '  ' + "\n**This is the choice you currently have saved.**")
+                    else:
+                        st.write("**You have selected:** " + str(myselectbox[0:str(myselectbox).find('*')]) + '  ' + "\n**This choice is unavailable. Please make another selection.**")
+
+                save_button = st.button("Save and Close", on_click=save_button_func, args=[myselectbox,b,status])
+
 
             with st.container():
                 cancel_button = st.button("Cancel", on_click=cancel_button_func)
