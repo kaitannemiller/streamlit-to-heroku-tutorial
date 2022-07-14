@@ -58,11 +58,19 @@ def create_page(name,username):
         margin: auto;
         vertical-align: auto;
         padding-top: 6px;
-    } 
+    }    
     .e8zbici0 {
         flex-direction: column;
-        font-size: 8px;
-        padding=top: 2px;
+    }
+    .e8zbici0 > div > div {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .e8zbici0 > div > div > label {
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
     }
     .e1tzin5v3 {
         font-size: 0px;
