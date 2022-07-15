@@ -30,6 +30,40 @@ def create_page(name,username):
     global first_visit
     global df_gsheet
 
+    # And within an expander
+    bet_titles = ["Gabby's First Impression Rose","Rachel's First Impression Rose","Week One Rose Ceremony","Number of Guys Sent Home","Most Popular Buzz Word"]
+    bet_possiblecounts = [1,1,10,1,1]
+    bet_info = ["Select the bachelor that you think will win Gabby's first impression rose. A correct guess wins 32 points.\n\n\nOdds: 1 in 32\n\nMain Bet: $50+ pool  \nPossible Points: 32",
+                "Select the bachelor that you think will win Rachel's first impression rose. A correct guess wins 32 points.\n\n\nOdds: 1 in 32\n\nMain Bet: $50+ pool  \nPossible Points: 32",
+                "Select 10 bachelors that you think will receive a rose in the first week. Ten correct guesses win 10 points each, nine correct guesses win 9 points each, and so on.\n\n\nOdds of 100 points: 1 in 64512239\n\nMain Bet: $50+ pool  \nPossible Points: 100",
+                "Select the number of bachelors that you think will be sent home in the first week. A correct guess wins 18 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 6\n\nFast Money Bet: Guaranteed $1  \nPossible Points: 18",
+                "Select the phrase that you think will be said the most often in the first week. A correct guess wins 18 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 6\n\nFast Money Bet: Guaranteed $1  \nPossible Points: 18"]
+    bet_choices = [["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
+            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
+                    ["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
+                            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
+                    ["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
+                            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
+                    [5,6,7,8,9,10],
+                    ["the right reasons","journey","connection","open and honest","group of guys","chemistry"]]
+    bet_types = ["main","main","main","oneperperson", "oneperperson"]
+    bet_choicestypes = ["img","img","img","text","text"]
+    bet_textprefixes = ["","","","",'"']
+    bet_textsuffixes = ["","",""," guys sent home",'"']
+
+    i = 0
+    children = []
+    while i < len(bet_titles):
+        if bet_types[i] == "main":
+            children.append(".e1s6o5jp0:nth-of-type(" + str(i+1) + ") > .streamlit-expander")
+        i = i + 1
+    style = f"""<style>
+
+        {', '.join(children)} {{
+            background-color: #BFBFBF; }}
+
+    </style>"""
+
     st.markdown(""" <style>
     #MainMenu {visibility: hidden;}
     .css-k0sv6k {
@@ -148,7 +182,7 @@ def create_page(name,username):
         text-align: right;
     }
     .streamlit-expander {
-        background-color: #F7F7F7;
+        background-color: #D8D5D5;
         border-style: inset;
         line-height: 0.5;
         font-size: 0px;
@@ -319,12 +353,21 @@ def create_page(name,username):
         height: 32px;
         padding: 0px 0px 0px 8px;
     }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div:nth-child(1) > div > div > div > div {
+        width: 100%;
+        height: 100%;
+        font-size: 40px;
+        padding: 8px 8px 8px 8px;
+        flex-direction: row;
+        display: flex;
+    }
     .stApp {
         background-color: white;
     }
     </style>
     <link href='https://fonts.googleapis.com/css?family=Norican' rel='stylesheet' type='text/css'>
-    """, unsafe_allow_html=True)
+    """ + style, unsafe_allow_html=True)
+
 
 
 
@@ -345,26 +388,6 @@ def create_page(name,username):
 
     st.write("Week One")
 
-    # And within an expander
-    bet_titles = ["Gabby's First Impression Rose","Rachel's First Impression Rose","Week One Rose Ceremony","Number of Guys Sent Home","Most Popular Buzz Word"]
-    bet_possiblecounts = [1,1,10,1,1]
-    bet_info = ["Select the bachelor that you think will win Gabby's first impression rose. A correct guess wins 32 points.\n\n\nOdds: 1 in 32\n\nPossible Points: 32",
-                "Select the bachelor that you think will win Rachel's first impression rose. A correct guess wins 32 points.\n\n\nOdds: 1 in 32\n\nPossible Points: 32",
-                "Select 10 bachelors that you think will receive a rose in the first week. Ten correct guesses win 10 points each, nine correct guesses win 9 points each, and so on.\n\n\nOdds of 100 points: 1 in 64512239\n\nPossible Points: 100",
-                "Select the number of bachelors that you think will be sent home in the first week. A correct guess wins 18 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 6\n\nPossible Points: 18",
-                "Select the phrase that you think will be said the most often in the first week. A correct guess wins 18 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 6\n\nPossible Points: 18"]
-    bet_choices = [["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
-            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
-                    ["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
-                            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
-                    ["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
-                            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
-                    [5,6,7,8,9,10],
-                    ["the right reasons","journey","connection","open and honest","group of guys","chemistry"]]
-    bet_types = ["main","main","main","oneperperson", "oneperperson"]
-    bet_choicestypes = ["img","img","img","text","text"]
-    bet_textprefixes = ["","","","",'"']
-    bet_textsuffixes = ["","",""," guys sent home",'"']
 
     img_dict = {"Alec": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
                 "Aven": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003284/6d084cfde81ac818446f7f6b55c8303f/1600x640-Q90_6d084cfde81ac818446f7f6b55c8303f.jpg',
@@ -427,9 +450,9 @@ def create_page(name,username):
         save_button = False
         myselectbox = ""
         with bet_container.container():
-            i = 0
             info_buttons = []
             selection_buttons = []
+            i = 0
             while i < len(bet_titles):
                 if bet_types[i] == "main":
                     my_expander = st.expander(bet_titles[i])
@@ -450,12 +473,14 @@ def create_page(name,username):
                         """
                         st.markdown(img, unsafe_allow_html=True)
                 i = i + 1
-            st.markdown("""<style>
 
-                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+13) > div > div:nth-child(2) > div > button {
-                    font-size:24px !important; font-weight: bold; }
+            style = f"""<style>
 
-            </style>""", unsafe_allow_html=True)
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+13) > div > div:nth-child(2) > div > button {{
+                    font-size:24px !important; font-weight: bold; }}
+
+            </style>"""
+            st.markdown(style, unsafe_allow_html=True)
 
         for b,button in enumerate(info_buttons):
             if button:
@@ -551,7 +576,16 @@ def create_page(name,username):
     def standings_container_go():
         global standings_container
         with standings_container.container():
-            st.write("Coming Soon")
+            file_1 = open("trophy.ico", "rb")
+            contents1 = file_1.read()
+            data_url1 = base64.b64encode(contents1).decode("utf-8")
+            file_1.close()
+            with st.container():
+                st.markdown(f""" <div style="font-size: 28px;">
+                            <img src="data:image/gif;base64,{data_url1}" alt="rose" height="70px" width="65px">
+                            1</div>
+                            <p style="font-size: 30px;"><b>Kaitlin</b></p>
+                            <p style="font-size: 18px;">Total Points: 0<br>Points from Main Bets: 0<br>Points from Fast Money Bets: 0 ($0)</p> """, unsafe_allow_html=True)
             st.markdown("""<style>
 
                 #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+13) > div > div:nth-child(3) > div > button {
