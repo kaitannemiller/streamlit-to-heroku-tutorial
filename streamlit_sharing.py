@@ -353,13 +353,48 @@ def create_page(name,username):
         height: 32px;
         padding: 0px 0px 0px 8px;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div:nth-child(1) > div > div > div > div {
-        width: 100%;
-        height: 100%;
-        font-size: 40px;
-        padding: 8px 8px 8px 8px;
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div {
         flex-direction: row;
         display: flex;
+        flex: 1 1 100%;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div > div {
+        font-size: 40px;
+        padding: 8px 16px 8px 8px;
+        flex-direction: row;
+        display: flex;
+        flex: 1 1 100%;
+        justify-content: flex-end;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div > div > div {
+        align-items: center;
+        margin: 0px;
+        display: flex;
+        position: absolute;
+        left: 8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div > div > div > div {
+        position: absolute;
+        left: 24px;
+        top: 10px;
+        font-weight: bold;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div > div > p {
+        align-items: center;
+        margin: 0px;
+        display: flex;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div > div > p:nth-of-type(1) {
+        justify-content: center;
+        display: flex;
+        flex: 1 1 0%;
+        padding-left: 65px;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div > div > p:nth-of-type(2) {
+        overflow-wrap: normal;
+        width: 270px;
     }
     .stApp {
         background-color: white;
@@ -580,12 +615,23 @@ def create_page(name,username):
             contents1 = file_1.read()
             data_url1 = base64.b64encode(contents1).decode("utf-8")
             file_1.close()
-            with st.container():
-                st.markdown(f""" <div style="font-size: 28px;">
+            userlist = []
+            for user in config['credentials']['usernames']:
+                df_gsheet["Points"] = pd.to_numeric(df_gsheet["Points"], errors='coerce')
+                total_points = int(sum(df_gsheet[(df_gsheet["Username"]==user)]["Points"].fillna(0)))
+                main_points = int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "main"]))]["Points"].fillna(0)))
+                fast_points = int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"]))]["Points"].fillna(0)))
+                fast_dollars = int(len(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"])) & df_gsheet["Points"] > 0]["Points"].fillna(0)))
+                userlist.append([config['credentials']['usernames'][user]['name'].split(" ")[0], total_points, main_points, fast_points, fast_dollars])
+            userlist.sort(key=lambda x:(-x[1]))
+            for u, user in enumerate(userlist):
+                with st.container():
+                    st.markdown(f""" <div style="font-size: 28px;">
                             <img src="data:image/gif;base64,{data_url1}" alt="rose" height="70px" width="65px">
-                            1</div>
-                            <p style="font-size: 30px;"><b>Kaitlin</b></p>
-                            <p style="font-size: 18px;">Total Points: 0<br>Points from Main Bets: 0<br>Points from Fast Money Bets: 0 ($0)</p> """, unsafe_allow_html=True)
+                            <div>{u+1}</div></div>
+                            <p style="font-size: 24px;"><b>{user[0]}</b></p>
+                            <p style="font-size: 16px;">Total Points: {user[1]}<br>Points from Main Bets: {user[2]}<br>Points from Fast Money Bets: {user[3]} (${user[4]})</p> """, unsafe_allow_html=True)
+
             st.markdown("""<style>
 
                 #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(n+13) > div > div:nth-child(3) > div > button {
