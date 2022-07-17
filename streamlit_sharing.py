@@ -31,6 +31,7 @@ def create_page(name,username):
     global df_gsheet
 
     # And within an expander
+    week = 1
     bet_titles = ["Gabby's First Impression Rose","Rachel's First Impression Rose","Week One Rose Ceremony","Number of Guys Sent Home","Most Popular Buzz Word"]
     bet_possiblecounts = [1,1,10,1,1]
     bet_info = ["Select the bachelor that you think will win Gabby's first impression rose. A correct guess wins 32 points.\n\n\nOdds: 1 in 32\n\nMain Bet: $50+ pool  \nPossible Points: 32",
@@ -390,7 +391,7 @@ def create_page(name,username):
         justify-content: center;
         display: flex;
         flex: 1 1 0%;
-        padding-left: 65px;
+        padding-left: 95px;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div > div > p:nth-of-type(2) {
         overflow-wrap: normal;
@@ -615,19 +616,43 @@ def create_page(name,username):
             contents1 = file_1.read()
             data_url1 = base64.b64encode(contents1).decode("utf-8")
             file_1.close()
+            file_up = open("arrow-up.ico", "rb")
+            contentsup = file_up.read()
+            data_urlup = base64.b64encode(contentsup).decode("utf-8")
+            file_up.close()
+            file_down = open("arrow-down.ico", "rb")
+            contentsdown = file_down.read()
+            data_urldown = base64.b64encode(contentsdown).decode("utf-8")
+            file_down.close()
+            userlist_now = []
+            df_gsheet["Points"] = pd.to_numeric(df_gsheet["Points"], errors='coerce')
+            for user in config['credentials']['usernames']:
+                #if week > 1:
+                total_points = int(sum(df_gsheet[(df_gsheet["Username"]==user)]["Points"].fillna(0)))
+                last_points = int(sum(df_gsheet[(df_gsheet["Username"]==user)]["Points"].fillna(0)))
+                userlist_now.append([user, total_points, last_points])
             userlist = []
             for user in config['credentials']['usernames']:
-                df_gsheet["Points"] = pd.to_numeric(df_gsheet["Points"], errors='coerce')
                 total_points = int(sum(df_gsheet[(df_gsheet["Username"]==user)]["Points"].fillna(0)))
                 main_points = int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "main"]))]["Points"].fillna(0)))
                 fast_points = int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"]))]["Points"].fillna(0)))
                 fast_dollars = int(len(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"])) & df_gsheet["Points"] > 0]["Points"].fillna(0)))
-                userlist.append([config['credentials']['usernames'][user]['name'].split(" ")[0], total_points, main_points, fast_points, fast_dollars])
+                arrow = '<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" style="border-style: none; padding-left: 2px; padding-bottom: 2px;" height="30px" width="30px">'
+                userlist_now.sort(key=lambda x:(-x[1]))
+                temp1 = userlist_now
+                userlist_now.sort(key=lambda x:(-x[2]))
+                temp2 = userlist_now
+                if [n for n, i in enumerate(temp1) if i[0] == user][0] > [n for n, i in enumerate(temp2) if i[0] == user][0] or user=='jw':
+                    arrow = f'<img src="data:image/gif;base64,{data_urlup}" alt="rose" height="30px" width="30px" style=" padding-left: 2px; padding-bottom: 2px;">'
+                elif [n for n, i in enumerate(temp1) if i[0] == user][0] < [n for n, i in enumerate(temp2) if i[0] == user][0]:
+                    arrow = f'<img src="data:image/gif;base64,{data_urldown}" alt="rose" height="30px" width="30px" style=" padding-left: 2px; padding-bottom: 2px;">'
+                userlist.append([config['credentials']['usernames'][user]['name'].split(" ")[0], total_points, main_points, fast_points, fast_dollars, arrow])
             userlist.sort(key=lambda x:(-x[1]))
             for u, user in enumerate(userlist):
                 with st.container():
-                    st.markdown(f""" <div style="font-size: 28px;">
+                    st.markdown(f""" <div style="font-size: 28px; ">
                             <img src="data:image/gif;base64,{data_url1}" alt="rose" height="70px" width="65px">
+                            {user[5]}
                             <div>{u+1}</div></div>
                             <p style="font-size: 24px;"><b>{user[0]}</b></p>
                             <p style="font-size: 16px;">Total Points: {user[1]}<br>Points from Main Bets: {user[2]}<br>Points from Fast Money Bets: {user[3]} (${user[4]})</p> """, unsafe_allow_html=True)
