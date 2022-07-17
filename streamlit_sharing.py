@@ -378,8 +378,9 @@ def create_page(name,username):
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div > div > div > div {
         position: absolute;
-        left: 24px;
-        top: 10px;
+        left: 15px;
+        top: 2px;
+        height: 0px;
         font-weight: bold;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div > div > p {
@@ -391,11 +392,12 @@ def create_page(name,username):
         justify-content: center;
         display: flex;
         flex: 1 1 0%;
-        padding-left: 95px;
+        padding-left: 65px;
+        width: 80px;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div > div > p:nth-of-type(2) {
         overflow-wrap: normal;
-        width: 270px;
+        width: 250px;
     }
     .stApp {
         background-color: white;
@@ -637,25 +639,25 @@ def create_page(name,username):
                 main_points = int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "main"]))]["Points"].fillna(0)))
                 fast_points = int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"]))]["Points"].fillna(0)))
                 fast_dollars = int(len(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"])) & df_gsheet["Points"] > 0]["Points"].fillna(0)))
-                arrow = '<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" style="border-style: none; padding-left: 2px; padding-bottom: 2px;" height="30px" width="30px">'
+                arrow = '<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" style="border-style: none; padding-left: 8px; padding-bottom: 2px;" height="25px" width="33px">'
                 userlist_now.sort(key=lambda x:(-x[1]))
                 temp1 = userlist_now
                 userlist_now.sort(key=lambda x:(-x[2]))
                 temp2 = userlist_now
                 if [n for n, i in enumerate(temp1) if i[0] == user][0] > [n for n, i in enumerate(temp2) if i[0] == user][0] or user=='jw':
-                    arrow = f'<img src="data:image/gif;base64,{data_urlup}" alt="rose" height="30px" width="30px" style=" padding-left: 2px; padding-bottom: 2px;">'
+                    arrow = f'<img src="data:image/gif;base64,{data_urlup}" alt="rose" height="25px" width="33px" style=" padding-left: 8px; padding-bottom: 2px;">'
                 elif [n for n, i in enumerate(temp1) if i[0] == user][0] < [n for n, i in enumerate(temp2) if i[0] == user][0]:
-                    arrow = f'<img src="data:image/gif;base64,{data_urldown}" alt="rose" height="30px" width="30px" style=" padding-left: 2px; padding-bottom: 2px;">'
+                    arrow = f'<img src="data:image/gif;base64,{data_urldown}" alt="rose" height="25px" width="33px" style=" padding-left: 8px; padding-bottom: 2px;">'
                 userlist.append([config['credentials']['usernames'][user]['name'].split(" ")[0], total_points, main_points, fast_points, fast_dollars, arrow])
             userlist.sort(key=lambda x:(-x[1]))
             for u, user in enumerate(userlist):
                 with st.container():
                     st.markdown(f""" <div style="font-size: 28px; ">
-                            <img src="data:image/gif;base64,{data_url1}" alt="rose" height="70px" width="65px">
+                            <img src="data:image/gif;base64,{data_url1}" alt="rose" height="50px" width="45px">
                             {user[5]}
                             <div>{u+1}</div></div>
-                            <p style="font-size: 24px;"><b>{user[0]}</b></p>
-                            <p style="font-size: 16px;">Total Points: {user[1]}<br>Points from Main Bets: {user[2]}<br>Points from Fast Money Bets: {user[3]} (${user[4]})</p> """, unsafe_allow_html=True)
+                            <p style="font-size: 22px;"><b>{user[0]}</b></p>
+                            <p style="font-size: 14px;">Total Points: {user[1]}<br>Points from Main Bets: {user[2]}<br>Points from Fast Money Bets: {user[3]} (${user[4]})</p> """, unsafe_allow_html=True)
 
             st.markdown("""<style>
 
