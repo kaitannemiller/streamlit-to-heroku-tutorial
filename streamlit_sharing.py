@@ -31,26 +31,17 @@ def create_page(name,username):
     global df_gsheet
 
     # And within an expander
-    week = 1
-    bet_titles = ["Gabby's First Impression Rose","Rachel's First Impression Rose","Week One Rose Ceremony","Number of Guys Sent Home","Most Popular Buzz Word"]
-    bet_possiblecounts = [1,1,10,1,1]
-    bet_info = ["Select the bachelor that you think will win Gabby's first impression rose. A correct guess wins 32 points.\n\n\nOdds: 1 in 32\n\nMain Bet: $50+ pool  \nPossible Points: 32",
-                "Select the bachelor that you think will win Rachel's first impression rose. A correct guess wins 32 points.\n\n\nOdds: 1 in 32\n\nMain Bet: $50+ pool  \nPossible Points: 32",
-                "Select 10 bachelors that you think will receive a rose in the first week. Ten correct guesses win 10 points each, nine correct guesses win 9 points each, and so on.\n\n\nOdds of 100 points: 1 in 64512239\n\nMain Bet: $50+ pool  \nPossible Points: 100",
-                "Select the number of bachelors that you think will be sent home in the first week. A correct guess wins 18 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 6\n\nFast Money Bet: Guaranteed $1  \nPossible Points: 18",
-                "Select the phrase that you think will be said the most often in the first week. A correct guess wins 18 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 6\n\nFast Money Bet: Guaranteed $1  \nPossible Points: 18"]
-    bet_choices = [["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
-            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
-                    ["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
-                            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
-                    ["Alec","Aven","Brandan","Chris","Colin","Erich","Ethan","Hayden","Jacob","James","Jason","Joey","John","Johnny",
-                            "Jordan H.","Jordan V.","Justin B.","Justin Y.","Kirk","Logan","Mario","Matt","Michael","Nate","Quincey","Roby","Ryan","Spencer","Termayne","Tino","Tyler","Zach"],
-                    [5,6,7,8,9,10],
-                    ["the right reasons","journey","connection","open and honest","group of guys","chemistry"]]
-    bet_types = ["main","main","main","oneperperson", "oneperperson"]
-    bet_choicestypes = ["img","img","img","text","text"]
-    bet_textprefixes = ["","","","",'"']
-    bet_textsuffixes = ["","",""," guys sent home",'"']
+    thisweek = "1"
+    week = qconfig["weeks"][thisweek]["week"]
+    weekname = qconfig["weeks"][thisweek]["weekname"]
+    bet_titles = [qconfig["weeks"][thisweek]["bets"][x]["title"] for x in qconfig["weeks"][thisweek]["bets"]]
+    bet_possiblecounts = [qconfig["weeks"][thisweek]["bets"][x]["possiblecount"] for x in qconfig["weeks"][thisweek]["bets"]]
+    bet_info = [qconfig["weeks"][thisweek]["bets"][x]["info"] for x in qconfig["weeks"][thisweek]["bets"]]
+    bet_choices = [list(qconfig["weeks"][thisweek]["bets"][x]["choices"]) for x in qconfig["weeks"][thisweek]["bets"]]
+    bet_types = [qconfig["weeks"][thisweek]["bets"][x]["type"] for x in qconfig["weeks"][thisweek]["bets"]]
+    bet_choicestypes = [qconfig["weeks"][thisweek]["bets"][x]["choicestype"] for x in qconfig["weeks"][thisweek]["bets"]]
+    bet_textprefixes = [qconfig["weeks"][thisweek]["bets"][x]["textprefixes"] for x in qconfig["weeks"][thisweek]["bets"]]
+    bet_textsuffixes = [qconfig["weeks"][thisweek]["bets"][x]["textsuffixes"] for x in qconfig["weeks"][thisweek]["bets"]]
 
     i = 0
     children = []
@@ -392,7 +383,7 @@ def create_page(name,username):
         justify-content: center;
         display: flex;
         flex: 1 1 0%;
-        padding-left: 65px;
+        padding-left: 60px;
         width: 80px;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(7) > div > div > div > div > div > div > p:nth-of-type(2) {
@@ -424,7 +415,7 @@ def create_page(name,username):
     st.markdown(header, unsafe_allow_html=True)
 
 
-    st.write("Week One")
+    st.write("Week {}".format(weekname))
 
 
     img_dict = {"Alec": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
@@ -499,11 +490,11 @@ def create_page(name,username):
                 with my_expander:
                     with st.container():
                         info_buttons.append(st.button("ⓘ", key='infobutton'+str(i)))
-                        curr_count = len(df_gsheet[(df_gsheet["Username"]==username)&(df_gsheet["Week"]==1)&(df_gsheet["Question"]==i+1)])
+                        curr_count = len(df_gsheet[(df_gsheet["Username"]==username)&(df_gsheet["Week"]==week)&(df_gsheet["Question"]==i+1)])
                         st.write(str(curr_count)+" / " + str(bet_possiblecounts[i]) + " selected")
                         selection_buttons.append(st.button("Select", key='editbutton'+str(i)))
 
-                    curr_selects = df_gsheet[(df_gsheet["Username"]==username)&(df_gsheet["Week"]==1)&(df_gsheet["Question"]==i+1)]["Choice"]
+                    curr_selects = df_gsheet[(df_gsheet["Username"]==username)&(df_gsheet["Week"]==week)&(df_gsheet["Question"]==i+1)]["Choice"]
                     for curr in curr_selects:
                         img_url = get_display(bet_choicestypes[i], curr, bet_textprefixes[i], bet_textsuffixes[i])
                         img =f"""
@@ -572,7 +563,7 @@ def create_page(name,username):
         total = len(df_gsheet)+2
         if stat == "new" or stat == "overwrite":
             if stat == "overwrite":
-                for row in reversed(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)].index.to_list()):
+                for row in reversed(df_gsheet[(df_gsheet["Week"]==week)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)].index.to_list()):
                     sh.delete_rows(row+2)
                     time.sleep(0.1)
                 df_gsheet = pd.DataFrame(data=sh.get_all_records())
@@ -629,22 +620,33 @@ def create_page(name,username):
             userlist_now = []
             df_gsheet["Points"] = pd.to_numeric(df_gsheet["Points"], errors='coerce')
             for user in config['credentials']['usernames']:
-                #if week > 1:
-                total_points = int(sum(df_gsheet[(df_gsheet["Username"]==user)]["Points"].fillna(0)))
-                last_points = int(sum(df_gsheet[(df_gsheet["Username"]==user)]["Points"].fillna(0)))
+                total_points = 0
+                last_points = 0
+                for w in range(1,week+1):
+                    total_points = total_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w)]["Points"].fillna(0)))
+                    if week > 1:
+                        last_points = last_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1)]["Points"].fillna(0)))
+                    else:
+                        last_points = last_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w)]["Points"].fillna(0)))
                 userlist_now.append([user, total_points, last_points])
             userlist = []
             for user in config['credentials']['usernames']:
-                total_points = int(sum(df_gsheet[(df_gsheet["Username"]==user)]["Points"].fillna(0)))
-                main_points = int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "main"]))]["Points"].fillna(0)))
-                fast_points = int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"]))]["Points"].fillna(0)))
-                fast_dollars = int(len(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"])) & df_gsheet["Points"] > 0]["Points"].fillna(0)))
-                arrow = '<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" style="border-style: none; padding-left: 4px; padding-bottom: 2px;" height="25px" width="29px">'
+                total_points = 0
+                main_points = 0
+                fast_points = 0
+                fast_dollars = 0
+                for w in range(1,week+1):
+                    bet_types = [qconfig["weeks"][str(w)]["bets"][x]["type"] for x in qconfig["weeks"][str(w)]["bets"]]
+                    total_points = total_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w)]["Points"].fillna(0)))
+                    main_points = main_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "main"]))]["Points"].fillna(0)))
+                    fast_points = fast_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"]))]["Points"].fillna(0)))
+                    fast_dollars = fast_dollars + int(len(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"])) & df_gsheet["Points"] > 0]["Points"].fillna(0)))
+                arrow = '<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" style="border-style: none; background-color; transparent; padding-left: 4px; padding-bottom: 2px;" height="25px" width="29px">'
                 userlist_now.sort(key=lambda x:(-x[1]))
                 temp1 = userlist_now
                 userlist_now.sort(key=lambda x:(-x[2]))
                 temp2 = userlist_now
-                if [n for n, i in enumerate(temp1) if i[0] == user][0] > [n for n, i in enumerate(temp2) if i[0] == user][0] or user=='jw':
+                if [n for n, i in enumerate(temp1) if i[0] == user][0] > [n for n, i in enumerate(temp2) if i[0] == user][0]:
                     arrow = f'<img src="data:image/gif;base64,{data_urlup}" alt="rose" height="25px" width="29px" style=" padding-left: 4px; padding-bottom: 2px;">'
                 elif [n for n, i in enumerate(temp1) if i[0] == user][0] < [n for n, i in enumerate(temp2) if i[0] == user][0]:
                     arrow = f'<img src="data:image/gif;base64,{data_urldown}" alt="rose" height="25px" width="29px" style=" padding-left: 4px; padding-bottom: 2px;">'
@@ -696,13 +698,13 @@ def create_page(name,username):
             choices = bet_choices[b]
             if bet_types[b] == "main":
                 for c,choice in enumerate(choices):
-                    if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)&(df_gsheet["Username"]==username)]) > 0:
+                    if len(df_gsheet[(df_gsheet["Week"]==week)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)&(df_gsheet["Username"]==username)]) > 0:
                         choices[c] = str(choices[c]) + "\xa0    *Saved*"
 
             elif bet_types[b] == "oneperperson":
                 for c,choice in enumerate(choices):
-                    if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)]) > 0:
-                        usertemp=df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)]["Username"].to_string(index=False)
+                    if len(df_gsheet[(df_gsheet["Week"]==week)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)]) > 0:
+                        usertemp=df_gsheet[(df_gsheet["Week"]==week)&(df_gsheet["Question"]==b+1)&(df_gsheet["Choice"]==choice)]["Username"].to_string(index=False)
                         choices[c] = str(choices[c]) + "\xa0    *" + config['credentials']['usernames'][usertemp]["name"].split(" ")[0] + "*"
 
             status = ""
@@ -719,17 +721,20 @@ def create_page(name,username):
                         st.write("**You have selected:** " + ', '.join([str(s) for s in myselectbox]) + '  \n**Would you like to save this as your new choice?  \nYou are adding:** '
                                     + ', '.join([str(s) for s in myselectbox if s not in [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1]]) + '  \n**You are deleting:** '
                                     +  ', '.join([str(s) for s in [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1] if s not in myselectbox]))
-                        if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)]) > 0:
+                        if len(df_gsheet[(df_gsheet["Week"]==week)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)]) > 0:
                             status = "overwrite"
                         else:
                             status = "new"
 
                 else:
-                    myselectbox = st.selectbox(bet_titles[b], choices, index=[n for n,c in enumerate(choices) if (str(c).find('*Saved*') > -1 or str(c).find('*' + name + '*') > -1)][0], key="selectbox"+str(b))
+                    if len([n for n,c in enumerate(choices) if (str(c).find('*Saved*') > -1 or str(c).find('*' + name + '*') > -1)]) > 0:
+                        myselectbox = st.selectbox(bet_titles[b], choices, index=[n for n,c in enumerate(choices) if (str(c).find('*Saved*') > -1 or str(c).find('*' + name + '*') > -1)][0], key="selectbox"+str(b))
+                    else:
+                        myselectbox = st.selectbox(bet_titles[b], choices, index=0, key="selectbox"+str(b))
 
                     if str(myselectbox).find("*") == -1:
                         st.write("**You have selected:** " + str(myselectbox) + '  ' + "\n**Would you like to save this as your new choice?**")
-                        if len(df_gsheet[(df_gsheet["Week"]==1)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)]) > 0:
+                        if len(df_gsheet[(df_gsheet["Week"]==week)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)]) > 0:
                             status = "overwrite"
                         else:
                             status = "new"
@@ -808,6 +813,9 @@ df_gsheet = pd.DataFrame(data=sh.get_all_records())
 
 with open('./cred.yaml') as file:
     config = yaml.safe_load(file)
+
+with open('./questions.yaml') as file:
+    qconfig = yaml.safe_load(file)
 
 for user in config['credentials']['usernames'].keys():
     config['credentials']['usernames'][user]['password'] = stauth.Hasher([config['credentials']['usernames'][user]['password']]).generate()[0]
