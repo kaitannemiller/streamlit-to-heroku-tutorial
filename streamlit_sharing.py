@@ -31,7 +31,7 @@ def create_page(name,username):
     global df_gsheet
 
     # And within an expander
-    thisweek = "1"
+    thisweek = "2"
     week = qconfig["weeks"][thisweek]["week"]
     weekname = qconfig["weeks"][thisweek]["weekname"]
     bet_titles = [qconfig["weeks"][thisweek]["bets"][x]["title"] for x in qconfig["weeks"][thisweek]["bets"]]
@@ -106,23 +106,37 @@ def create_page(name,username):
         color: white;
         font-size:18px;
     }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4)  {
+        height: 4.5rem;
+        flex: unset !important;
+    }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div {
         height: 4.5rem;
+        flex-direction: row;
+        flex: unset;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div {
-        height: 100%;
-        width: 100%;
         display: flex;
+        flex: 1 1 0%;
         justify-content: center;
         align-items: center;
         -webkit-align-items: center;
         background-color: white;
+        overflow-wrap: normal;
     }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div > p {
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div > div {
+        width: auto !important;
+        text-align: center;
+        color: #333333;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div > div > div > p {
         text-align: center;
         font-size: 28px;
         color: #333333;
-        margin: 0px 0px 0px;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div > div > button {
+        background-color: #EEEEEE;
+        color: #BFBFBF;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:not(.element-container):not(.resize-triggers):nth-child(n+13) {
         position: fixed;
@@ -414,8 +428,10 @@ def create_page(name,username):
     """
     st.markdown(header, unsafe_allow_html=True)
 
-
-    st.write("Week {}".format(weekname))
+    with st.container():
+        st.button("<", key="leftbutton")
+        st.write("Week {}".format(weekname))
+        st.button(">", key="rightbutton")
 
 
     img_dict = {"Alec": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
@@ -570,13 +586,13 @@ def create_page(name,username):
                 total = len(df_gsheet)+2
             if bet_possiblecounts[b] > 1:
                 for s, select in enumerate(selec):
-                    sh.update_cell(total+s,1,1)
+                    sh.update_cell(total+s,1,week)
                     sh.update_cell(total+s,2,b+1)
                     sh.update_cell(total+s,3,username)
                     sh.update_cell(total+s,4,select)
                     time.sleep(0.1)
             else:
-                sh.update_cell(total,1,1)
+                sh.update_cell(total,1,week)
                 sh.update_cell(total,2,b+1)
                 sh.update_cell(total,3,username)
                 sh.update_cell(total,4,selec)

@@ -216,3 +216,228 @@ weeks:
         choicestype: text
         textprefixes: '"'
         textsuffixes: '"'
+  '2':
+    week: 2
+    weekname: Two
+    bets:
+      '1':
+        title: Number of Guys Kissed by Gabby
+        possiblecount: 1
+        info: >-
+          Select the number of bachelors that you think Gabby will kiss. A
+          correct guess wins 16 points.
+
+
+
+          Odds: 1 in 16
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 16
+        choices:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+        type: main
+        choicestype: text
+        textprefixes: 'kissing '
+        textsuffixes: ' guys'
+      '2':
+        title: Number of Guys Kissed by Rachel
+        possiblecount: 1
+        info: >-
+          Select the number of bachelors that you think Rachel will kiss. A
+          correct guess wins 16 points.
+
+
+
+          Odds: 1 in 16
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 16
+        choices:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+        type: main
+        choicestype: text
+        textprefixes: 'kissing '
+        textsuffixes: ' guys'
+      '3':
+        title: Week One Rose Ceremony
+        possiblecount: 10
+        info: >-
+          Select 10 bachelors that you think will receive a rose in the first
+          week. Ten correct guesses win 10 points each, nine correct guesses win
+          9 points each, and so on.
+
+
+
+          Odds of 100 points: 1 in 64512239
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 100
+        choices:
+          - Alec
+          - Aven
+          - Brandan
+          - Chris
+          - Colin
+          - Erich
+          - Ethan
+          - Hayden
+          - Jacob
+          - James
+          - Jason
+          - Joey
+          - John
+          - Johnny
+          - Jordan H.
+          - Jordan V.
+          - Justin B.
+          - Justin Y.
+          - Kirk
+          - Logan
+          - Mario
+          - Matt
+          - Michael
+          - Nate
+          - Quincey
+          - Roby
+          - Ryan
+          - Spencer
+          - Termayne
+          - Tino
+          - Tyler
+          - Zach
+        type: main
+        choicestype: img
+        textprefixes: ''
+        textsuffixes: ''
+      '4':
+        title: Number of Roses Rejected
+        possiblecount: 1
+        info: >-
+          Select the number of bachelors that you think will reject a rose in
+          the second week. A correct guess wins 18 points.
+
+
+
+          Odds: 1 in 2
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 24
+        choices:
+          - two or less
+          - more than two
+        type: main
+        choicestype: text
+        textprefixes: ''
+        textsuffixes: ' roses rejected'
+      '5':
+        title: Number of Times Clayton is Said
+        possiblecount: 1
+        info: >-
+          Select the number of times you think someone will say the name
+          Clayton. A correct guess wins 12 points.
+
+          This bet is ***one guess per person. Make your selection quickly!***
+
+
+
+          Odds: 1 in 24
+
+
+          Fast Money Bet: Guaranteed $1  
+
+          Possible Points: 12
+        choices:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+          - 21
+          - 22
+          - 23
+        type: oneperperson
+        choicestype: text
+        textprefixes: 'Clayton said '
+        textsuffixes: ' times'
+      '6':
+        title: Most Popular Buzz Word
+        possiblecount: 1
+        info: >-
+          Select the phrase that you think will be said the most often in the
+          second week. A correct guess wins 12 points.
+
+          This bet is ***one guess per person. Make your selection quickly!***
+
+
+
+          Odds: 1 in 6
+
+
+          Fast Money Bet: Guaranteed $1  
+
+          Possible Points: 12
+        choices:
+          - biggest/greatest fear
+          - two bachelorettes
+          - open and honest
+          - best friends
+          - future husband/wife
+          - fall(ing) in love with two __
+        type: oneperperson
+        choicestype: text
+        textprefixes: '"'
+        textsuffixes: '"'
