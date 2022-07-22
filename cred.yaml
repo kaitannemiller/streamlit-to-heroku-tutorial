@@ -1,7 +1,7 @@
 credentials:
   usernames:
     jw:
-      name: John Williams
+      name: Jack Williams
       password: jw # To be replaced with hashed password
     km:
       name: Kaitlin Miller

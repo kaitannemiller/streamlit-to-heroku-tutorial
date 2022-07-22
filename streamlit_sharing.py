@@ -574,7 +574,7 @@ def create_page(name,username):
         st.session_state['visit_flag'] = 0
         #bet_container_go()
 
-    def save_button_func(selec, b, stat):
+    def save_button_func(selec, b, stat, add=[], delete=[]):
         global df_gsheet
         total = len(df_gsheet)+2
         if stat == "new" or stat == "overwrite":
@@ -585,17 +585,49 @@ def create_page(name,username):
                 df_gsheet = pd.DataFrame(data=sh.get_all_records())
                 total = len(df_gsheet)+2
             if bet_possiblecounts[b] > 1:
+                cell_range = '{col_i}{row_i}:{col_f}{row_f}'.format(
+                    col_i=chr((1-1) + ord('A')),    # converts number to letter = 1 - 1 = A-1
+                    col_f=chr((4-1) + ord('A')),
+                    row_i=total,
+                    row_f=total+len(selec))
+                cell_list = sh.range(cell_range)
                 for s, select in enumerate(selec):
-                    sh.update_cell(total+s,1,week)
-                    sh.update_cell(total+s,2,b+1)
-                    sh.update_cell(total+s,3,username)
-                    sh.update_cell(total+s,4,select)
-                    time.sleep(0.1)
+                    cell_list[(s*4)+1-1].value = week
+                    cell_list[(s*4)+2-1].value = b+1
+                    cell_list[(s*4)+3-1].value = username
+                    cell_list[(s*4)+4-1].value = select
+                sh.update_cells(cell_list)
             else:
-                sh.update_cell(total,1,week)
-                sh.update_cell(total,2,b+1)
-                sh.update_cell(total,3,username)
-                sh.update_cell(total,4,selec)
+                cell_range = '{col_i}{row_i}:{col_f}{row_i}'.format(
+                    col_i=chr((1-1) + ord('A')),    # converts number to letter = 1 - 1 = A-1
+                    col_f=chr((4-1) + ord('A')),
+                    row_i=total)
+                cell_list = sh.range(cell_range)
+                cell_list[1-1].value = week
+                cell_list[2-1].value = b+1
+                cell_list[3-1].value = username
+                cell_list[4-1].value = selec
+                sh.update_cells(cell_list)
+        if stat == "split":
+            cell_range = '{col_i}{row_i}:{col_f}{row_f}'.format(
+                col_i=chr((1-1) + ord('A')),    # converts number to letter = 1 - 1 = A-1
+                col_f=chr((4-1) + ord('A')),
+                row_i=total,
+                row_f=total+len(add))
+            cell_list = sh.range(cell_range)
+            for s, select in enumerate(add):
+                cell_list[(s*4)+1-1].value = week
+                cell_list[(s*4)+2-1].value = b+1
+                cell_list[(s*4)+3-1].value = username
+                cell_list[(s*4)+4-1].value = select
+            sh.update_cells(cell_list)
+            for s, select in enumerate(delete):
+                for row in reversed(df_gsheet[(df_gsheet["Week"]==week)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)&(df_gsheet["Choice"]==select)].index.to_list()):
+                    sh.delete_rows(row+2)
+                    time.sleep(0.1)
+                df_gsheet = pd.DataFrame(data=sh.get_all_records())
+                total = len(df_gsheet)+2
+
         bet_container.empty()
         contestants_container.empty()
         standings_container.empty()
@@ -657,7 +689,7 @@ def create_page(name,username):
                     main_points = main_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "main"]))]["Points"].fillna(0)))
                     fast_points = fast_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"]))]["Points"].fillna(0)))
                     fast_dollars = fast_dollars + int(len(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"])) & df_gsheet["Points"] > 0]["Points"].fillna(0)))
-                arrow = '<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" style="border-style: none; background-color; transparent; padding-left: 4px; padding-bottom: 2px;" height="25px" width="29px">'
+                arrow = '<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" style="border-style: none; outline: none; background-color; transparent; padding-left: 4px; padding-bottom: 2px;" height="25px" width="29px">'
                 userlist_now.sort(key=lambda x:(-x[1]))
                 temp1 = userlist_now
                 userlist_now.sort(key=lambda x:(-x[2]))
@@ -724,6 +756,8 @@ def create_page(name,username):
                         choices[c] = str(choices[c]) + "\xa0    *" + config['credentials']['usernames'][usertemp]["name"].split(" ")[0] + "*"
 
             status = ""
+            adding = []
+            deleting = []
             with st.container() as form:
             #with st.form(key="selectbox") as form:
                 if bet_possiblecounts[b] > 1:
@@ -738,7 +772,9 @@ def create_page(name,username):
                                     + ', '.join([str(s) for s in myselectbox if s not in [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1]]) + '  \n**You are deleting:** '
                                     +  ', '.join([str(s) for s in [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1] if s not in myselectbox]))
                         if len(df_gsheet[(df_gsheet["Week"]==week)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)]) > 0:
-                            status = "overwrite"
+                            status = "split"
+                            adding = [str(s) for s in myselectbox if s not in [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1]]
+                            deleting = [str(s) for s in [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1] if s not in myselectbox]
                         else:
                             status = "new"
 
@@ -759,7 +795,7 @@ def create_page(name,username):
                     else:
                         st.write("**You have selected:** " + str(myselectbox[0:str(myselectbox).find('*')]) + '  ' + "\n**This choice is unavailable. Please make another selection.**")
 
-                save_button = st.button("Save and Close", on_click=save_button_func, args=[myselectbox,b,status])
+                save_button = st.button("Save and Close", on_click=save_button_func, args=[myselectbox,b,status,adding,deleting])
 
 
             with st.container():
