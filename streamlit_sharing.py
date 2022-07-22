@@ -689,7 +689,7 @@ def create_page(name,username):
                     main_points = main_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "main"]))]["Points"].fillna(0)))
                     fast_points = fast_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"]))]["Points"].fillna(0)))
                     fast_dollars = fast_dollars + int(len(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"])) & df_gsheet["Points"] > 0]["Points"].fillna(0)))
-                arrow = '<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" style="border-style: none; outline: none; background-color; transparent; padding-left: 4px; padding-bottom: 2px;" height="25px" width="29px">'
+                arrow = '<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" style="border-style: none; outline: none; background-color: transparent; padding-left: 4px; padding-bottom: 2px;" height="25px" width="29px">'
                 userlist_now.sort(key=lambda x:(-x[1]))
                 temp1 = userlist_now
                 userlist_now.sort(key=lambda x:(-x[2]))
