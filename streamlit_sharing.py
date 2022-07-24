@@ -4,6 +4,7 @@ import gspread
 import pandas as pd
 import streamlit_authenticator as stauth
 import time
+import datetime
 import base64
 import yaml
 from PIL import Image
@@ -20,6 +21,15 @@ first_visit = 1
 bet_i = 0
 if 'visit_flag' not in st.session_state:
     st.session_state["visit_flag"] = 0
+
+
+
+def week_back_button_func(week):
+    st.session_state['week'] = week - 1
+
+def week_forward_button_func(week):
+    st.session_state['week'] = week + 1
+
 def create_page(name,username):
     global bet_i
     global info_i
@@ -29,19 +39,23 @@ def create_page(name,username):
     global cancel_button
     global first_visit
     global df_gsheet
+    global thisweek
+    global submitweek
 
     # And within an expander
-    thisweek = "2"
-    week = qconfig["weeks"][thisweek]["week"]
-    weekname = qconfig["weeks"][thisweek]["weekname"]
-    bet_titles = [qconfig["weeks"][thisweek]["bets"][x]["title"] for x in qconfig["weeks"][thisweek]["bets"]]
-    bet_possiblecounts = [qconfig["weeks"][thisweek]["bets"][x]["possiblecount"] for x in qconfig["weeks"][thisweek]["bets"]]
-    bet_info = [qconfig["weeks"][thisweek]["bets"][x]["info"] for x in qconfig["weeks"][thisweek]["bets"]]
-    bet_choices = [list(qconfig["weeks"][thisweek]["bets"][x]["choices"]) for x in qconfig["weeks"][thisweek]["bets"]]
-    bet_types = [qconfig["weeks"][thisweek]["bets"][x]["type"] for x in qconfig["weeks"][thisweek]["bets"]]
-    bet_choicestypes = [qconfig["weeks"][thisweek]["bets"][x]["choicestype"] for x in qconfig["weeks"][thisweek]["bets"]]
-    bet_textprefixes = [qconfig["weeks"][thisweek]["bets"][x]["textprefixes"] for x in qconfig["weeks"][thisweek]["bets"]]
-    bet_textsuffixes = [qconfig["weeks"][thisweek]["bets"][x]["textsuffixes"] for x in qconfig["weeks"][thisweek]["bets"]]
+    # get max week that is labeled ready
+    # get week that is currently in the submit window
+    week = st.session_state["week"]
+    weekname = qconfig["weeks"][str(week)]["weekname"]
+    bet_titles = [qconfig["weeks"][str(week)]["bets"][x]["title"] for x in qconfig["weeks"][str(week)]["bets"]]
+    bet_possiblecounts = [qconfig["weeks"][str(week)]["bets"][x]["possiblecount"] for x in qconfig["weeks"][str(week)]["bets"]]
+    bet_info = [qconfig["weeks"][str(week)]["bets"][x]["info"] for x in qconfig["weeks"][str(week)]["bets"]]
+    bet_choices = [list(qconfig["weeks"][str(week)]["bets"][x]["choices"]) for x in qconfig["weeks"][str(week)]["bets"]]
+    bet_types = [qconfig["weeks"][str(week)]["bets"][x]["type"] for x in qconfig["weeks"][str(week)]["bets"]]
+    bet_choicestypes = [qconfig["weeks"][str(week)]["bets"][x]["choicestype"] for x in qconfig["weeks"][str(week)]["bets"]]
+    bet_textprefixes = [qconfig["weeks"][str(week)]["bets"][x]["textprefixes"] for x in qconfig["weeks"][str(week)]["bets"]]
+    bet_textsuffixes = [qconfig["weeks"][str(week)]["bets"][x]["textsuffixes"] for x in qconfig["weeks"][str(week)]["bets"]]
+
 
     i = 0
     children = []
@@ -55,6 +69,24 @@ def create_page(name,username):
             background-color: #BFBFBF; }}
 
     </style>"""
+
+    style2 = ''
+    if week == 1:
+        style2 = """<style>
+
+            #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(1) > div,
+            #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(1) > div > button {
+                height: 0px; width: 0px !important; visibility: hidden; }
+
+        </style>"""
+    if week == qconfig["weeks"][thisweek]["week"]:
+        style2 = """<style>
+
+            #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(3) > div,
+            #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(3) > div > button {
+                height: 0px; width: 0px !important; visibility: hidden; }
+
+        </style>"""
 
     st.markdown(""" <style>
     #MainMenu {visibility: hidden;}
@@ -409,8 +441,8 @@ def create_page(name,username):
     }
     </style>
     <link href='https://fonts.googleapis.com/css?family=Norican' rel='stylesheet' type='text/css'>
-    """ + style, unsafe_allow_html=True)
 
+    """ + style + style2, unsafe_allow_html=True)
 
 
 
@@ -429,9 +461,9 @@ def create_page(name,username):
     st.markdown(header, unsafe_allow_html=True)
 
     with st.container():
-        st.button("<", key="leftbutton")
+        st.button("<", key="leftbutton", on_click=week_back_button_func, args=[week])
         st.write("Week {}".format(weekname))
-        st.button(">", key="rightbutton")
+        st.button(">", key="rightbutton", on_click=week_forward_button_func, args=[week])
 
 
     img_dict = {"Alec": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003259/809f10c81eaf7ccd46b7a5807f1fd0e0/1600x640-Q90_809f10c81eaf7ccd46b7a5807f1fd0e0.jpg',
@@ -553,7 +585,7 @@ def create_page(name,username):
             standings_container.empty()
             info_container.empty()
             selection_container.empty()
-            st.session_state['visit_flag'] = 0
+            st.session_state['visit_flag'] = 100
             standings_container_go()
         if contestants_button:
             bet_container.empty()
@@ -561,8 +593,9 @@ def create_page(name,username):
             standings_container.empty()
             info_container.empty()
             selection_container.empty()
-            st.session_state['visit_flag'] = 0
+            st.session_state['visit_flag'] = 200
             contestants_container_go()
+
 
 
     def cancel_button_func():
@@ -671,11 +704,12 @@ def create_page(name,username):
                 total_points = 0
                 last_points = 0
                 for w in range(1,week+1):
-                    total_points = total_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w)]["Points"].fillna(0)))
-                    if week > 1:
-                        last_points = last_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1)]["Points"].fillna(0)))
+                    if w > 1:
+                        total_points = total_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1)]["Points"].fillna(0)))
+                    if w > 2:
+                        last_points = last_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-2)]["Points"].fillna(0)))
                     else:
-                        last_points = last_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w)]["Points"].fillna(0)))
+                        last_points = total_points
                 userlist_now.append([user, total_points, last_points])
             userlist = []
             for user in config['credentials']['usernames']:
@@ -684,11 +718,12 @@ def create_page(name,username):
                 fast_points = 0
                 fast_dollars = 0
                 for w in range(1,week+1):
-                    bet_types = [qconfig["weeks"][str(w)]["bets"][x]["type"] for x in qconfig["weeks"][str(w)]["bets"]]
-                    total_points = total_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w)]["Points"].fillna(0)))
-                    main_points = main_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "main"]))]["Points"].fillna(0)))
-                    fast_points = fast_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"]))]["Points"].fillna(0)))
-                    fast_dollars = fast_dollars + int(len(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"])) & df_gsheet["Points"] > 0]["Points"].fillna(0)))
+                    if w > 1:
+                        bet_types = [qconfig["weeks"][str(w)]["bets"][x]["type"] for x in qconfig["weeks"][str(w)]["bets"]]
+                        total_points = total_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1)]["Points"].fillna(0)))
+                        main_points = main_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "main"]))]["Points"].fillna(0)))
+                        fast_points = fast_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"]))]["Points"].fillna(0)))
+                        fast_dollars = fast_dollars + int(len(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"])) & df_gsheet["Points"] > 0]["Points"].fillna(0)))
                 arrow = '<p style="border-style: none; outline: none; background-color: transparent; padding-left: 29px; padding-bottom: 25px; margin: 0px 0px 0px;"></p>'
                 userlist_now.sort(key=lambda x:(-x[1]))
                 temp1 = userlist_now
@@ -728,6 +763,16 @@ def create_page(name,username):
             st.session_state["info_i"] = info_i
             back_button = st.button("Back", key="infobackbutton"+str(info_i))
 
+            st.markdown("""<style>
+
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(1) > div,
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(3) > div,
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(1) > div > button,
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(3) > div > button {
+                    height: 0px; width: 0px !important; visibility: hidden; }
+
+            </style>""", unsafe_allow_html=True)
+
         if back_button:
             bet_container.empty()
             contestants_container.empty()
@@ -760,10 +805,13 @@ def create_page(name,username):
             deleting = []
             with st.container() as form:
             #with st.form(key="selectbox") as form:
+
                 if bet_possiblecounts[b] > 1:
                     myselectbox = st.multiselect(bet_titles[b], [c[0:c.find('*')].strip() if c.find('*') > -1 else c for c in choices], [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1])
 
-                    if myselectbox == [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1]:
+                    if week != qconfig["weeks"][submitweek]["week"]:
+                        st.write("**You have selected:** " + ', '.join([str(s) for s in myselectbox]) + '  ' + "\n**Submissions have closed for this week.**")
+                    elif myselectbox == [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1]:
                         st.write("**You have selected:** " + ', '.join([str(s) for s in myselectbox]) + '  ' + "\n**This is the choice you currently have saved.**")
                     elif len(myselectbox) > bet_possiblecounts[b]:
                         st.write("**You have selected:** " + ', '.join([str(s) for s in myselectbox]) + '  ' + "\n**You have selected too many options. Please limit your choices to** " + str(bet_possiblecounts[b]))
@@ -784,7 +832,9 @@ def create_page(name,username):
                     else:
                         myselectbox = st.selectbox(bet_titles[b], choices, index=0, key="selectbox"+str(b))
 
-                    if str(myselectbox).find("*") == -1:
+                    if week != qconfig["weeks"][submitweek]["week"]:
+                        st.write("**You have selected:** " + str(myselectbox[0:str(myselectbox).find('*')]) + '  ' + "\n**Submissions have closed for this week.**")
+                    elif str(myselectbox).find("*") == -1:
                         st.write("**You have selected:** " + str(myselectbox) + '  ' + "\n**Would you like to save this as your new choice?**")
                         if len(df_gsheet[(df_gsheet["Week"]==week)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)]) > 0:
                             status = "overwrite"
@@ -800,6 +850,16 @@ def create_page(name,username):
 
             with st.container():
                 cancel_button = st.button("Cancel", on_click=cancel_button_func)
+
+            st.markdown("""<style>
+
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(1) > div,
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(3) > div,
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(1) > div > button,
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(3) > div > button {
+                    height: 0px; width: 0px !important; visibility: hidden; }
+
+            </style>""", unsafe_allow_html=True)
 
     def get_display(type, input, text_prefix='', text_suffix=''):
         if type == "img":
@@ -833,7 +893,7 @@ def create_page(name,username):
         standings_container.empty()
         info_container.empty()
         selection_container.empty()
-        st.session_state["visit_flag"] = 0
+        st.session_state["visit_flag"] = 100
         standings_container_go()
     elif contestants_button:
         bet_container.empty()
@@ -841,7 +901,7 @@ def create_page(name,username):
         standings_container.empty()
         info_container.empty()
         selection_container.empty()
-        st.session_state["visit_flag"] = 0
+        st.session_state["visit_flag"] = 200
         contestants_container_go()
     elif bets_button:
         first_visit = 0
@@ -852,9 +912,13 @@ def create_page(name,username):
         selection_container.empty()
         st.session_state["visit_flag"] = 0
         bet_container_go()
-    elif st.session_state["visit_flag"] > 0:
+    elif st.session_state["visit_flag"] > 0 and st.session_state["visit_flag"] < 100:
         selection_container_go(st.session_state["visit_flag"]-1)
         st.legacy_caching.clear_cache()
+    elif st.session_state["visit_flag"] == 100:
+        standings_container_go()
+    elif st.session_state["visit_flag"] == 200:
+        contestants_container_go()
 
 
 
@@ -875,6 +939,16 @@ for user in config['credentials']['usernames'].keys():
 authenticator = stauth.Authenticate(config['credentials'],'bachelor_bets','harrison',cookie_expiry_days=30)
 name, authentication_status, username = authenticator.login('Login','main')
 time.sleep(0.5)
+
+ready_weeks = [x for x in qconfig["weeks"] if qconfig["weeks"][x]["ready"] == "yes"]
+thisweek = ready_weeks[len(ready_weeks)-1]
+now = datetime.datetime.now()
+submitweek = [x for x in qconfig["weeks"] if
+    datetime.datetime(qconfig["weeks"][x]["submitStartyear"],qconfig["weeks"][x]["submitStartmonth"],qconfig["weeks"][x]["submitStartday"],qconfig["weeks"][x]["submitStarthour"],qconfig["weeks"][x]["submitStartminute"]) <= now <
+    datetime.datetime(qconfig["weeks"][x]["submitStartyear"],qconfig["weeks"][x]["submitStartmonth"],qconfig["weeks"][x]["submitStartday"],qconfig["weeks"][x]["submitStarthour"],qconfig["weeks"][x]["submitStartminute"])+datetime.timedelta(days=7)][0]
+
+if 'week' not in st.session_state:
+    st.session_state["week"] = qconfig["weeks"][thisweek]["week"]
 
 if st.session_state['authentication_status']:
     #authenticator.logout('Logout', 'main')
