@@ -809,8 +809,8 @@ def create_page(name,username):
                 if bet_possiblecounts[b] > 1:
                     myselectbox = st.multiselect(bet_titles[b], [c[0:c.find('*')].strip() if c.find('*') > -1 else c for c in choices], [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1])
 
-                    if week != qconfig["weeks"][submitweek]["week"]:
-                        st.write("**You have selected:** " + ', '.join([str(s) for s in myselectbox]) + '  ' + "\n**Submissions have closed for this week.**")
+                    if submitweek == "" or week != qconfig["weeks"][submitweek]["week"]:
+                        st.write("**You have selected:** " + ', '.join([str(s) for s in myselectbox]) + '  ' + "\n**Submissions are closed for this week.**")
                     elif myselectbox == [c[0:c.find('*')].strip() for c in choices if str(c).find('*') > -1]:
                         st.write("**You have selected:** " + ', '.join([str(s) for s in myselectbox]) + '  ' + "\n**This is the choice you currently have saved.**")
                     elif len(myselectbox) > bet_possiblecounts[b]:
@@ -832,8 +832,8 @@ def create_page(name,username):
                     else:
                         myselectbox = st.selectbox(bet_titles[b], choices, index=0, key="selectbox"+str(b))
 
-                    if week != qconfig["weeks"][submitweek]["week"]:
-                        st.write("**You have selected:** " + str(myselectbox[0:str(myselectbox).find('*')]) + '  ' + "\n**Submissions have closed for this week.**")
+                    if submitweek == "" or week != qconfig["weeks"][submitweek]["week"]:
+                        st.write("**You have selected:** " + str(myselectbox[0:str(myselectbox).find('*')]) + '  ' + "\n**Submissions are closed for this week.**")
                     elif str(myselectbox).find("*") == -1:
                         st.write("**You have selected:** " + str(myselectbox) + '  ' + "\n**Would you like to save this as your new choice?**")
                         if len(df_gsheet[(df_gsheet["Week"]==week)&(df_gsheet["Question"]==b+1)&(df_gsheet["Username"]==username)]) > 0:
@@ -943,9 +943,13 @@ time.sleep(0.5)
 ready_weeks = [x for x in qconfig["weeks"] if qconfig["weeks"][x]["ready"] == "yes"]
 thisweek = ready_weeks[len(ready_weeks)-1]
 now = datetime.datetime.now()
-submitweek = [x for x in qconfig["weeks"] if
+submitweek_group = [x for x in qconfig["weeks"] if
     datetime.datetime(qconfig["weeks"][x]["submitStartyear"],qconfig["weeks"][x]["submitStartmonth"],qconfig["weeks"][x]["submitStartday"],qconfig["weeks"][x]["submitStarthour"],qconfig["weeks"][x]["submitStartminute"]) <= now <
-    datetime.datetime(qconfig["weeks"][x]["submitStartyear"],qconfig["weeks"][x]["submitStartmonth"],qconfig["weeks"][x]["submitStartday"],qconfig["weeks"][x]["submitStarthour"],qconfig["weeks"][x]["submitStartminute"])+datetime.timedelta(days=7)][0]
+    datetime.datetime(qconfig["weeks"][x]["submitEndyear"],qconfig["weeks"][x]["submitEndmonth"],qconfig["weeks"][x]["submitEndday"],qconfig["weeks"][x]["submitEndhour"],qconfig["weeks"][x]["submitEndminute"])]
+if len(submitweek_group) > 0:
+    submitweek = submitweek_group[0]
+else:
+    submitweek = ""
 
 if 'week' not in st.session_state:
     st.session_state["week"] = qconfig["weeks"][thisweek]["week"]

@@ -8,6 +8,11 @@ weeks:
     submitStartday: 6
     submitStarthour: 9
     submitStartminute: 0
+    submitEndyear: 2022
+    submitEndmonth: 7
+    submitEndday: 13
+    submitEndhour: 9
+    submitEndminute: 0
     bets:
       '1':
         title: Gabby's First Impression Rose
@@ -61,6 +66,9 @@ weeks:
         choicestype: img
         textprefixes: ''
         textsuffixes: ''
+        correctanswer:
+          - Mario
+        points: 32
       '2':
         title: Rachel's First Impression Rose
         possiblecount: 1
@@ -113,6 +121,9 @@ weeks:
         choicestype: img
         textprefixes: ''
         textsuffixes: ''
+        correctanswer:
+          - Tino
+        points: 32
       '3':
         title: Week One Rose Ceremony
         possiblecount: 10
@@ -166,6 +177,37 @@ weeks:
         choicestype: img
         textprefixes: ''
         textsuffixes: ''
+        correctanswer:
+          - Alec
+          - Aven
+          - Brandan
+          - Chris
+          - Colin
+          - Erich
+          - Ethan
+          - Hayden
+          - Jacob
+          - James
+          - Jason
+          - John
+          - Johnny
+          - Jordan H.
+          - Jordan V.
+          - Justin B.
+          - Kirk
+          - Logan
+          - Mario
+          - Matt
+          - Michael
+          - Nate
+          - Quincey
+          - Ryan
+          - Spencer
+          - Termayne
+          - Tino
+          - Tyler
+          - Zach
+        points: 10
       '4':
         title: Number of Guys Sent Home
         possiblecount: 1
@@ -194,6 +236,9 @@ weeks:
         choicestype: text
         textprefixes: ''
         textsuffixes: ' guys sent home'
+        correctanswer:
+          - 3
+        points: 18
       '5':
         title: Most Popular Buzz Word
         possiblecount: 1
@@ -222,6 +267,9 @@ weeks:
         choicestype: text
         textprefixes: '"'
         textsuffixes: '"'
+        correctanswer:
+          - journey
+        points: 18
   '2':
     week: 2
     weekname: Two
@@ -231,6 +279,11 @@ weeks:
     submitStartday: 13
     submitStarthour: 9
     submitStartminute: 0
+    submitEndyear: 2022
+    submitEndmonth: 7
+    submitEndday: 20
+    submitEndhour: 9
+    submitEndminute: 0
     bets:
       '1':
         title: Number of Guys Kissed by Gabby
@@ -268,6 +321,9 @@ weeks:
         choicestype: text
         textprefixes: 'kissing '
         textsuffixes: ' guys'
+        correctanswer:
+          - 4
+        points: 16
       '2':
         title: Number of Guys Kissed by Rachel
         possiblecount: 1
@@ -304,6 +360,9 @@ weeks:
         choicestype: text
         textprefixes: 'kissing '
         textsuffixes: ' guys'
+        correctanswer:
+          - 4
+        points: 16
       '3':
         title: Week Two Rose Ceremony
         possiblecount: 10
@@ -332,13 +391,11 @@ weeks:
           - Jacob
           - James
           - Jason
-          - Joey
           - John
           - Johnny
           - Jordan H.
           - Jordan V.
           - Justin B.
-          - Justin Y.
           - Kirk
           - Logan
           - Mario
@@ -346,7 +403,6 @@ weeks:
           - Michael
           - Nate
           - Quincey
-          - Roby
           - Ryan
           - Spencer
           - Termayne
@@ -357,6 +413,29 @@ weeks:
         choicestype: img
         textprefixes: ''
         textsuffixes: ''
+        correctanswer:
+          - Alec
+          - Aven
+          - Erich
+          - Ethan
+          - Hayden
+          - Jacob
+          - James
+          - Jason
+          - Johnny
+          - Jordan H.
+          - Kirk
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Quincey
+          - Spencer
+          - Termayne
+          - Tino
+          - Tyler
+          - Zach
+        points: 10
       '4':
         title: Number of Roses Rejected
         possiblecount: 1
@@ -379,6 +458,9 @@ weeks:
         choicestype: text
         textprefixes: ''
         textsuffixes: ' roses rejected'
+        correctanswer:
+          - two or less
+        points: 24
       '5':
         title: Number of Times Clayton is Said
         possiblecount: 1
@@ -425,6 +507,9 @@ weeks:
         choicestype: text
         textprefixes: 'Clayton said '
         textsuffixes: ' times'
+        correctanswer:
+          - 0
+        points: 12
       '6':
         title: Most Popular Buzz Word
         possiblecount: 1
@@ -453,22 +538,30 @@ weeks:
         choicestype: text
         textprefixes: '"'
         textsuffixes: '"'
+        correctanswer:
+          - two bachelorettes
+        points: 12
   '3':
     week: 3
     weekname: Three
-    ready: 'no'
+    ready: 'yes'
     submitStartyear: 2022
     submitStartmonth: 7
-    submitStartday: 20
-    submitStarthour: 9
+    submitStartday: 25
+    submitStarthour: 4
     submitStartminute: 0
+    submitEndyear: 2022
+    submitEndmonth: 7
+    submitEndday: 27
+    submitEndhour: 9
+    submitEndminute: 0
     bets:
       '1':
-        title: Number of Guys Kissed by Gabby
+        title: Gabby's 1-on-1 Date
         possiblecount: 1
         info: >-
-          Select the number of bachelors that you think Gabby will kiss. A
-          correct guess wins 16 points.
+          Select the bachelor that you think Gabby will take on her 1-on-1 date.
+          A correct guess wins 16 points.
 
 
 
@@ -479,32 +572,37 @@ weeks:
 
           Possible Points: 16
         choices:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
-          - 12
-          - 13
-          - 14
-          - 15
+          - Alec
+          - Aven
+          - Erich
+          - Ethan
+          - Hayden
+          - Jacob
+          - James
+          - Jason
+          - Johnny
+          - Jordan H.
+          - Kirk
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Quincey
+          - Spencer
+          - Termayne
+          - Tino
+          - Tyler
+          - Zach
         type: main
-        choicestype: text
-        textprefixes: 'kissing '
-        textsuffixes: ' guys'
+        choicestype: img
+        textprefixes: ''
+        textsuffixes: ''
       '2':
-        title: Number of Guys Kissed by Rachel
+        title: Rachel's 1-on-1 Date
         possiblecount: 1
         info: >-
-          Select the number of bachelors that you think Rachel will kiss. A
-          correct guess wins 16 points.
+          Select the bachelor that you think Rachel will take on her 1-on-1
+          date. A correct guess wins 16 points.
 
 
 
@@ -515,33 +613,38 @@ weeks:
 
           Possible Points: 16
         choices:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
-          - 12
-          - 13
-          - 14
-          - 15
+          - Alec
+          - Aven
+          - Erich
+          - Ethan
+          - Hayden
+          - Jacob
+          - James
+          - Jason
+          - Johnny
+          - Jordan H.
+          - Kirk
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Quincey
+          - Spencer
+          - Termayne
+          - Tino
+          - Tyler
+          - Zach
         type: main
-        choicestype: text
-        textprefixes: 'kissing '
-        textsuffixes: ' guys'
+        choicestype: img
+        textprefixes: ''
+        textsuffixes: ''
       '3':
-        title: Week Two Rose Ceremony
-        possiblecount: 10
+        title: Guys Sent Home Week Three
+        possiblecount: 5
         info: >-
-          Select 10 bachelors that you think will receive a rose in the second
-          week. Ten correct guesses win 10 points each, nine correct guesses win
-          9 points each, and so on.
+          Select 5 bachelors that you think will go home in the third week. Five
+          correct guesses wins 100 points, four correct guesses wins 80 points,
+          three correct guesses is 60 points, and so on.
 
 
 
@@ -554,31 +657,20 @@ weeks:
         choices:
           - Alec
           - Aven
-          - Brandan
-          - Chris
-          - Colin
           - Erich
           - Ethan
           - Hayden
           - Jacob
           - James
           - Jason
-          - Joey
-          - John
           - Johnny
           - Jordan H.
-          - Jordan V.
-          - Justin B.
-          - Justin Y.
           - Kirk
           - Logan
           - Mario
-          - Matt
           - Michael
           - Nate
           - Quincey
-          - Roby
-          - Ryan
           - Spencer
           - Termayne
           - Tino
@@ -589,11 +681,12 @@ weeks:
         textprefixes: ''
         textsuffixes: ''
       '4':
-        title: Number of Roses Rejected
+        title: Total Number of Guys Kissed
         possiblecount: 1
         info: >-
-          Select the number of bachelors that you think will reject a rose in
-          the second week. A correct guess wins 18 points.
+          Select the number of bachelors that you think both women will kiss in
+          week three. If Gabby and Rachel kiss the same guy, it will *not* be
+          counted twice. A correct guess wins 18 points.
 
 
 
@@ -603,30 +696,6 @@ weeks:
           Main Bet: $50+ pool  
 
           Possible Points: 24
-        choices:
-          - two or less
-          - more than two
-        type: main
-        choicestype: text
-        textprefixes: ''
-        textsuffixes: ' roses rejected'
-      '5':
-        title: Number of Times Clayton is Said
-        possiblecount: 1
-        info: >-
-          Select the number of times you think someone will say the name
-          Clayton. A correct guess wins 12 points.
-
-          This bet is ***one guess per person. Make your selection quickly!***
-
-
-
-          Odds: 1 in 24
-
-
-          Fast Money Bet: Guaranteed $1  
-
-          Possible Points: 12
         choices:
           - 0
           - 1
@@ -643,25 +712,46 @@ weeks:
           - 12
           - 13
           - 14
-          - 15
-          - 16
-          - 17
-          - 18
-          - 19
-          - 20
-          - 21
-          - 22
-          - 23
+        type: main
+        choicestype: text
+        textprefixes: ''
+        textsuffixes: ' total guys kissed'
+      '5':
+        title: Color of Gabby's Dress at 1-on-1 Dinner
+        possiblecount: 1
+        info: >-
+          Select the (primary) color of the dress that you think Gabby will wear
+          to dinner on her 1-on-1 date. A correct guess wins 12 points.
+
+          This bet is ***one guess per person. Make your selection quickly!***
+
+
+
+          Odds: 1 in 24
+
+
+          Fast Money Bet: Guaranteed $1  
+
+          Possible Points: 12
+        choices:
+          - green/emerald
+          - gold
+          - silver/gray
+          - black
+          - red
+          - pink
+          - blue
+          - rainbow/multicolor
         type: oneperperson
         choicestype: text
-        textprefixes: 'Clayton said '
-        textsuffixes: ' times'
+        textprefixes: 'Gabby''s dress is '
+        textsuffixes: ''
       '6':
         title: Most Popular Buzz Word
         possiblecount: 1
         info: >-
           Select the phrase that you think will be said the most often in the
-          second week. A correct guess wins 12 points.
+          third week. A correct guess wins 12 points.
 
           This bet is ***one guess per person. Make your selection quickly!***
 
@@ -674,12 +764,13 @@ weeks:
 
           Possible Points: 12
         choices:
-          - biggest/greatest fear
-          - two bachelorettes
           - open and honest
-          - best friends
-          - future husband/wife
-          - fall(ing) in love with two __
+          - journey
+          - chemistry
+          - group of guys
+          - two bachelorettes
+          - biggest/greatest fear
+          - connection
         type: oneperperson
         choicestype: text
         textprefixes: '"'
