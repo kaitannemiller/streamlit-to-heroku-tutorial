@@ -163,7 +163,7 @@ def create_page(name,username):
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div > div > div > p {
         text-align: center;
-        font-size: 28px;
+        font-size: 26px;
         color: #333333;
     }
     #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(4) > div > div > div > button {
@@ -316,7 +316,7 @@ def create_page(name,username):
         overflow-wrap: normal;
     }
     .st-ae {
-        font-size: 20px;
+        font-size: 18px;
     }
     .css-qri22k {
         font-size: 0px;
@@ -707,6 +707,8 @@ def create_page(name,username):
                     if w > 1:
                         total_points = total_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1)]["Points"].fillna(0)))
                     if w > 2:
+                        if w == 3:
+                            last_points = 0
                         last_points = last_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-2)]["Points"].fillna(0)))
                     else:
                         last_points = total_points
@@ -737,7 +739,7 @@ def create_page(name,username):
             userlist.sort(key=lambda x:(-x[1]))
             for u, user in enumerate(userlist):
                 with st.container():
-                    st.markdown(f""" <div style="font-size: 28px; ">
+                    st.markdown(f""" <div style="font-size: 26px; ">
                             <img src="data:image/gif;base64,{data_url1}" alt="rose" height="50px" width="45px">
                             {user[5]}
                             <div>{u+1}</div></div>
