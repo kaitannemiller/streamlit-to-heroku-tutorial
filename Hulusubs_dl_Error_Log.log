@@ -1,0 +1,210 @@
+DEBUG: Arguments Provided : Namespace(download_directory=None, hulu_url=['https://www.hulu.com/watch/ebf75168-10b5-46cc-a2ec-5fb09e5adf3a'], make_config=False, proxy=[], set_cookie=None, skip_config=False, subtitle_extension='srt', subtitle_language='en', verbose=True, version=False)
+DEBUG: Operating System : Windows - 10 - 10.0.19041
+DEBUG: Python Version : 3.8.0 (64bit)
+DEBUG: Hulusubs_dl Version : 2021.06.07_1
+DEBUG: 
+----
+config_file_data: {'max_tries_for_cookie': '3', 'download_location': 'C:\\Users\\Kaitlin\\Documents\\Python Scripts\\streamlit', 'subtitle_lang': 'en', 'subtitle_extension': 'SRT', 'proxies': ''}
+----
+
+DEBUG: Called: episode_link()
+DEBUG: initial eab_id: ebf75168-10b5-46cc-a2ec-5fb09e5adf3a
+DEBUG: GET url: https://discover.hulu.com/content/v5/deeplink/playback?namespace=entity&id=ebf75168-10b5-46cc-a2ec-5fb09e5adf3a&schema=1&device_info=web:3.10.0&referralHost=production
+DEBUG: GET proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): discover.hulu.com:443
+DEBUG: https://discover.hulu.com:443 "GET /content/v5/deeplink/playback?namespace=entity&id=ebf75168-10b5-46cc-a2ec-5fb09e5adf3a&schema=1&device_info=web:3.10.0&referralHost=production HTTP/1.1" 200 290
+DEBUG: 
+----
+eab_id_information: {'_type': 'deep_link_playback', 'browse': {'target_type': 'series', 'target_id': '15f2e58d-3734-4468-b785-e7b22eb97705', 'target_theme': 'hub_theme_entity_detail', 'params': {}, 'type': 'browse'}, 'eab_id': 'EAB::ebf75168-10b5-46cc-a2ec-5fb09e5adf3a::61710580::187216484', 'href': 'https://discover.hulu.com/content/v5/hubs/series/15f2e58d-3734-4468-b785-e7b22eb97705?schema=1', 'id': 'ebf75168-10b5-46cc-a2ec-5fb09e5adf3a', 'href_type': 'series', 'restriction_level': 'not_rated'}
+----
+
+DEBUG: eab_id: EAB::ebf75168-10b5-46cc-a2ec-5fb09e5adf3a::61710580::187216484
+DEBUG: 
+----
+payload: {'deejay_device_id': 190, 'version': 1, 'all_cdn': True, 'content_eab_id': 'EAB::ebf75168-10b5-46cc-a2ec-5fb09e5adf3a::61710580::187216484', 'region': 'US', 'xlink_support': False, 'limit_ad_tracking': False, 'ignore_kids_block': False, 'language': 'en', 'unencrypted': True, 'interface_version': '1.9.0', 'network_mode': 'wifi', 'play_intent': 'resume', 'playback': {'version': 2, 'video': {'codecs': {'values': [{'type': 'H264', 'width': 1024, 'height': 546, 'framerate': 60, 'level': '4.2', 'profile': 'HIGH'}], 'selection_mode': 'ONE'}}, 'audio': {'codecs': {'values': [{'type': 'AAC'}], 'selection_mode': 'ALL'}}, 'drm': {'values': [{'type': 'WIDEVINE', 'version': 'MODULAR', 'security_level': 'L3'}, {'type': 'PLAYREADY', 'version': 'V2', 'security_level': 'SL2000'}], 'selection_mode': 'ALL', 'hdcp': False}, 'manifest': {'type': 'DASH', 'https': True, 'multiple_cdns': True, 'patch_updates': True, 'hulu_types': True, 'live_dai': True, 'secondary_audio': True, 'live_fragment_delay': 3}, 'segments': {'values': [{'type': 'FMP4', 'encryption': {'mode': 'CENC', 'type': 'CENC'}, 'https': True}], 'selection_mode': 'ONE'}}}
+----
+
+DEBUG: POST url: https://play.hulu.com/v6/playlist
+DEBUG: POST proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): play.hulu.com:443
+DEBUG: https://play.hulu.com:443 "POST /v6/playlist HTTP/1.1" 400 1107
+DEBUG: 
+----
+playlist_info: None
+----
+
+DEBUG: Arguments Provided : Namespace(download_directory=None, hulu_url=['https://www.hulu.com/watch/76389407-f1a7-4df4-8566-9b5e32f43ecc'], make_config=False, proxy=[], set_cookie=None, skip_config=False, subtitle_extension='srt', subtitle_language='en', verbose=True, version=False)
+DEBUG: Operating System : Windows - 10 - 10.0.19041
+DEBUG: Python Version : 3.8.0 (64bit)
+DEBUG: Hulusubs_dl Version : 2021.06.07_1
+DEBUG: 
+----
+config_file_data: {'max_tries_for_cookie': '3', 'download_location': 'C:\\Users\\Kaitlin\\Documents\\Python Scripts\\streamlit', 'subtitle_lang': 'en', 'subtitle_extension': 'SRT', 'proxies': ''}
+----
+
+DEBUG: Called: episode_link()
+DEBUG: initial eab_id: 76389407-f1a7-4df4-8566-9b5e32f43ecc
+DEBUG: GET url: https://discover.hulu.com/content/v5/deeplink/playback?namespace=entity&id=76389407-f1a7-4df4-8566-9b5e32f43ecc&schema=1&device_info=web:3.10.0&referralHost=production
+DEBUG: GET proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): discover.hulu.com:443
+DEBUG: https://discover.hulu.com:443 "GET /content/v5/deeplink/playback?namespace=entity&id=76389407-f1a7-4df4-8566-9b5e32f43ecc&schema=1&device_info=web:3.10.0&referralHost=production HTTP/1.1" 200 291
+DEBUG: 
+----
+eab_id_information: {'_type': 'deep_link_playback', 'browse': {'target_type': 'series', 'target_id': '15f2e58d-3734-4468-b785-e7b22eb97705', 'target_theme': 'hub_theme_entity_detail', 'params': {}, 'type': 'browse'}, 'eab_id': 'EAB::76389407-f1a7-4df4-8566-9b5e32f43ecc::61711353::188067860', 'href': 'https://discover.hulu.com/content/v5/hubs/series/15f2e58d-3734-4468-b785-e7b22eb97705?schema=1', 'id': '76389407-f1a7-4df4-8566-9b5e32f43ecc', 'href_type': 'series', 'restriction_level': 'not_rated'}
+----
+
+DEBUG: eab_id: EAB::76389407-f1a7-4df4-8566-9b5e32f43ecc::61711353::188067860
+DEBUG: 
+----
+payload: {'deejay_device_id': 190, 'version': 1, 'all_cdn': True, 'content_eab_id': 'EAB::76389407-f1a7-4df4-8566-9b5e32f43ecc::61711353::188067860', 'region': 'US', 'xlink_support': False, 'limit_ad_tracking': False, 'ignore_kids_block': False, 'language': 'en', 'unencrypted': True, 'interface_version': '1.9.0', 'network_mode': 'wifi', 'play_intent': 'resume', 'playback': {'version': 2, 'video': {'codecs': {'values': [{'type': 'H264', 'width': 1024, 'height': 546, 'framerate': 60, 'level': '4.2', 'profile': 'HIGH'}], 'selection_mode': 'ONE'}}, 'audio': {'codecs': {'values': [{'type': 'AAC'}], 'selection_mode': 'ALL'}}, 'drm': {'values': [{'type': 'WIDEVINE', 'version': 'MODULAR', 'security_level': 'L3'}, {'type': 'PLAYREADY', 'version': 'V2', 'security_level': 'SL2000'}], 'selection_mode': 'ALL', 'hdcp': False}, 'manifest': {'type': 'DASH', 'https': True, 'multiple_cdns': True, 'patch_updates': True, 'hulu_types': True, 'live_dai': True, 'secondary_audio': True, 'live_fragment_delay': 3}, 'segments': {'values': [{'type': 'FMP4', 'encryption': {'mode': 'CENC', 'type': 'CENC'}, 'https': True}], 'selection_mode': 'ONE'}}}
+----
+
+DEBUG: POST url: https://play.hulu.com/v6/playlist
+DEBUG: POST proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): play.hulu.com:443
+DEBUG: https://play.hulu.com:443 "POST /v6/playlist HTTP/1.1" 400 1107
+DEBUG: 
+----
+playlist_info: None
+----
+
+DEBUG: Arguments Provided : Namespace(download_directory=None, hulu_url=['https://www.hulu.com/watch/2e58e414-1f19-4a34-8cbf-8a48c81f53e8'], make_config=False, proxy=[], set_cookie=None, skip_config=False, subtitle_extension='srt', subtitle_language='en', verbose=True, version=False)
+DEBUG: Operating System : Windows - 10 - 10.0.19041
+DEBUG: Python Version : 3.8.0 (64bit)
+DEBUG: Hulusubs_dl Version : 2021.06.07_1
+DEBUG: 
+----
+config_file_data: {'max_tries_for_cookie': '3', 'download_location': 'C:\\Users\\Kaitlin\\Documents\\Python Scripts\\streamlit', 'subtitle_lang': 'en', 'subtitle_extension': 'SRT', 'proxies': ''}
+----
+
+DEBUG: Called: episode_link()
+DEBUG: initial eab_id: 2e58e414-1f19-4a34-8cbf-8a48c81f53e8
+DEBUG: GET url: https://discover.hulu.com/content/v5/deeplink/playback?namespace=entity&id=2e58e414-1f19-4a34-8cbf-8a48c81f53e8&schema=1&device_info=web:3.10.0&referralHost=production
+DEBUG: GET proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): discover.hulu.com:443
+DEBUG: https://discover.hulu.com:443 "GET /content/v5/deeplink/playback?namespace=entity&id=2e58e414-1f19-4a34-8cbf-8a48c81f53e8&schema=1&device_info=web:3.10.0&referralHost=production HTTP/1.1" 200 288
+DEBUG: 
+----
+eab_id_information: {'_type': 'deep_link_playback', 'browse': {'target_type': 'series', 'target_id': '15f2e58d-3734-4468-b785-e7b22eb97705', 'target_theme': 'hub_theme_entity_detail', 'params': {}, 'type': 'browse'}, 'eab_id': 'EAB::2e58e414-1f19-4a34-8cbf-8a48c81f53e8::61711744::188912211', 'href': 'https://discover.hulu.com/content/v5/hubs/series/15f2e58d-3734-4468-b785-e7b22eb97705?schema=1', 'id': '2e58e414-1f19-4a34-8cbf-8a48c81f53e8', 'href_type': 'series', 'restriction_level': 'not_rated'}
+----
+
+DEBUG: eab_id: EAB::2e58e414-1f19-4a34-8cbf-8a48c81f53e8::61711744::188912211
+DEBUG: 
+----
+payload: {'deejay_device_id': 190, 'version': 1, 'all_cdn': True, 'content_eab_id': 'EAB::2e58e414-1f19-4a34-8cbf-8a48c81f53e8::61711744::188912211', 'region': 'US', 'xlink_support': False, 'limit_ad_tracking': False, 'ignore_kids_block': False, 'language': 'en', 'unencrypted': True, 'interface_version': '1.9.0', 'network_mode': 'wifi', 'play_intent': 'resume', 'playback': {'version': 2, 'video': {'codecs': {'values': [{'type': 'H264', 'width': 1024, 'height': 546, 'framerate': 60, 'level': '4.2', 'profile': 'HIGH'}], 'selection_mode': 'ONE'}}, 'audio': {'codecs': {'values': [{'type': 'AAC'}], 'selection_mode': 'ALL'}}, 'drm': {'values': [{'type': 'WIDEVINE', 'version': 'MODULAR', 'security_level': 'L3'}, {'type': 'PLAYREADY', 'version': 'V2', 'security_level': 'SL2000'}], 'selection_mode': 'ALL', 'hdcp': False}, 'manifest': {'type': 'DASH', 'https': True, 'multiple_cdns': True, 'patch_updates': True, 'hulu_types': True, 'live_dai': True, 'secondary_audio': True, 'live_fragment_delay': 3}, 'segments': {'values': [{'type': 'FMP4', 'encryption': {'mode': 'CENC', 'type': 'CENC'}, 'https': True}], 'selection_mode': 'ONE'}}}
+----
+
+DEBUG: POST url: https://play.hulu.com/v6/playlist
+DEBUG: POST proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): play.hulu.com:443
+DEBUG: https://play.hulu.com:443 "POST /v6/playlist HTTP/1.1" 400 1107
+DEBUG: 
+----
+playlist_info: None
+----
+
+DEBUG: Arguments Provided : Namespace(download_directory=None, hulu_url=['https://www.hulu.com/watch/ebf75168-10b5-46cc-a2ec-5fb09e5adf3a'], make_config=False, proxy=[], set_cookie=None, skip_config=False, subtitle_extension='srt', subtitle_language='en', verbose=True, version=False)
+DEBUG: Operating System : Windows - 10 - 10.0.19041
+DEBUG: Python Version : 3.8.0 (64bit)
+DEBUG: Hulusubs_dl Version : 2021.06.07_1
+DEBUG: 
+----
+config_file_data: {'max_tries_for_cookie': '3', 'download_location': 'C:\\Users\\Kaitlin\\Documents\\Python Scripts\\streamlit', 'subtitle_lang': 'en', 'subtitle_extension': 'SRT', 'proxies': ''}
+----
+
+DEBUG: Called: episode_link()
+DEBUG: initial eab_id: ebf75168-10b5-46cc-a2ec-5fb09e5adf3a
+DEBUG: GET url: https://discover.hulu.com/content/v5/deeplink/playback?namespace=entity&id=ebf75168-10b5-46cc-a2ec-5fb09e5adf3a&schema=1&device_info=web:3.10.0&referralHost=production
+DEBUG: GET proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): discover.hulu.com:443
+DEBUG: https://discover.hulu.com:443 "GET /content/v5/deeplink/playback?namespace=entity&id=ebf75168-10b5-46cc-a2ec-5fb09e5adf3a&schema=1&device_info=web:3.10.0&referralHost=production HTTP/1.1" 200 290
+DEBUG: 
+----
+eab_id_information: {'_type': 'deep_link_playback', 'browse': {'target_type': 'series', 'target_id': '15f2e58d-3734-4468-b785-e7b22eb97705', 'target_theme': 'hub_theme_entity_detail', 'params': {}, 'type': 'browse'}, 'eab_id': 'EAB::ebf75168-10b5-46cc-a2ec-5fb09e5adf3a::61710580::187216484', 'href': 'https://discover.hulu.com/content/v5/hubs/series/15f2e58d-3734-4468-b785-e7b22eb97705?schema=1', 'id': 'ebf75168-10b5-46cc-a2ec-5fb09e5adf3a', 'href_type': 'series', 'restriction_level': 'not_rated'}
+----
+
+DEBUG: eab_id: EAB::ebf75168-10b5-46cc-a2ec-5fb09e5adf3a::61710580::187216484
+DEBUG: 
+----
+payload: {'deejay_device_id': 190, 'version': 1, 'all_cdn': True, 'content_eab_id': 'EAB::ebf75168-10b5-46cc-a2ec-5fb09e5adf3a::61710580::187216484', 'region': 'US', 'xlink_support': False, 'limit_ad_tracking': False, 'ignore_kids_block': False, 'language': 'en', 'unencrypted': True, 'interface_version': '1.9.0', 'network_mode': 'wifi', 'play_intent': 'resume', 'playback': {'version': 2, 'video': {'codecs': {'values': [{'type': 'H264', 'width': 1024, 'height': 546, 'framerate': 60, 'level': '4.2', 'profile': 'HIGH'}], 'selection_mode': 'ONE'}}, 'audio': {'codecs': {'values': [{'type': 'AAC'}], 'selection_mode': 'ALL'}}, 'drm': {'values': [{'type': 'WIDEVINE', 'version': 'MODULAR', 'security_level': 'L3'}, {'type': 'PLAYREADY', 'version': 'V2', 'security_level': 'SL2000'}], 'selection_mode': 'ALL', 'hdcp': False}, 'manifest': {'type': 'DASH', 'https': True, 'multiple_cdns': True, 'patch_updates': True, 'hulu_types': True, 'live_dai': True, 'secondary_audio': True, 'live_fragment_delay': 3}, 'segments': {'values': [{'type': 'FMP4', 'encryption': {'mode': 'CENC', 'type': 'CENC'}, 'https': True}], 'selection_mode': 'ONE'}}}
+----
+
+DEBUG: POST url: https://play.hulu.com/v6/playlist
+DEBUG: POST proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): play.hulu.com:443
+DEBUG: https://play.hulu.com:443 "POST /v6/playlist HTTP/1.1" 400 1107
+DEBUG: 
+----
+playlist_info: None
+----
+
+DEBUG: Arguments Provided : Namespace(download_directory=None, hulu_url=['https://www.hulu.com/watch/76389407-f1a7-4df4-8566-9b5e32f43ecc'], make_config=False, proxy=[], set_cookie=None, skip_config=False, subtitle_extension='srt', subtitle_language='en', verbose=True, version=False)
+DEBUG: Operating System : Windows - 10 - 10.0.19041
+DEBUG: Python Version : 3.8.0 (64bit)
+DEBUG: Hulusubs_dl Version : 2021.06.07_1
+DEBUG: 
+----
+config_file_data: {'max_tries_for_cookie': '3', 'download_location': 'C:\\Users\\Kaitlin\\Documents\\Python Scripts\\streamlit', 'subtitle_lang': 'en', 'subtitle_extension': 'SRT', 'proxies': ''}
+----
+
+DEBUG: Called: episode_link()
+DEBUG: initial eab_id: 76389407-f1a7-4df4-8566-9b5e32f43ecc
+DEBUG: GET url: https://discover.hulu.com/content/v5/deeplink/playback?namespace=entity&id=76389407-f1a7-4df4-8566-9b5e32f43ecc&schema=1&device_info=web:3.10.0&referralHost=production
+DEBUG: GET proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): discover.hulu.com:443
+DEBUG: https://discover.hulu.com:443 "GET /content/v5/deeplink/playback?namespace=entity&id=76389407-f1a7-4df4-8566-9b5e32f43ecc&schema=1&device_info=web:3.10.0&referralHost=production HTTP/1.1" 200 291
+DEBUG: 
+----
+eab_id_information: {'_type': 'deep_link_playback', 'browse': {'target_type': 'series', 'target_id': '15f2e58d-3734-4468-b785-e7b22eb97705', 'target_theme': 'hub_theme_entity_detail', 'params': {}, 'type': 'browse'}, 'eab_id': 'EAB::76389407-f1a7-4df4-8566-9b5e32f43ecc::61711353::188067860', 'href': 'https://discover.hulu.com/content/v5/hubs/series/15f2e58d-3734-4468-b785-e7b22eb97705?schema=1', 'id': '76389407-f1a7-4df4-8566-9b5e32f43ecc', 'href_type': 'series', 'restriction_level': 'not_rated'}
+----
+
+DEBUG: eab_id: EAB::76389407-f1a7-4df4-8566-9b5e32f43ecc::61711353::188067860
+DEBUG: 
+----
+payload: {'deejay_device_id': 190, 'version': 1, 'all_cdn': True, 'content_eab_id': 'EAB::76389407-f1a7-4df4-8566-9b5e32f43ecc::61711353::188067860', 'region': 'US', 'xlink_support': False, 'limit_ad_tracking': False, 'ignore_kids_block': False, 'language': 'en', 'unencrypted': True, 'interface_version': '1.9.0', 'network_mode': 'wifi', 'play_intent': 'resume', 'playback': {'version': 2, 'video': {'codecs': {'values': [{'type': 'H264', 'width': 1024, 'height': 546, 'framerate': 60, 'level': '4.2', 'profile': 'HIGH'}], 'selection_mode': 'ONE'}}, 'audio': {'codecs': {'values': [{'type': 'AAC'}], 'selection_mode': 'ALL'}}, 'drm': {'values': [{'type': 'WIDEVINE', 'version': 'MODULAR', 'security_level': 'L3'}, {'type': 'PLAYREADY', 'version': 'V2', 'security_level': 'SL2000'}], 'selection_mode': 'ALL', 'hdcp': False}, 'manifest': {'type': 'DASH', 'https': True, 'multiple_cdns': True, 'patch_updates': True, 'hulu_types': True, 'live_dai': True, 'secondary_audio': True, 'live_fragment_delay': 3}, 'segments': {'values': [{'type': 'FMP4', 'encryption': {'mode': 'CENC', 'type': 'CENC'}, 'https': True}], 'selection_mode': 'ONE'}}}
+----
+
+DEBUG: POST url: https://play.hulu.com/v6/playlist
+DEBUG: POST proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): play.hulu.com:443
+DEBUG: https://play.hulu.com:443 "POST /v6/playlist HTTP/1.1" 400 1107
+DEBUG: 
+----
+playlist_info: None
+----
+
+DEBUG: Arguments Provided : Namespace(download_directory=None, hulu_url=['https://www.hulu.com/watch/2e58e414-1f19-4a34-8cbf-8a48c81f53e8'], make_config=False, proxy=[], set_cookie=None, skip_config=False, subtitle_extension='srt', subtitle_language='en', verbose=True, version=False)
+DEBUG: Operating System : Windows - 10 - 10.0.19041
+DEBUG: Python Version : 3.8.0 (64bit)
+DEBUG: Hulusubs_dl Version : 2021.06.07_1
+DEBUG: 
+----
+config_file_data: {'max_tries_for_cookie': '3', 'download_location': 'C:\\Users\\Kaitlin\\Documents\\Python Scripts\\streamlit', 'subtitle_lang': 'en', 'subtitle_extension': 'SRT', 'proxies': ''}
+----
+
+DEBUG: Called: episode_link()
+DEBUG: initial eab_id: 2e58e414-1f19-4a34-8cbf-8a48c81f53e8
+DEBUG: GET url: https://discover.hulu.com/content/v5/deeplink/playback?namespace=entity&id=2e58e414-1f19-4a34-8cbf-8a48c81f53e8&schema=1&device_info=web:3.10.0&referralHost=production
+DEBUG: GET proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): discover.hulu.com:443
+DEBUG: https://discover.hulu.com:443 "GET /content/v5/deeplink/playback?namespace=entity&id=2e58e414-1f19-4a34-8cbf-8a48c81f53e8&schema=1&device_info=web:3.10.0&referralHost=production HTTP/1.1" 200 288
+DEBUG: 
+----
+eab_id_information: {'_type': 'deep_link_playback', 'browse': {'target_type': 'series', 'target_id': '15f2e58d-3734-4468-b785-e7b22eb97705', 'target_theme': 'hub_theme_entity_detail', 'params': {}, 'type': 'browse'}, 'eab_id': 'EAB::2e58e414-1f19-4a34-8cbf-8a48c81f53e8::61711744::188912211', 'href': 'https://discover.hulu.com/content/v5/hubs/series/15f2e58d-3734-4468-b785-e7b22eb97705?schema=1', 'id': '2e58e414-1f19-4a34-8cbf-8a48c81f53e8', 'href_type': 'series', 'restriction_level': 'not_rated'}
+----
+
+DEBUG: eab_id: EAB::2e58e414-1f19-4a34-8cbf-8a48c81f53e8::61711744::188912211
+DEBUG: 
+----
+payload: {'deejay_device_id': 190, 'version': 1, 'all_cdn': True, 'content_eab_id': 'EAB::2e58e414-1f19-4a34-8cbf-8a48c81f53e8::61711744::188912211', 'region': 'US', 'xlink_support': False, 'limit_ad_tracking': False, 'ignore_kids_block': False, 'language': 'en', 'unencrypted': True, 'interface_version': '1.9.0', 'network_mode': 'wifi', 'play_intent': 'resume', 'playback': {'version': 2, 'video': {'codecs': {'values': [{'type': 'H264', 'width': 1024, 'height': 546, 'framerate': 60, 'level': '4.2', 'profile': 'HIGH'}], 'selection_mode': 'ONE'}}, 'audio': {'codecs': {'values': [{'type': 'AAC'}], 'selection_mode': 'ALL'}}, 'drm': {'values': [{'type': 'WIDEVINE', 'version': 'MODULAR', 'security_level': 'L3'}, {'type': 'PLAYREADY', 'version': 'V2', 'security_level': 'SL2000'}], 'selection_mode': 'ALL', 'hdcp': False}, 'manifest': {'type': 'DASH', 'https': True, 'multiple_cdns': True, 'patch_updates': True, 'hulu_types': True, 'live_dai': True, 'secondary_audio': True, 'live_fragment_delay': 3}, 'segments': {'values': [{'type': 'FMP4', 'encryption': {'mode': 'CENC', 'type': 'CENC'}, 'https': True}], 'selection_mode': 'ONE'}}}
+----
+
+DEBUG: POST url: https://play.hulu.com/v6/playlist
+DEBUG: POST proxy: {'http': None, 'https': None}
+DEBUG: Starting new HTTPS connection (1): play.hulu.com:443
+DEBUG: https://play.hulu.com:443 "POST /v6/playlist HTTP/1.1" 400 1107
+DEBUG: 
+----
+playlist_info: None
+----
+

@@ -597,6 +597,9 @@ weeks:
         choicestype: img
         textprefixes: ''
         textsuffixes: ''
+        correctanswer:
+          - Erich
+        points: 16
       '2':
         title: Rachel's 1-on-1 Date
         possiblecount: 1
@@ -638,6 +641,9 @@ weeks:
         choicestype: img
         textprefixes: ''
         textsuffixes: ''
+        correctanswer:
+          - Zach
+        points: 16
       '3':
         title: Guys Sent Home Week Three
         possiblecount: 5
@@ -680,6 +686,12 @@ weeks:
         choicestype: img
         textprefixes: ''
         textsuffixes: ''
+        correctanswer:
+          - Alec
+          - Jacob
+          - James
+          - Termayne
+        points: 20
       '4':
         title: Total Number of Guys Kissed
         possiblecount: 1
@@ -716,6 +728,9 @@ weeks:
         choicestype: text
         textprefixes: ''
         textsuffixes: ' total guys kissed'
+        correctanswer:
+          - 7
+        points: 24
       '5':
         title: Color of Gabby's Dress at 1-on-1 Dinner
         possiblecount: 1
@@ -746,6 +761,9 @@ weeks:
         choicestype: text
         textprefixes: 'Gabby''s dress is '
         textsuffixes: ''
+        correctanswer:
+          - black
+        points: 12
       '6':
         title: Most Popular Buzz Word
         possiblecount: 1
@@ -775,3 +793,260 @@ weeks:
         choicestype: text
         textprefixes: '"'
         textsuffixes: '"'
+        correctanswer:
+          - connection
+        points: 12
+  '4':
+    week: 4
+    weekname: Four
+    ready: 'yes'
+    submitStartyear: 2022
+    submitStartmonth: 7
+    submitStartday: 29
+    submitStarthour: 4
+    submitStartminute: 0
+    submitEndyear: 2022
+    submitEndmonth: 8
+    submitEndday: 3
+    submitEndhour: 9
+    submitEndminute: 0
+    bets:
+      '1':
+        title: Gabby's Group Date Rose
+        possiblecount: 1
+        info: >-
+          Select the bachelor that you think Gabby will give a rose to on her
+          group date. A correct guess wins 16 points.
+
+
+
+          Odds: 1 in 16
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 16
+        choices:
+          - Aven
+          - Erich
+          - Ethan
+          - Hayden
+          - Jason
+          - Johnny
+          - Jordan H.
+          - Kirk
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Quincey
+          - Spencer
+          - Tino
+          - Tyler
+          - Zach
+        type: main
+        choicestype: img
+        textprefixes: ''
+        textsuffixes: ''
+        points: 16
+      '2':
+        title: Rachel's Group Date Rose
+        possiblecount: 1
+        info: >-
+          Select the bachelor that you think Rachel will give a rose to on her
+          group date. A correct guess wins 16 points.
+
+
+
+          Odds: 1 in 16
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 16
+        choices:
+          - Aven
+          - Erich
+          - Ethan
+          - Hayden
+          - Jason
+          - Johnny
+          - Jordan H.
+          - Kirk
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Quincey
+          - Spencer
+          - Tino
+          - Tyler
+          - Zach
+        type: main
+        choicestype: img
+        textprefixes: ''
+        textsuffixes: ''
+        points: 16
+      '3':
+        title: Guys Sent Home Week Four
+        possiblecount: 5
+        info: >-
+          Select 5 bachelors that you think will go home in the fourth week.
+          Five correct guesses wins 100 points, four correct guesses wins 80
+          points, three correct guesses is 60 points, and so on.
+
+
+
+          Odds of 100 points: 1 in 64512239
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 100
+        choices:
+          - Aven
+          - Erich
+          - Ethan
+          - Hayden
+          - Jason
+          - Johnny
+          - Jordan H.
+          - Kirk
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Quincey
+          - Spencer
+          - Tino
+          - Tyler
+          - Zach
+        type: main
+        choicestype: img
+        textprefixes: ''
+        textsuffixes: ''
+        points: 20
+      '4':
+        title: Number of Times Someone Cries
+        possiblecount: 1
+        info: >-
+          Select the number of times someone will cry. An outfit change
+          indicates a new scene. A correct guess wins 18 points.
+
+
+
+          Odds: 1 in 2
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 18
+        choices:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+        type: main
+        choicestype: text
+        textprefixes: 'someone cries '
+        textsuffixes: ' times'
+        points: 18
+      '5':
+        title: Kissing on the Eiffel Tower
+        possiblecount: 1
+        info: >-
+          Select whether or not you think they will show someone kissing while
+          on the Eiffel Tower (as opposed to just nearby). A correct guess wins
+          18 points.
+
+
+
+          Odds: 1 in 2
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 12
+        choices:
+          - Kissing on the Tower
+          - Only kissing nearby
+        type: main
+        choicestype: text
+        textprefixes: ''
+        textsuffixes: ''
+        points: 12
+      '6':
+        title: Color of Rachel's Dress at 1-on-1 Dinner
+        possiblecount: 1
+        info: >-
+          Select the (primary) color of the dress that you think Rachel will
+          wear to dinner on her 1-on-1 date. A correct guess wins 12 points.
+
+          This bet is ***one guess per person. Make your selection quickly!***
+
+
+
+          Odds: 1 in 24
+
+
+          Fast Money Bet: Guaranteed $1  
+
+          Possible Points: 12
+        choices:
+          - green/emerald
+          - gold
+          - silver/gray
+          - black
+          - red
+          - orange
+          - yellow
+          - pink
+          - blue
+          - rainbow/multicolor
+        type: oneperperson
+        choicestype: text
+        textprefixes: 'Rachel''s dress is '
+        textsuffixes: ''
+        points: 12
+      '7':
+        title: Most Popular Buzz Word
+        possiblecount: 1
+        info: >-
+          Select the phrase that you think will be said the most often in the
+          fourth week. A correct guess wins 12 points.
+
+          This bet is ***one guess per person. Make your selection quickly!***
+
+
+
+          Odds: 1 in 6
+
+
+          Fast Money Bet: Guaranteed $1  
+
+          Possible Points: 12
+        choices:
+          - city of light
+          - city of love
+          - eiffel tower
+          - bonjour
+          - baguette
+          - je t'aime
+          - romantic
+          - beautiful
+        type: oneperperson
+        choicestype: text
+        textprefixes: '"'
+        textsuffixes: '"'
+        points: 12
