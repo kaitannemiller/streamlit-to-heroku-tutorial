@@ -476,6 +476,7 @@ def create_page(name,username):
                 "Hayden": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003318/ab65e2acd1c8f247f414503790065d76/1600x640-Q90_ab65e2acd1c8f247f414503790065d76.jpg',
                 "Jacob": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003319/d95bf9fe942f8a6696bee5f3539e3003/1600x640-Q90_d95bf9fe942f8a6696bee5f3539e3003.jpg',
                 "James": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003320/10ed9fdd86bcf56666712b79342b4103/1600x640-Q90_10ed9fdd86bcf56666712b79342b4103.jpg',
+                "James (Meatball)": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003320/10ed9fdd86bcf56666712b79342b4103/1600x640-Q90_10ed9fdd86bcf56666712b79342b4103.jpg',
                 "Jason": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003327/604317984164be87ba6badfd5d482b80/1600x640-Q90_604317984164be87ba6badfd5d482b80.jpg',
                 "Joey": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003336/498a897e5d1c7ab0373e3cc8e8f4969a/1600x640-Q90_498a897e5d1c7ab0373e3cc8e8f4969a.jpg',
                 "John": 'https://cdn1.edgedatg.com/aws/v2/abc/TheBachelorette/person/4003341/f66997f7e2e49ee1a345f0d65a1cc18d/1600x640-Q90_f66997f7e2e49ee1a345f0d65a1cc18d.jpg',
@@ -713,6 +714,10 @@ def create_page(name,username):
                     else:
                         last_points = total_points
                 userlist_now.append([user, total_points, last_points])
+            userlist_now.sort(key=lambda x:(-x[1]))
+            temp1 = [u[0] for u in userlist_now]
+            userlist_now.sort(key=lambda x:(-x[2]))
+            temp2 = [u[0] for u in userlist_now]
             userlist = []
             for user in config['credentials']['usernames']:
                 total_points = 0
@@ -727,15 +732,15 @@ def create_page(name,username):
                         fast_points = fast_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"]))]["Points"].fillna(0)))
                         fast_dollars = fast_dollars + int(len(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"])) & df_gsheet["Points"] > 0]["Points"].fillna(0)))
                 arrow = '<p style="border-style: none; outline: none; background-color: transparent; padding-left: 29px; padding-bottom: 25px; margin: 0px 0px 0px;"></p>'
-                userlist_now.sort(key=lambda x:(-x[1]))
-                temp1 = userlist_now
-                userlist_now.sort(key=lambda x:(-x[2]))
-                temp2 = userlist_now
-                if [n for n, i in enumerate(temp1) if i[0] == user][0] > [n for n, i in enumerate(temp2) if i[0] == user][0]:
+                # if [n for n, i in enumerate(temp1) if i[0] == user][0] > [n for n, i in enumerate(temp2) if i[0] == user][0]:
+                #     arrow = f'<img src="data:image/gif;base64,{data_urlup}" alt="rose" height="25px" width="29px" style=" padding-left: 4px; padding-bottom: 2px;">'
+                # elif [n for n, i in enumerate(temp1) if i[0] == user][0] < [n for n, i in enumerate(temp2) if i[0] == user][0]:
+                #     arrow = f'<img src="data:image/gif;base64,{data_urldown}" alt="rose" height="25px" width="29px" style=" padding-left: 4px; padding-bottom: 2px;">'
+                if temp1.index(user) < temp2.index(user):
                     arrow = f'<img src="data:image/gif;base64,{data_urlup}" alt="rose" height="25px" width="29px" style=" padding-left: 4px; padding-bottom: 2px;">'
-                elif [n for n, i in enumerate(temp1) if i[0] == user][0] < [n for n, i in enumerate(temp2) if i[0] == user][0]:
+                elif temp1.index(user) > temp2.index(user):
                     arrow = f'<img src="data:image/gif;base64,{data_urldown}" alt="rose" height="25px" width="29px" style=" padding-left: 4px; padding-bottom: 2px;">'
-                userlist.append([config['credentials']['usernames'][user]['name'].split(" ")[0], total_points, main_points, fast_points, fast_dollars, arrow])
+                userlist.append([config['credentials']['usernames'][user]['name'].split(" ")[0], total_points, main_points, fast_points, fast_dollars, arrow, user])
             userlist.sort(key=lambda x:(-x[1]))
             for u, user in enumerate(userlist):
                 with st.container():
