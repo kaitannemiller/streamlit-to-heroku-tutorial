@@ -8,6 +8,7 @@ import datetime
 import base64
 import yaml
 from PIL import Image
+import pytz
 
 st.set_page_config(page_title="BACHELOR BETS", page_icon="./rose.ico", layout='wide')
 
