@@ -840,7 +840,7 @@ def create_page(name,username):
                     else:
                         myselectbox = st.selectbox(bet_titles[b], choices, index=0, key="selectbox"+str(b))
 
-                    if submitweek == "" or week != qconfig["weeks"][submitweek]["week"]:
+                    if (submitweek == "" or week != qconfig["weeks"][submitweek]["week"]) and str(myselectbox).find("*") > -1:
                         st.write("**You have selected:** " + str(myselectbox[0:str(myselectbox).find('*')]) + '  ' + "\n**Submissions are closed for this week.**")
                     elif str(myselectbox).find("*") == -1:
                         st.write("**You have selected:** " + str(myselectbox) + '  ' + "\n**Would you like to save this as your new choice?**")
@@ -851,7 +851,7 @@ def create_page(name,username):
                     elif str(myselectbox).find("*"+name+"*") > -1 or str(myselectbox).find("*Saved*") > -1:
                         st.write("**You have selected:** " + str(myselectbox[0:str(myselectbox).find('*')]) + '  ' + "\n**This is the choice you currently have saved.**")
                     else:
-                        st.write("**You have selected:** " + str(myselectbox[0:str(myselectbox).find('*')]) + '  ' + "\n**This choice is unavailable. Please make another selection.**")
+                        st.write("**You have selected:** " + str(myselectbox) + '  ' + "\n**This choice is unavailable. Please make another selection.**")
 
                 save_button = st.button("Save and Close", on_click=save_button_func, args=[myselectbox,b,status,adding,deleting])
 

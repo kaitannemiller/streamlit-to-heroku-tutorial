@@ -807,8 +807,8 @@ weeks:
     submitStartminute: 0
     submitEndyear: 2022
     submitEndmonth: 8
-    submitEndday: 7
-    submitEndhour: 22
+    submitEndday: 3
+    submitEndhour: 9
     submitEndminute: 0
     bets:
       '1':
@@ -849,6 +849,8 @@ weeks:
         choicestype: img
         textprefixes: ''
         textsuffixes: ''
+        correctanswer:
+          - Spencer
         points: 16
       '2':
         title: Rachel's Group Date Rose
@@ -888,6 +890,8 @@ weeks:
         choicestype: img
         textprefixes: ''
         textsuffixes: ''
+        correctanswer:
+          - Tyler
         points: 16
       '3':
         title: Guys Sent Home Week Four
@@ -928,6 +932,11 @@ weeks:
         choicestype: img
         textprefixes: ''
         textsuffixes: ''
+        correctanswer:
+          - Hayden
+          - Jordan H.
+          - Quincey
+          - Kirk
         points: 20
       '4':
         title: Number of Times Someone Cries
@@ -964,6 +973,8 @@ weeks:
         choicestype: text
         textprefixes: 'someone cries '
         textsuffixes: ' times'
+        correctanswer:
+          - 3
         points: 18
       '5':
         title: Kissing on the Eiffel Tower
@@ -988,6 +999,8 @@ weeks:
         choicestype: text
         textprefixes: ''
         textsuffixes: ''
+        correctanswer:
+          - Only kissing nearby
         points: 12
       '6':
         title: Color of Rachel's Dress at 1-on-1 Dinner
@@ -1021,6 +1034,8 @@ weeks:
         choicestype: text
         textprefixes: 'Rachel''s dress is '
         textsuffixes: ''
+        correctanswer:
+          - black
         points: 12
       '7':
         title: Most Popular Buzz Word
@@ -1048,6 +1063,326 @@ weeks:
           - je t'aime
           - romantic
           - beautiful
+        type: oneperperson
+        choicestype: text
+        textprefixes: '"'
+        textsuffixes: '"'
+        correctanswer:
+          - romantic
+        points: 12
+  '5':
+    week: 5
+    weekname: Five
+    ready: 'yes'
+    submitStartyear: 2022
+    submitStartmonth: 8
+    submitStartday: 8
+    submitStarthour: 4
+    submitStartminute: 0
+    submitEndyear: 2022
+    submitEndmonth: 8
+    submitEndday: 10
+    submitEndhour: 9
+    submitEndminute: 0
+    bets:
+      '1':
+        title: Gabby's Group Date Rose
+        possiblecount: 1
+        info: >-
+          Select the bachelor that you think Gabby will give a rose to on her
+          group date. A correct guess wins 12 points.
+
+
+
+          Odds: 1 in 14
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 12
+        choices:
+          - Aven
+          - Erich
+          - Ethan
+          - James (Meatball)
+          - Jason
+          - Johnny
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Spencer
+          - Tino
+          - Tyler
+          - Zach
+        type: main
+        choicestype: img
+        textprefixes: ''
+        textsuffixes: ''
+        points: 12
+      '2':
+        title: Gabby's 1-on-1 Date Rose
+        possiblecount: 1
+        info: >-
+          Select the bachelor that you think Gabby will take on her 1-on-1 date.
+          A correct guess wins 12 points.
+
+
+
+          Odds: 1 in 14
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 12
+        choices:
+          - Aven
+          - Erich
+          - Ethan
+          - James (Meatball)
+          - Jason
+          - Johnny
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Spencer
+          - Tino
+          - Tyler
+          - Zach
+        type: main
+        choicestype: img
+        textprefixes: ''
+        textsuffixes: ''
+        points: 12
+      '3':
+        title: Rachel's Group Date Rose
+        possiblecount: 1
+        info: >-
+          Select the bachelor that you think Rachel will give a rose to on her
+          group date. A correct guess wins 12 points.
+
+
+
+          Odds: 1 in 14
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 12
+        choices:
+          - Aven
+          - Erich
+          - Ethan
+          - James (Meatball)
+          - Jason
+          - Johnny
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Spencer
+          - Tino
+          - Tyler
+          - Zach
+        type: main
+        choicestype: img
+        textprefixes: ''
+        textsuffixes: ''
+        points: 12
+      '4':
+        title: Rachel's 1-on-1 Date Rose
+        possiblecount: 1
+        info: >-
+          Select the bachelor that you think Rachel will take on her 1-on-1
+          date. A correct guess wins 12 points.
+
+
+
+          Odds: 1 in 14
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 12
+        choices:
+          - Aven
+          - Erich
+          - Ethan
+          - James (Meatball)
+          - Jason
+          - Johnny
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Spencer
+          - Tino
+          - Tyler
+          - Zach
+        type: main
+        choicestype: img
+        textprefixes: ''
+        textsuffixes: ''
+        points: 12
+      '5':
+        title: Guys Sent Home Week Five
+        possiblecount: 3
+        info: >-
+          Select 3 bachelors that you think will go home in the fifth week.
+          Three correct guesses wins 60 points, Two correct guesses wins 40
+          points, one correct guess is 20 points.
+
+
+
+          Odds of 60 points: 1 in 64512239
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 60
+        choices:
+          - Aven
+          - Erich
+          - Ethan
+          - James (Meatball)
+          - Jason
+          - Johnny
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Spencer
+          - Tino
+          - Tyler
+          - Zach
+        type: main
+        choicestype: img
+        textprefixes: ''
+        textsuffixes: ''
+        points: 20
+      '6':
+        title: Will Logan be in Week Six with Gabby?
+        possiblecount: 1
+        info: >-
+          Select whether or not Logan will be on Gabby's team next week, week
+          six. A correct guess wins 10 points.
+
+
+
+          Odds: 1 in 2
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 10
+        choices:
+          - Logan will be on Gabby's side Week 6
+          - Gabby's team will not have Logan week 6
+        type: main
+        choicestype: text
+        textprefixes: ''
+        textsuffixes: ''
+        points: 10
+      '7':
+        title: How many times is "quit" said?
+        possiblecount: 1
+        info: >-
+          Select the number of times someone says the word "quit" (**including
+          during previews and flashbacks**). A correct guess wins 10 points.
+
+
+
+          Odds: 1 in 15
+
+
+          Main Bet: $50+ pool  
+
+          Possible Points: 10
+        choices:
+          - '0'
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+          - '11'
+          - '12'
+          - '13'
+          - '14'
+        type: main
+        choicestype: text
+        textprefixes: '"quit" is said '
+        textsuffixes: ' times'
+        points: 10
+      '8':
+        title: Biggest Instagram Growth After Week 5
+        possiblecount: 1
+        info: >-
+          Select the bachelor you think will gain the most Instagram followers.
+          Before counts are collected Monday at 4 pm and after counts are
+          collected Tuesday at 9 am. A correct guess wins 12 points.
+
+          This bet is ***one guess per person. Make your selection quickly!***
+
+
+
+          Odds: 1 in 24
+
+
+          Fast Money Bet: Guaranteed $1  
+
+          Possible Points: 12
+        choices:
+          - Aven
+          - Erich
+          - Ethan
+          - James (Meatball)
+          - Jason
+          - Johnny
+          - Logan
+          - Mario
+          - Michael
+          - Nate
+          - Spencer
+          - Tino
+          - Tyler
+          - Zach
+        type: oneperperson
+        choicestype: text
+        textprefixes: ''
+        textsuffixes: ' will gain the most Insta followers'
+        points: 12
+      '9':
+        title: Most Popular Buzz Word
+        possiblecount: 1
+        info: >-
+          Select the phrase that you think will be said the most often in the
+          fifth week. A correct guess wins 12 points.
+
+          This bet is ***one guess per person. Make your selection quickly!***
+
+
+
+          Odds: 1 in 6
+
+
+          Fast Money Bet: Guaranteed $1  
+
+          Possible Points: 12
+        choices:
+          - go home
+          - journey
+          - chemistry
+          - I'm done
+          - quit
+          - amazing guy(s)
+          - connection
         type: oneperperson
         choicestype: text
         textprefixes: '"'
