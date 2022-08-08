@@ -808,7 +808,7 @@ weeks:
     submitEndyear: 2022
     submitEndmonth: 8
     submitEndday: 7
-    submitEndhour: 23
+    submitEndhour: 22
     submitEndminute: 0
     bets:
       '1':
