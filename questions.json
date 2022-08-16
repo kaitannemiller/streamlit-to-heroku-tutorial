@@ -904,10 +904,13 @@
           "choicestype": "img",
           "textprefixes": "",
           "textsuffixes": "",
+          "correctanswer": [
+            "Nate"
+          ],
           "points": 12
         },
 				"2": {
-          "title": "Gabby's 1-on-1 Date Rose",
+          "title": "Gabby's 1-on-1 Date",
           "possiblecount": 1,
           "info": "Select the bachelor that you think Gabby will take on her 1-on-1 date. A correct guess wins 12 points.\n\n\nOdds: 1 in 14\n\nMain Bet: $50+ pool  \nPossible Points: 12",
           "choices": [
@@ -930,6 +933,9 @@
           "choicestype": "img",
           "textprefixes": "",
           "textsuffixes": "",
+          "correctanswer": [
+            "Johnny"
+          ],
           "points": 12
         },
         "3": {
@@ -956,10 +962,13 @@
           "choicestype": "img",
           "textprefixes": "",
           "textsuffixes": "",
+          "correctanswer": [
+            "Tino"
+          ],
           "points": 12
         },
 				"4": {
-          "title": "Rachel's 1-on-1 Date Rose",
+          "title": "Rachel's 1-on-1 Date",
           "possiblecount": 1,
           "info": "Select the bachelor that you think Rachel will take on her 1-on-1 date. A correct guess wins 12 points.\n\n\nOdds: 1 in 14\n\nMain Bet: $50+ pool  \nPossible Points: 12",
           "choices": [
@@ -982,6 +991,9 @@
           "choicestype": "img",
           "textprefixes": "",
           "textsuffixes": "",
+          "correctanswer": [
+            "Aven"
+          ],
           "points": 12
         },
         "5": {
@@ -1008,6 +1020,11 @@
           "choicestype": "img",
           "textprefixes": "",
           "textsuffixes": "",
+          "correctanswer": [
+            "James (Meatball)",
+            "Mario",
+            "Michael"
+          ],
           "points": 20
         },
         "6": {
@@ -1022,6 +1039,9 @@
           "choicestype": "text",
           "textprefixes": "",
           "textsuffixes": "",
+          "correctanswer": [
+            "Logan will be on Gabby's side Week 6"
+          ],
           "points": 10
         },
         "7": {
@@ -1049,12 +1069,15 @@
           "choicestype": "text",
           "textprefixes": "\"quit\" is said ",
           "textsuffixes": " times",
+          "correctanswer": [
+            "1"
+          ],
           "points": 10
         },
         "8": {
           "title": "Biggest Instagram Growth After Week 5",
           "possiblecount": 1,
-          "info": "Select the bachelor you think will gain the most Instagram followers. Before counts are collected Monday at 4 pm and after counts are collected Tuesday at 9 am. A correct guess wins 12 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 24\n\nFast Money Bet: Guaranteed $1  \nPossible Points: 12",
+          "info": "Select the bachelor you think will gain the most Instagram followers. Before counts are collected Monday at 4 pm and after counts are collected Tuesday at 5pm. A correct guess wins 12 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 24\n\nFast Money Bet: Guaranteed $1  \nPossible Points: 12",
           "choices": [
 						"Aven",
             "Erich",
@@ -1075,6 +1098,9 @@
           "choicestype": "text",
           "textprefixes": "",
           "textsuffixes": " will gain the most Insta followers",
+          "correctanswer": [
+            "Ethan"
+          ],
           "points": 12
         },
         "9": {
@@ -1088,6 +1114,196 @@
 							"I'm done",
 							"quit",
 							"amazing guy(s)",
+							"connection"
+          ],
+          "type": "oneperperson",
+          "choicestype": "text",
+          "textprefixes": "\"",
+          "textsuffixes": "\"",
+          "correctanswer": [
+            "connection"
+          ],
+          "points": 12
+        }
+      }
+    },
+    "6": {
+      "week": 6,
+      "weekname": "Six",
+      "ready": "yes",
+      "submitStartyear": 2022,
+      "submitStartmonth": 8,
+      "submitStartday": 10,
+      "submitStarthour": 4,
+      "submitStartminute": 0,
+      "submitEndyear": 2022,
+      "submitEndmonth": 8,
+      "submitEndday": 18,
+      "submitEndhour": 9,
+      "submitEndminute": 0,
+      "bets": {
+        "1": {
+          "title": "Gabby's Group Date Rose",
+          "possiblecount": 1,
+          "info": "Select the bachelor that you think Gabby will give a rose to on her group date (or her second 1-on-1, as applicable). A correct guess wins 15 points.\n\n\nOdds: 1 in 6\n\nMain Bet: $50+ pool  \nPossible Points: 15",
+          "choices": [
+            "Erich",
+            "Jason",
+            "Johnny",
+            "Logan",
+            "Nate",
+            "Spencer"
+          ],
+          "type": "main",
+          "choicestype": "img",
+          "textprefixes": "",
+          "textsuffixes": "",
+          "points": 15
+        },
+				"2": {
+          "title": "Gabby's 1-on-1 Date Rose",
+          "possiblecount": 1,
+          "info": "Select the bachelor that you think Gabby will take on her 1-on-1 date. A correct guess wins 15 points.\n\n\nOdds: 1 in 6\n\nMain Bet: $50+ pool  \nPossible Points: 15",
+          "choices": [
+            "Erich",
+            "Jason",
+            "Johnny",
+            "Logan",
+            "Nate",
+            "Spencer"
+          ],
+          "type": "main",
+          "choicestype": "img",
+          "textprefixes": "",
+          "textsuffixes": "",
+          "points": 15
+        },
+				"3": {
+          "title": "Gabby's First Rose Ceremony Rose",
+          "possiblecount": 1,
+          "info": "Select the bachelor that you think Gabby will give her first rose to during the rose ceremony. A correct guess wins 15 points.\n\n\nOdds: 1 in 6\n\nMain Bet: $50+ pool  \nPossible Points: 15",
+          "choices": [
+            "Erich",
+            "Jason",
+            "Johnny",
+            "Logan",
+            "Nate",
+            "Spencer"
+          ],
+          "type": "main",
+          "choicestype": "img",
+          "textprefixes": "",
+          "textsuffixes": "",
+          "points": 15
+        },
+        "4": {
+          "title": "Rachel's Group Date Rose",
+          "possiblecount": 1,
+          "info": "Select the bachelor that you think Rachel will give a rose to on her group date (or her second 1-on-1, as applicable). A correct guess wins 15 points.\n\n\nOdds: 1 in 4\n\nMain Bet: $50+ pool  \nPossible Points: 15",
+          "choices": [
+						"Aven",
+            "Ethan",
+            "Tino",
+            "Tyler"
+          ],
+          "type": "main",
+          "choicestype": "img",
+          "textprefixes": "",
+          "textsuffixes": "",
+          "points": 15
+        },
+				"5": {
+          "title": "Rachel's First Rose Ceremony Rose",
+          "possiblecount": 1,
+          "info": "Select the bachelor that you think Rachel will give her first rose to during the rose ceremony. A correct guess wins 15 points.\n\n\nOdds: 1 in 4\n\nMain Bet: $50+ pool  \nPossible Points: 15",
+          "choices": [
+            "Aven",
+            "Ethan",
+            "Tino",
+            "Tyler"
+          ],
+          "type": "main",
+          "choicestype": "img",
+          "textprefixes": "",
+          "textsuffixes": "",
+          "points": 15
+        },
+        "6": {
+          "title": "Is there a Windmill/Sex Reference?",
+          "possiblecount": 1,
+          "info": "Select whether or not you think there will be an explicit reference to sex (whether verbal or visual) on Rachel and Zach's 1-on-1 at the Windmill. A correct guess wins 8 points.\n\n\nOdds: 1 in 2\n\nMain Bet: $50+ pool  \nPossible Points: 8",
+          "choices": [
+            "Yes, Hannah B + Pilot Pete are honored properly",
+						"No, Hannah B + Pilot Pete are horribly disresected"
+          ],
+          "type": "main",
+          "choicestype": "text",
+          "textprefixes": "",
+          "textsuffixes": "",
+          "points": 8
+        },
+        "7": {
+          "title": "Does a Man Cry?",
+          "possiblecount": 1,
+          "info": "Select whether or not you think one of the Bachelors will shed a tear during week six. A correct guess wins 8 points.\n\n\nOdds: 1 in 2\n\nMain Bet: $50+ pool  \nPossible Points: 8",
+          "choices": [
+            "Yes",
+						"No"
+          ],
+          "type": "main",
+          "choicestype": "text",
+          "textprefixes": "",
+          "textsuffixes": "",
+          "points": 8
+        },
+        "8": {
+          "title": "Does a Couple Kiss While in Water?",
+          "possiblecount": 1,
+          "info": "Select whether or not you think two people will kiss while they are in some sort of body of water/liquid this week. A correct guess wins 8 points.\n\n\nOdds: 1 in 2\n\nMain Bet: $50+ pool  \nPossible Points: 8",
+          "choices": [
+            "Yes, they mack in the water",
+						"There's macking, but not in water"
+          ],
+          "type": "main",
+          "choicestype": "text",
+          "textprefixes": "",
+          "textsuffixes": "",
+          "points": 8
+        },
+        "9": {
+          "title": "Biggest Instagram Growth After Week 6",
+          "possiblecount": 1,
+          "info": "Select the bachelor you think will gain the most Instagram followers. Before counts are collected Monday at 5 pm and after counts are collected Tuesday at 9 am. A correct guess wins 12 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 11\n\nFast Money Bet: Guaranteed $1  \nPossible Points: 12",
+          "choices": [
+						"Aven",
+            "Erich",
+            "Ethan",
+            "Jason",
+            "Johnny",
+            "Logan",
+            "Nate",
+            "Spencer",
+            "Tino",
+            "Tyler",
+            "Zach"
+          ],
+          "type": "oneperperson",
+          "choicestype": "text",
+          "textprefixes": "",
+          "textsuffixes": " will gain the most Insta followers",
+          "points": 12
+        },
+        "10": {
+          "title": "Most Popular Buzz Word",
+          "possiblecount": 1,
+          "info": "Select the phrase that you think will be said the most often in the fifth week. A correct guess wins 12 points.\nThis bet is ***one guess per person. Make your selection quickly!***\n\n\nOdds: 1 in 6\n\nFast Money Bet: Guaranteed $1  \nPossible Points: 12",
+          "choices": [
+							"amazing",
+							"journey",
+							"chemistry",
+							"excited",
+							"love",
+							"the guys",
 							"connection"
           ],
           "type": "oneperperson",
