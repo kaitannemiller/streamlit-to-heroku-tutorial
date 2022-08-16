@@ -700,6 +700,7 @@ def create_page(name,username):
             contentsdown = file_down.read()
             data_urldown = base64.b64encode(contentsdown).decode("utf-8")
             file_down.close()
+
             userlist_now = []
             df_gsheet["Points"] = pd.to_numeric(df_gsheet["Points"], errors='coerce')
             for user in config['credentials']['usernames']:
@@ -715,10 +716,12 @@ def create_page(name,username):
                     else:
                         last_points = total_points
                 userlist_now.append([user, total_points, last_points])
+
             userlist_now.sort(key=lambda x:(-x[1]))
             temp1 = [u[0] for u in userlist_now]
             userlist_now.sort(key=lambda x:(-x[2]))
             temp2 = [u[0] for u in userlist_now]
+
             userlist = []
             for user in config['credentials']['usernames']:
                 total_points = 0
@@ -727,7 +730,7 @@ def create_page(name,username):
                 fast_dollars = 0
                 for w in range(1,week+1):
                     if w > 1:
-                        bet_types = [qconfig["weeks"][str(w)]["bets"][x]["type"] for x in qconfig["weeks"][str(w)]["bets"]]
+                        bet_types = [qconfig["weeks"][str(w-1)]["bets"][x]["type"] for x in qconfig["weeks"][str(w-1)]["bets"]]
                         total_points = total_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1)]["Points"].fillna(0)))
                         main_points = main_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "main"]))]["Points"].fillna(0)))
                         fast_points = fast_points + int(sum(df_gsheet[(df_gsheet["Username"]==user) & (df_gsheet["Week"]==w-1) & (df_gsheet["Question"].isin([n+1 for n, i in enumerate(bet_types) if i == "oneperperson"]))]["Points"].fillna(0)))
@@ -742,6 +745,7 @@ def create_page(name,username):
                 elif temp1.index(user) > temp2.index(user):
                     arrow = f'<img src="data:image/gif;base64,{data_urldown}" alt="rose" height="25px" width="29px" style=" padding-left: 4px; padding-bottom: 2px;">'
                 userlist.append([config['credentials']['usernames'][user]['name'].split(" ")[0], total_points, main_points, fast_points, fast_dollars, arrow, user])
+
             userlist.sort(key=lambda x:(-x[1]))
             for u, user in enumerate(userlist):
                 with st.container():
